@@ -1,16 +1,6 @@
 <template>
   <div class="home">
-    <header>
-      <div class="container">
-        <div class="header__logo"><a href="/">Eduwise</a></div>
-        <ul class="header__menu">
-          <li><a href="#">Company</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="/register">Register</a></li>
-          <li><a href="/login" class="header__login">Log In</a></li>
-        </ul>
-      </div>
-    </header>
+    <header-page></header-page>
     <main>
       <div class="main">
         <div class="main__banner"></div>
@@ -394,10 +384,11 @@
 </template>
 
 <script>
+import HeaderPage from '../components/common/Header.vue'
 import FooterPage from "../components/common/Footer.vue";
 export default {
   name: "Home",
-  components: { FooterPage },
+  components: { FooterPage, HeaderPage },
 };
 </script>
 
@@ -405,65 +396,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 * {
   font-family: Roboto, sans-serif;
-}
-header {
-  background-color: #fff;
-  height: 60px;
-  a {
-    display: inline-block;
-    text-align: center;
-    padding: 10px 32px;
-    font-size: 0.875rem;
-    background-color: inherit;
-    text-transform: capitalize;
-    font-family: Roboto, sans-serif;
-    letter-spacing: 1.25px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: #2264d1;
-    text-decoration: none;
-  }
-
-  .container {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 82.8%;
-  }
-  .header__logo {
-    a {
-      text-decoration: none;
-      font-size: 1.875rem;
-    }
-  }
-  .header__login {
-    background-color: #2264d1;
-    color: #fff;
-    margin: 13px 0;
-    display: inline;
-
-    &:hover {
-      color: #fff !important;
-      background-color: #1b50a7;
-    }
-  }
-  .header__menu {
-    display: flex;
-    align-items: center;
-    margin: unset;
-    li {
-      list-style: none;
-
-      a {
-        text-decoration: none;
-
-        &:hover {
-          color: #003297;
-        }
-      }
-    }
-  }
 }
 main {
   background-color: #f9f9fa;
