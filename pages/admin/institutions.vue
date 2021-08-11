@@ -14,7 +14,7 @@
 						<div class="col-md-12 grid-margin">
 							<div class="row">
 								<div class="col-12 col-xl-8 mb-4 mb-xl-0">
-									<h3 class="font-weight-bold">Countries</h3>
+									<h3 class="font-weight-bold">Institutions</h3>
 								</div>
 								<div class="col-12 col-xl-4">
 									<div class="justify-content-end d-flex">
@@ -37,7 +37,7 @@
 						<div class="col-md-12 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<p class="card-title">Country List</p>
+									<p class="card-title">Institution List</p>
 									<div class="row">
 										<div class="col-12">
 											<div class="table-responsive">
@@ -49,15 +49,19 @@
 														<tr>
 															<th>#</th>
 															<th>Name</th>
-															<th>ISO Code</th>
+															<th>City</th>
+															<th>About</th>
+															<th>Website</th>
 															<th></th>
 														</tr>
 													</thead>
 													<tbody>
-														<tr v-for="(item, i) in countries" :key="item.id">
+														<tr v-for="(item, i) in institutions" :key="item.id">
 															<td>{{ i + 1 }}</td>
 															<td>{{ item.name }}</td>
-															<td>{{ item.iso_code }}</td>
+															<td>{{ item.city.name }}</td>
+															<td>{{ item.about }}</td>
+															<td>{{ item.website }}</td>
 															<td>
 																<button class="reset-btn" @click="onEdit(item)">
 																	<i class="ti-pencil"></i>
@@ -83,13 +87,13 @@
 			<!-- main-panel ends -->
 		</div>
 		<loader v-if="isLoading"></loader>
-		<add-country 
+		<add-institution
 			v-if="isShowModal"
 			:is-edit="isEdit"
-			:current-country="currentCountry"
+			:current-institution="currentInstitution"
 			@close="isShowModal = false" 
-			@fetch="fetchCountries"
-		></add-country>
+			@fetch="fetchInstitutions"
+		></add-institution>
 		<ask-modal v-if="isDelete" @close="isDelete = false" @yes="onYes"></ask-modal>
 	</div>
 </template>
@@ -97,34 +101,34 @@
 <script>
 import Navbar from '@/components/common/Navbar'
 import LeftNavbar from '@/components/common/LeftNavbar.vue'
-import { countryService } from '@/_services/country.service'
+import { institutionService } from '@/_services/institution.service'
 import AdminPartials from '../../components/common/AdminPartials.vue'
-import AddCountry from '../../components/admin/country/AddCountry.vue'
 import Loader from '../../components/common/Loader.vue'
 import AskModal from '../../components/common/AskModal.vue'
 import AdminFooter from '../../components/common/AdminFooter.vue'
+import AddInstitution from '../../components/admin/institutions/AddInstitution.vue'
 export default {
 	name: 'Countries',
-	components: { Navbar, LeftNavbar, AdminPartials, AddCountry, Loader, AskModal, AdminFooter },
+	components: { Navbar, LeftNavbar, AdminPartials, Loader, AskModal, AdminFooter, AddInstitution },
 	data () {
 		return {
 			isShowModal: false,
 			isLoading: false,
-			countries: [],
+			institutions: [],
 			isEdit: false,
-			currentCountry: {},
+			currentInstitution: {},
 			isDelete: false,
 			currentId: ''
 		}
 	},
 	mounted () {
-		this.fetchCountries()
+		this.fetchInstitutions()
 	},
 	methods: {
-		fetchCountries () {
+		fetchInstitutions () {
 			this.isLoading = true
-			countryService.getAll().then(res => {
-				this.countries = res
+			institutionService.getAll().then(res => {
+				this.institutions = res
 				this.isLoading = false
 			}).catch(err => {
 				this.isLoading = false
@@ -137,15 +141,15 @@ export default {
 			this.isEdit = false
 		},
 
-		onEdit (item) {
-			this.currentCountry = { name: item.name, iso_code: item.iso_code, id: item.id }
+		onEdit ({ name, about, city, id, website }) {
+			this.currentInstitution = { name, about, city: city.id, id, website }
 			this.isEdit = true
 			this.isShowModal = true
 		},
 
 		onYes () {
-			countryService.delete(this.currentId).then(() => {
-				this.fetchCountries()
+			institutionService.delete(this.currentId).then(() => {
+				this.fetchInstitutions()
 				this.$toast.success('Successfylly deleted!')
 				this.isDelete = false
 			}).catch(err => {

@@ -1,6 +1,6 @@
 import { authHeader, handleResponse } from '@/_helpers/authHeader'
 
-export class BaseApiService {
+export default class BaseApiService {
 
 	sendGetRequest (url) {
 		return this.sendRequest('GET', url)

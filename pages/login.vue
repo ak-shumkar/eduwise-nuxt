@@ -9,44 +9,55 @@
                 <img src="/images/logo.svg" alt="logo" />
               </div>
               <h6 class="font-weight-light">Sign in to continue.</h6>
-              <form class="pt-3">
+              <ValidationObserver v-slot="{ handleSubmit }">
+              <form class="pt-3" @submit.prevent="handleSubmit(onSubmit)">
                 <div class="form-group">
-                  <input
-                    id="exampleInputEmail1"
-                    type="email"
-                    class="form-control form-control-lg"
-                    placeholder="Username"
-                  />
+                  <ValidationProvider v-slot="{ errors }" rules="required">
+                    <input
+                      id="username" 
+                      v-model="user.username"
+                      :class="{ 'is-invalid' : errors.length }"
+                      type="text"
+                      class="form-control form-control-lg"
+                      placeholder="Username"
+                    />
+                    <span class="invalid-feedback">{{ errors[0] }}</span>
+                  </ValidationProvider>
                 </div>
                 <div class="form-group">
-                  <input
-                    id="exampleInputPassword1"
-                    type="password"
-                    class="form-control form-control-lg"
-                    placeholder="Password"
-                  />
+                  <ValidationProvider v-slot="{ errors }" rules="required">
+                    <input
+                      id="exampleInputPassword1"
+                      v-model="user.password"
+                      :class="{ 'is-invalid' : errors.length }" 
+                      type="password"
+                      class="form-control form-control-lg"
+                      placeholder="Password"
+                    />
+                    <span class="invalid-feedback">{{ errors[0] }}</span>
+                  </ValidationProvider>
                 </div>
                 <div class="mt-3">
-                  <a
+                  <button
+                    type="submit"
                     class="
                       btn btn-block btn-primary btn-lg
                       font-weight-medium
                       auth-form-btn
                     "
-                    href="../../index.html"
-                    >SIGN IN</a
-                  >
+                    
+                    >SIGN IN</button>
                 </div>
                 <div
                   class="my-2 d-flex justify-content-between align-items-center"
                 >
-                  <div class="form-check">
+                  <!-- <div class="form-check">
                     <label class="form-check-label text-muted">
                       <input type="checkbox" class="form-check-input" />
                       Keep me signed in
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
+                  <a href="#" class="auth-link text-black">Forgot password?</a> -->
                 </div>
                 <!-- <div class="mb-2">
                   <button
@@ -61,6 +72,7 @@
                   <a href="register.html" class="text-primary">Create</a>
                 </div> -->
               </form>
+              </ValidationObserver>
             </div>
           </div>
         </div>
@@ -72,8 +84,26 @@
 </template>
 
 <script>
+import { ValidationProvider, ValidationObserver } from "vee-validate";
+import { mapActions } from 'vuex'
 export default {
   name: "Login",
+  components: { ValidationProvider, ValidationObserver },
+  data () {
+    return {
+      user: {}
+    }
+  },
+  methods: {
+    ...mapActions('account', ['login']),
+    onSubmit () {
+      this.login(this.user).then(() => {
+        window.location.href = '/admin'
+      }).catch(err => {
+        this.$toast.error('Something went wrong! ' + err)
+      })
+    }
+  }
 };
 </script>
 

@@ -14,7 +14,7 @@
 						<div class="col-md-12 grid-margin">
 							<div class="row">
 								<div class="col-12 col-xl-8 mb-4 mb-xl-0">
-									<h3 class="font-weight-bold">Countries</h3>
+									<h3 class="font-weight-bold">Cities</h3>
 								</div>
 								<div class="col-12 col-xl-4">
 									<div class="justify-content-end d-flex">
@@ -37,7 +37,7 @@
 						<div class="col-md-12 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body">
-									<p class="card-title">Country List</p>
+									<p class="card-title">City List</p>
 									<div class="row">
 										<div class="col-12">
 											<div class="table-responsive">
@@ -49,15 +49,15 @@
 														<tr>
 															<th>#</th>
 															<th>Name</th>
-															<th>ISO Code</th>
+															<th>Province</th>
 															<th></th>
 														</tr>
 													</thead>
 													<tbody>
-														<tr v-for="(item, i) in countries" :key="item.id">
+														<tr v-for="(item, i) in cities" :key="item.id">
 															<td>{{ i + 1 }}</td>
 															<td>{{ item.name }}</td>
-															<td>{{ item.iso_code }}</td>
+															<td>{{ item.province }}</td>
 															<td>
 																<button class="reset-btn" @click="onEdit(item)">
 																	<i class="ti-pencil"></i>
@@ -83,13 +83,13 @@
 			<!-- main-panel ends -->
 		</div>
 		<loader v-if="isLoading"></loader>
-		<add-country 
+		<add-city
 			v-if="isShowModal"
 			:is-edit="isEdit"
-			:current-country="currentCountry"
+			:current-city="currentCity"
 			@close="isShowModal = false" 
-			@fetch="fetchCountries"
-		></add-country>
+			@fetch="fetchCities"
+		></add-city>
 		<ask-modal v-if="isDelete" @close="isDelete = false" @yes="onYes"></ask-modal>
 	</div>
 </template>
@@ -97,34 +97,34 @@
 <script>
 import Navbar from '@/components/common/Navbar'
 import LeftNavbar from '@/components/common/LeftNavbar.vue'
-import { countryService } from '@/_services/country.service'
+import { cityService } from '@/_services/city.service'
 import AdminPartials from '../../components/common/AdminPartials.vue'
-import AddCountry from '../../components/admin/country/AddCountry.vue'
 import Loader from '../../components/common/Loader.vue'
 import AskModal from '../../components/common/AskModal.vue'
 import AdminFooter from '../../components/common/AdminFooter.vue'
+import AddCity from '../../components/admin/city/AddCity.vue'
 export default {
 	name: 'Countries',
-	components: { Navbar, LeftNavbar, AdminPartials, AddCountry, Loader, AskModal, AdminFooter },
-	data () {
+	components: { Navbar, LeftNavbar, AdminPartials, Loader, AskModal, AdminFooter, AddCity },
+	data (){
 		return {
 			isShowModal: false,
 			isLoading: false,
-			countries: [],
+			cities: [],
 			isEdit: false,
-			currentCountry: {},
+			currentCity: {},
 			isDelete: false,
 			currentId: ''
 		}
 	},
 	mounted () {
-		this.fetchCountries()
+		this.fetchCities()
 	},
 	methods: {
-		fetchCountries () {
+		fetchCities () {
 			this.isLoading = true
-			countryService.getAll().then(res => {
-				this.countries = res
+			cityService.getAll().then(res => {
+				this.cities = res
 				this.isLoading = false
 			}).catch(err => {
 				this.isLoading = false
@@ -138,14 +138,14 @@ export default {
 		},
 
 		onEdit (item) {
-			this.currentCountry = { name: item.name, iso_code: item.iso_code, id: item.id }
+			this.currentCity = { name: item.name, province: item.province, id: item.id }
 			this.isEdit = true
 			this.isShowModal = true
 		},
 
 		onYes () {
-			countryService.delete(this.currentId).then(() => {
-				this.fetchCountries()
+			cityService.delete(this.currentId).then(() => {
+				this.fetchCities()
 				this.$toast.success('Successfylly deleted!')
 				this.isDelete = false
 			}).catch(err => {

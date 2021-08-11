@@ -1,11 +1,11 @@
 import { userService } from '@/_services/user.service'
+import Cookies from 'js-cookie'
 
 export function authHeader () {
+	const user = JSON.parse((Cookies.get('user') || '{}'))
 
-	const user = JSON.parse(localStorage.getItem('user'))
-
-	if (user && user.token) {
-		return { 'Authorization': 'Token ' + user.token }
+	if (user && user.access) {
+		return { 'Authorization': 'Bearer ' + user.access }
 	} else {
 		return {}
 	}

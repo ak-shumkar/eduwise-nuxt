@@ -1,25 +1,30 @@
 import BaseApiService from '@/_services/baseApi.service'
 class CountryService extends BaseApiService {
 
-    create (data) {
-        const url = `${process.env.BASE_URL}/api/countries/`
-        return this.sendPostRequest(url, data)
-    }
+	create (data) {
+		const url = `${process.env.baseUrl}/api/countries/`
+		return this.sendPostRequest(url, data)
+	}
 
-    getAll () {
-        const url = `${process.env.BASE_URL}/api/countries/`
-        return this.sendGetRequest(url)
-    }
+	edit (data, id) {
+		const url = `${process.env.baseUrl}/api/countries/${id}/`
+		return this.sendPutRequest(url, data)
+	}
 
-    getById (id) {
-        const url = `${process.env.BASE_URL}/api/countries/${id}`
-        return this.sendGetRequest(url)
-    }
+	getAll () {
+		const url = `${process.env.baseUrl}/api/countries/`
+		return this.sendGetRequest(url)
+	}
 
-    delete (id) {
-        const url = `${process.env.BASE_URL}/api/countries/${id}`
-        return this.sendDeleteRequest(url)
-    }
+	getById (id) {
+		const url = `${process.env.baseUrl}/api/countries/${id}/`
+		return this.sendGetRequest(url)
+	}
+
+	delete (id) {
+		const url = `${process.env.baseUrl}/api/countries/${id}/`
+		return this.sendDeleteRequest(url)
+	}
 }
 
 export const countryService = new CountryService()

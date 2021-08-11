@@ -1,36 +1,39 @@
 <template>
-  <div id="modal" class="own-modal">
-      <div class="own-modal__content">
-          <button class="btn btn-sm btn-light left-close" @click="onClose"><i class="ti-close"></i></button>
-          <slot></slot>
-      </div>
-  </div>
+	<div id="modal" class="own-modal">
+		<div class="own-modal__content" :style="{minHeight: height}">
+			<button class="btn btn-sm btn-light left-close" @click="onClose"><i class="ti-close"></i></button>
+			<slot></slot>
+		</div>
+	</div>
 </template>
 
 <script>
 export default {
-    name: 'Modal',
-    mounted () {
-        window.addEventListener('click', (e) => {
-            const modal = document.getElementById('modal')
-            if (modal === e.target) {
-                this.onClose()
-            }
-        })
-    },
-    beforeDestroy() {
-        window.removeEventListener('click', (e) => {
-            const modal = document.getElementById('modal')
-            if (modal === e.target) {
-                this.onClose()
-            }
-        })
-    },
-    methods: {
-        onClose () {
-            this.$emit('close')
-        }
-    }
+	name: 'Modal',
+	props: {
+		height: { type: String, default: '40%' }
+	},
+	mounted () {
+		window.addEventListener('click', e => {
+			const modal = document.getElementById('modal')
+			if (modal === e.target) {
+				this.onClose()
+			}
+		})
+	},
+	beforeDestroy () {
+		window.removeEventListener('click', e => {
+			const modal = document.getElementById('modal')
+			if (modal === e.target) {
+				this.onClose()
+			}
+		})
+	},
+	methods: {
+		onClose () {
+			this.$emit('close')
+		}
+	}
 }
 </script>
 

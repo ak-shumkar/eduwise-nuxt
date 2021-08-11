@@ -1,12 +1,13 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
-    color: #192038;
-    background-color: #f9f9fa;
+  color: #192038;
+  background-color: #f9f9fa;
 }
 
 .basic-btn,
@@ -69,18 +70,20 @@ p {
 }
 
 [class*=" ico-"], [class^=ico-] {
-    font-family: icomoon!important;
-    speak: never;
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: icomoon !important;
+  speak: never;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
 .reset-btn {
   outline: none;
   border: none;
   background: inherit;
 }
+/*# sourceMappingURL=style.css.map */

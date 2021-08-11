@@ -101,7 +101,6 @@ export default {
     '@nuxt/content',
     '@nuxtjs/toast',
   ],
-
   toast: {
     position: 'top-right',
     duration: 3000
@@ -128,5 +127,14 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  env: {
+    dev: process.env.NODE_ENV !== 'production',
+    baseUrl: process.env.BASE_URL
+  },
+
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL || 'https://nuxtjs.org'
   }
 }

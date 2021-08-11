@@ -1,19 +1,21 @@
 <template>
 	<modal @close="$emit('close')">
-		<h3>{{ isEdit ? 'Edit country' : 'Create country' }}</h3>
+		<h3>{{ isEdit ? 'Edit city' : 'Create city' }}</h3>
 		<validation-observer v-slot="{ handleSubmit }">
 			<form class="forms-sample" @submit.prevent="handleSubmit(onSubmit)">
 				<div class="form-group">
 					<label for="title">Name</label>
 					<validation-provider v-slot="{ errors }" rules="required">
-						<input id="title" v-model="country.name" :class="{ 'is-invalid' : errors.length }" type="text" class="form-control" placeholder="Name">
+						<input id="title" v-model="city.name" :class="{ 'is-invalid' : errors.length }" type="text" class="form-control" placeholder="Name">
 						<span class="invalid-feedback">{{ errors[0] }}</span>
 					</validation-provider>
 				</div>
 				<div class="form-group">
-					<label for="iso-code">ISO Code</label>
+					<label for="country">Province</label>
 					<validation-provider v-slot="{ errors }" rules="required">
-						<input id="iso-code" v-model="country.iso_code" type="text" :class="{ 'is-invalid' : errors.length }" class="form-control" placeholder="ISO Code">
+						<select id="country" v-model="city.province" :class="{ 'is-invalid' : errors.length }" class="form-control">
+							<option v-for="item in provinces" :key="item.id" :value="item.id">{{ item.name }}</option>
+						</select>
 						<span class="invalid-feedback">{{ errors[0] }}</span>
 					</validation-provider>
 				</div>
@@ -27,29 +29,39 @@
 <script>
 import Modal from '@/components/common/Modal.vue'
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import { countryService } from '@/_services/country.service'
+import { provinceService } from '@/_services/province.service'
+import { cityService } from '@/_services/city.service'
 
 export default {
-	name: 'AddCountry',
+	name: 'AddCity',
 	components: { Modal, ValidationProvider, ValidationObserver },
 	props: {
 		isEdit: { type: Boolean, default: false },
-		currentCountry: { type: Object, default: () => ({}) }
+		currentCity: { type: Object, default: () => ({}) }
 	},
 	data () {
 		return {
-			country: {}
+			city: {},
+			provinces: []
 		}
 	},
 	mounted () {
 		if (this.isEdit) {
-			this.country = this.currentCountry
+			this.city = this.currentCity
 		}
+		this.fetchProvinces()
 	},
 	methods: {
+		fetchProvinces () {
+			provinceService.getAll().then(res => {
+				this.provinces = res
+			}).catch(err => {
+				this.$toast.error(err)
+			})
+		},
 		onSubmit () {
 			if (this.isEdit) {
-				countryService.edit(this.country, this.country.id).then(() => {
+				cityService.edit(this.city, this.city.id).then(() => {
 					this.$toast.success('Successfully updated')
 					this.$emit('close')
 					this.$emit('fetch')
@@ -57,7 +69,7 @@ export default {
 					this.$toast.error(err)
 				})
 			} else {
-				countryService.create(this.country).then(() => {
+				cityService.create(this.city).then(() => {
 					this.$toast.success('Successfully created')
 					this.$emit('close')
 					this.$emit('fetch')
