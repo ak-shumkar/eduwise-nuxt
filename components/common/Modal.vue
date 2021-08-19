@@ -38,9 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-    html {
-        overflow: hidden;
-    }
+    
     .own-modal {
         display: flex;
         justify-content: center;
