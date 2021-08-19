@@ -1,395 +1,395 @@
 <template>
-  <div class="home">
-    <header-page></header-page>
-    <main>
-      <div class="main">
-        <div class="main__banner"></div>
-        <div class="main__content">
-          <h3>Your Admission. Simplified</h3>
-          <p>
-            A single application for international students to apply to the
-            world’s best schools and universities
-          </p>
-          <div class="main__content__buttons">
-            <button class="learn-more">Learn More</button>
-            <button class="start-search">Start Your search</button>
-          </div>
-        </div>
-      </div>
-      <div class="categories">
-        <h5>Explore <br />by Category</h5>
+	<div class="home">
+		<header-page></header-page>
+		<main>
+			<div class="main">
+				<div class="main__banner"></div>
+				<div class="main__content">
+					<h3>Your Admission. Simplified</h3>
+					<p>
+						A single application for international students to apply to the
+						world’s best schools and universities
+					</p>
+					<div class="main__content__buttons">
+						<button class="learn-more">Learn More</button>
+						<button class="start-search">Start Your search</button>
+					</div>
+				</div>
+			</div>
+			<div class="categories">
+				<h5>Explore <br />by Category</h5>
 
-        <div class="categories__box">
-          <div v-for="i in 8" :key="i" class="categories__item">
-            <a href="#">
-              <picture>
-                <source
-                  media="(max-width: 767px)"
-                  srcset="
+				<div class="categories__box">
+					<div v-for="i in 8" :key="i" class="categories__item">
+						<a href="#">
+							<picture>
+								<source
+									media="(max-width: 767px)"
+									srcset="
                     https://studentapply.org/assets/images/how_we_work/art.jpg
                   "
-                />
-                <source
-                  media="(min-width: 768px) and (max-width: 1439px)"
-                  srcset="
+								/>
+								<source
+									media="(min-width: 768px) and (max-width: 1439px)"
+									srcset="
                     https://studentapply.org/assets/images/how_we_work/art.jpg
                   "
-                />
-                <source
-                  media="(min-width: 1440px) and (max-width: 1919px)"
-                  srcset="
+								/>
+								<source
+									media="(min-width: 1440px) and (max-width: 1919px)"
+									srcset="
                     https://studentapply.org/assets/images/how_we_work/art.jpg
                   "
-                />
-                <source
-                  media="(min-width: 1920px)"
-                  srcset="
+								/>
+								<source
+									media="(min-width: 1920px)"
+									srcset="
                     https://studentapply.org/assets/images/how_we_work/art.jpg
                   "
-                />
-                <img
-                  loading="lazy"
-                  class="start__categories_img"
-                  src="https://studentapply.org/assets/images/how_we_work/art.jpg"
-                  alt="Art, Design &amp; Media"
-                />
-              </picture>
-              <p class="categories__item__content">
-                Art, Design &amp; Media
-                <span
-                  class="ico-long-arrow start__categories_section_arrow"
-                ></span>
-              </p>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="start-work">
-        <div class="start-work__container">
-          <h5 class="start-work__title">How we work</h5>
-          <p class="start-work__subtitle">
-            Apply to your dream university today! A simple and fast way of
-            applying to the world’s best schools and universities for
-            international students
-          </p>
-          <div class="start-work__content">
-            <div class="start-work__row ng-star-inserted">
-              <div>
-                <div class="start-step">
-                  <h5 class="start-step__title">Step 1</h5>
-                  <p class="start-step__subtitle">
-                    Search for schools and universities
-                  </p>
-                  <p class="start-step__text">
-                    Find the best options for you based on your profile and
-                    interests, and receive advice from our expert advisors.
-                  </p>
-                </div>
-              </div>
-              <div class="start-work__line_box">
-                <span class="start-work__circle">
-                  <span class="start-work__circle_inner"></span>
-                </span>
-                <img
-                  src="/img/dashed-line.svg"
-                  alt="dashed line"
-                  class="start-work__line ng-star-inserted"
-                />
-              </div>
-              <picture>
-                <img
-                  alt="MDN"
-                  loading="lazy"
-                  class="start-work__img"
-                  src="/img/step-1.jpeg"
-                />
-              </picture>
-            </div>
-            <div class="start-work__row flex-reverse ng-star-inserted">
-              <div>
-                <div class="start-step">
-                  <h5 class="start-step__title">Step 2</h5>
-                  <p class="start-step__subtitle">Submit your application</p>
-                  <p class="start-step__text">
-                    Create an account, choose the level of support that works
-                    for you, and submit your application. One common application
-                    unlocks a world of opportunity.
-                  </p>
-                </div>
-              </div>
-              <div class="start-work__line_box">
-                <span class="start-work__circle">
-                  <span class="start-work__circle_inner"></span>
-                </span>
-                <img
-                  src="/img/dashed-line.svg"
-                  alt="dashed line"
-                  class="start-work__line ng-star-inserted"
-                /><!---->
-              </div>
-              <picture>
-                <img
-                  alt="MDN"
-                  loading="lazy"
-                  class="start-work__img"
-                  src="/img/step_2.jpeg"
-                />
-              </picture>
-            </div>
-            <div class="start-work__row ng-star-inserted">
-              <div>
-                <div class="start-step">
-                  <h5 class="start-step__title">Step 3</h5>
-                  <p class="start-step__subtitle">Receive your offer letters</p>
-                  <p class="start-step__text">
-                    Compare offers and decide which school or university you
-                    want to attend.
-                  </p>
-                </div>
-              </div>
-              <div class="start-work__line_box">
-                <span class="start-work__circle"
-                  ><span class="start-work__circle_inner"></span></span
-                ><img
-                  src="/img/dashed-line.svg"
-                  alt="dashed line"
-                  class="start-work__line ng-star-inserted"
-                /><!---->
-              </div>
-              <picture>
-                <img
-                  alt="MDN"
-                  loading="lazy"
-                  class="start-work__img"
-                  src="/img/imgonline-com-ua-Resize-kzNVTjW2eV.jpeg"
-              /></picture>
-            </div>
-            <div class="start-work__row flex-reverse ng-star-inserted">
-              <div>
-                <div class="start-step">
-                  <h5 class="start-step__title">Step 4</h5>
-                  <p class="start-step__subtitle">Apply for your Visa</p>
-                  <p class="start-step__text">
-                    Accept your offer and apply for your student visa. We are
-                    here to help!
-                  </p>
-                </div>
-              </div>
-              <div class="start-work__line_box">
-                <span class="start-work__circle"
-                  ><span class="start-work__circle_inner"></span></span
-                ><img
-                  src="/img/dashed-line.svg"
-                  alt="dashed line"
-                  class="start-work__line ng-star-inserted"
-                /><!---->
-              </div>
-              <picture>
-                <img
-                  _ngcontent-serverapp-c83=""
-                  alt="MDN"
-                  loading="lazy"
-                  class="start-work__img"
-                  src="/img/imgonline-com-ua-Resize-kBrzMyxpU5IScP.jpeg"
-              /></picture>
-            </div>
-            <div class="start-work__row ng-star-inserted">
-              <div>
-                <div class="start-step">
-                  <h5 class="start-step__title">Step 5</h5>
-                  <p class="start-step__subtitle">
-                    Final preparations and get ready to go!
-                  </p>
-                  <p class="start-step__text">
-                    Book your flights and accommodation and get ready to start
-                    your academic journey
-                  </p>
-                </div>
-              </div>
-              <div class="start-work__line_box">
-                <span class="start-work__circle"
-                  ><span class="start-work__circle_inner"></span></span
-                ><!---->
-              </div>
-              <picture>
-                <img
-                  _ngcontent-serverapp-c83=""
-                  alt="MDN"
-                  loading="lazy"
-                  class="start-work__img"
-                  src="/img/imgonline-com-ua-Resize-3pGDkY7843m.jpeg"
-              /></picture>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="start__collaborate ng-star-inserted">
-        <div class="start__collaborate_content">
-          <h5 class="start__collaborate_title">Let’s work together</h5>
-          <div class="start__collaborate_box">
-            <div class="start__collaborate_item ng-star-inserted">
-              <div class="ng-star-inserted">
-                <img
-                  loading="lazy"
-                  class="start__collaborate_img"
-                  src="/img/students.jpeg"
-                  alt="navigation.studentsTitle"
-                />
-                <h6 class="start__collaborate_item_title">Students</h6>
-                <span class="start__collaborate_item_subtitle">
-                  Explore best-fit universities, receive expert advice,
-                  customize your level of support, and use a single application
-                  to apply to schools and universities around the world.
-                </span>
-              </div>
-              <a
-                class="
+								/>
+								<img
+									loading="lazy"
+									class="start__categories_img"
+									src="https://studentapply.org/assets/images/how_we_work/art.jpg"
+									alt="Art, Design &amp; Media"
+								/>
+							</picture>
+							<p class="categories__item__content">
+								Art, Design &amp; Media
+								<span
+									class="ico-long-arrow start__categories_section_arrow"
+								></span>
+							</p>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="start-work">
+				<div class="start-work__container">
+					<h5 class="start-work__title">How we work</h5>
+					<p class="start-work__subtitle">
+						Apply to your dream university today! A simple and fast way of
+						applying to the world’s best schools and universities for
+						international students
+					</p>
+					<div class="start-work__content">
+						<div class="start-work__row ng-star-inserted">
+							<div>
+								<div class="start-step">
+									<h5 class="start-step__title">Step 1</h5>
+									<p class="start-step__subtitle">
+										Search for schools and universities
+									</p>
+									<p class="start-step__text">
+										Find the best options for you based on your profile and
+										interests, and receive advice from our expert advisors.
+									</p>
+								</div>
+							</div>
+							<div class="start-work__line_box">
+								<span class="start-work__circle">
+									<span class="start-work__circle_inner"></span>
+								</span>
+								<img
+									src="/img/dashed-line.svg"
+									alt="dashed line"
+									class="start-work__line ng-star-inserted"
+								/>
+							</div>
+							<picture>
+								<img
+									alt="MDN"
+									loading="lazy"
+									class="start-work__img"
+									src="/img/step-1.jpeg"
+								/>
+							</picture>
+						</div>
+						<div class="start-work__row flex-reverse ng-star-inserted">
+							<div>
+								<div class="start-step">
+									<h5 class="start-step__title">Step 2</h5>
+									<p class="start-step__subtitle">Submit your application</p>
+									<p class="start-step__text">
+										Create an account, choose the level of support that works
+										for you, and submit your application. One common application
+										unlocks a world of opportunity.
+									</p>
+								</div>
+							</div>
+							<div class="start-work__line_box">
+								<span class="start-work__circle">
+									<span class="start-work__circle_inner"></span>
+								</span>
+								<img
+									src="/img/dashed-line.svg"
+									alt="dashed line"
+									class="start-work__line ng-star-inserted"
+								/><!---->
+							</div>
+							<picture>
+								<img
+									alt="MDN"
+									loading="lazy"
+									class="start-work__img"
+									src="/img/step_2.jpeg"
+								/>
+							</picture>
+						</div>
+						<div class="start-work__row ng-star-inserted">
+							<div>
+								<div class="start-step">
+									<h5 class="start-step__title">Step 3</h5>
+									<p class="start-step__subtitle">Receive your offer letters</p>
+									<p class="start-step__text">
+										Compare offers and decide which school or university you
+										want to attend.
+									</p>
+								</div>
+							</div>
+							<div class="start-work__line_box">
+								<span class="start-work__circle"
+								><span class="start-work__circle_inner"></span></span
+								><img
+									src="/img/dashed-line.svg"
+									alt="dashed line"
+									class="start-work__line ng-star-inserted"
+								/><!---->
+							</div>
+							<picture>
+								<img
+									alt="MDN"
+									loading="lazy"
+									class="start-work__img"
+									src="/img/imgonline-com-ua-Resize-kzNVTjW2eV.jpeg"
+								/></picture>
+						</div>
+						<div class="start-work__row flex-reverse ng-star-inserted">
+							<div>
+								<div class="start-step">
+									<h5 class="start-step__title">Step 4</h5>
+									<p class="start-step__subtitle">Apply for your Visa</p>
+									<p class="start-step__text">
+										Accept your offer and apply for your student visa. We are
+										here to help!
+									</p>
+								</div>
+							</div>
+							<div class="start-work__line_box">
+								<span class="start-work__circle"
+								><span class="start-work__circle_inner"></span></span
+								><img
+									src="/img/dashed-line.svg"
+									alt="dashed line"
+									class="start-work__line ng-star-inserted"
+								/><!---->
+							</div>
+							<picture>
+								<img
+									_ngcontent-serverapp-c83=""
+									alt="MDN"
+									loading="lazy"
+									class="start-work__img"
+									src="/img/imgonline-com-ua-Resize-kBrzMyxpU5IScP.jpeg"
+								/></picture>
+						</div>
+						<div class="start-work__row ng-star-inserted">
+							<div>
+								<div class="start-step">
+									<h5 class="start-step__title">Step 5</h5>
+									<p class="start-step__subtitle">
+										Final preparations and get ready to go!
+									</p>
+									<p class="start-step__text">
+										Book your flights and accommodation and get ready to start
+										your academic journey
+									</p>
+								</div>
+							</div>
+							<div class="start-work__line_box">
+								<span class="start-work__circle"
+								><span class="start-work__circle_inner"></span></span
+								><!---->
+							</div>
+							<picture>
+								<img
+									_ngcontent-serverapp-c83=""
+									alt="MDN"
+									loading="lazy"
+									class="start-work__img"
+									src="/img/imgonline-com-ua-Resize-3pGDkY7843m.jpeg"
+								/></picture>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="start__collaborate ng-star-inserted">
+				<div class="start__collaborate_content">
+					<h5 class="start__collaborate_title">Let’s work together</h5>
+					<div class="start__collaborate_box">
+						<div class="start__collaborate_item ng-star-inserted">
+							<div class="ng-star-inserted">
+								<img
+									loading="lazy"
+									class="start__collaborate_img"
+									src="/img/students.jpeg"
+									alt="navigation.studentsTitle"
+								/>
+								<h6 class="start__collaborate_item_title">Students</h6>
+								<span class="start__collaborate_item_subtitle">
+									Explore best-fit universities, receive expert advice,
+									customize your level of support, and use a single application
+									to apply to schools and universities around the world.
+								</span>
+							</div>
+							<a
+								class="
                   start__collaborate_link
                   flat_primary-btn
                   ng-star-inserted
                 "
-                href="/en/for-students"
-              >
-                Get started </a
-              ><!----><!----><!---->
-            </div>
-            <div class="start__collaborate_item ng-star-inserted">
-              <div class="ng-star-inserted">
-                <img
-                  loading="lazy"
-                  class="start__collaborate_img"
-                  src="/img/agents.jpeg"
-                  alt="navigation.agentsTitle"
-                />
-                <h6 class="start__collaborate_item_title">
-                  Recruitment Partners
-                </h6>
-                <span class="start__collaborate_item_subtitle">
-                  Offer your students access to the best portfolio of global
-                  institutions, and receive training, support, and admissions
-                  expertise from leading education specialists.
-                </span>
-              </div>
-              <a
-                class="
+								href="/en/for-students"
+							>
+								Get started </a
+							><!----><!----><!---->
+						</div>
+						<div class="start__collaborate_item ng-star-inserted">
+							<div class="ng-star-inserted">
+								<img
+									loading="lazy"
+									class="start__collaborate_img"
+									src="/img/agents.jpeg"
+									alt="navigation.agentsTitle"
+								/>
+								<h6 class="start__collaborate_item_title">
+									Recruitment Partners
+								</h6>
+								<span class="start__collaborate_item_subtitle">
+									Offer your students access to the best portfolio of global
+									institutions, and receive training, support, and admissions
+									expertise from leading education specialists.
+								</span>
+							</div>
+							<a
+								class="
                   start__collaborate_link
                   flat_primary-btn
                   ng-star-inserted
                 "
-                href="/en/for-agents"
-              >
-                Become a Partner
-              </a>
-              <!----><!----><!---->
-            </div>
-            <div class="start__collaborate_item ng-star-inserted">
-              <div class="ng-star-inserted">
-                <img
-                  loading="lazy"
-                  class="start__collaborate_img"
-                  src="/img/partner.jpeg"
-                  alt="navigation.partnersTitle"
-                />
-                <h6 class="start__collaborate_item_title">
-                  High School Partners
-                </h6>
-                <span class="start__collaborate_item_subtitle">
-                  Start exploring the best schools and universities for
-                  international students. We carefully review each university
-                  and program to ensure we are providing you with the best
-                  possible options and outcomes.
-                </span>
-              </div>
-              <a
-                class="
+								href="/en/for-agents"
+							>
+								Become a Partner
+							</a>
+							<!----><!----><!---->
+						</div>
+						<div class="start__collaborate_item ng-star-inserted">
+							<div class="ng-star-inserted">
+								<img
+									loading="lazy"
+									class="start__collaborate_img"
+									src="/img/partner.jpeg"
+									alt="navigation.partnersTitle"
+								/>
+								<h6 class="start__collaborate_item_title">
+									High School Partners
+								</h6>
+								<span class="start__collaborate_item_subtitle">
+									Start exploring the best schools and universities for
+									international students. We carefully review each university
+									and program to ensure we are providing you with the best
+									possible options and outcomes.
+								</span>
+							</div>
+							<a
+								class="
                   start__collaborate_link
                   flat_primary-btn
                   ng-star-inserted
                 "
-                href="/en/for-partners"
-              >
-                Learn More
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="start__search ng-star-inserted">
-          <div class="start__search_content">
-            <div class="start__search_left">
-              <h5 class="start__search_title">What are you looking for?</h5>
-              <p class="start__search_text">
-                Start exploring the best schools and universities for
-                international students. We carefully review each university and
-                program to ensure we are providing you with the best possible
-                options and outcomes.
-              </p>
-              <div class="start__search_btn_box ng-star-inserted">
-                <a
-                  class="flat_primary-btn start__search_btn ng-star-inserted"
-                  href="/en/universities?educationLevelSearch=1"
-                >
-                  Search for High Schools </a
-                ><a
-                  class="flat_primary-btn start__search_btn ng-star-inserted"
-                  href="/en/universities?educationLevelSearch=2"
-                >
-                  Search for Foundation Programs </a
-                ><a
-                  class="flat_primary-btn start__search_btn ng-star-inserted"
-                  href="/en/universities?educationLevelSearch=2"
-                >
-                  Search for Bachelor Degrees </a
-                ><a
-                  class="flat_primary-btn start__search_btn ng-star-inserted"
-                  href="/en/universities?educationLevelSearch=3"
-                >
-                  Search for Master Degree </a
-                ><!---->
-              </div>
-              <!----><!---->
-            </div>
-            <div class="start__search_right">
-              <img
-                class="start__search_img"
-                src="/img/graduation.svg"
-                alt="What are you looking for?"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div
-          class="start__apply mask__bg ng-star-inserted"
-          style="background-image: url('/img/start-apply.jpeg')"
-        >
-          <div class="start__apply_content">
-            <div class="start__apply_box">
-              <p class="start__apply_text">
-                We help students and partners apply to thousands of the best
-                school and university programs for international students
-              </p>
-              <button class="start__apply_btn flat_primary-btn">
-                Apply Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <FooterPage></FooterPage>
-  </div>
+								href="/en/for-partners"
+							>
+								Learn More
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="start__search ng-star-inserted">
+					<div class="start__search_content">
+						<div class="start__search_left">
+							<h5 class="start__search_title">What are you looking for?</h5>
+							<p class="start__search_text">
+								Start exploring the best schools and universities for
+								international students. We carefully review each university and
+								program to ensure we are providing you with the best possible
+								options and outcomes.
+							</p>
+							<div class="start__search_btn_box ng-star-inserted">
+								<a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=1"
+								>
+									Search for High Schools </a
+								><a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=2"
+								>
+									Search for Foundation Programs </a
+								><a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=2"
+								>
+									Search for Bachelor Degrees </a
+								><a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=3"
+								>
+									Search for Master Degree </a
+								><!---->
+							</div>
+							<!----><!---->
+						</div>
+						<div class="start__search_right">
+							<img
+								class="start__search_img"
+								src="/img/graduation.svg"
+								alt="What are you looking for?"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div
+					class="start__apply mask__bg ng-star-inserted"
+					style="background-image: url('/img/start-apply.jpeg')"
+				>
+					<div class="start__apply_content">
+						<div class="start__apply_box">
+							<p class="start__apply_text">
+								We help students and partners apply to thousands of the best
+								school and university programs for international students
+							</p>
+							<button class="start__apply_btn flat_primary-btn">
+								Apply Now
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer-page></footer-page>
+	</div>
 </template>
 
 <script>
 import HeaderPage from '../components/common/Header.vue'
-import FooterPage from "../components/common/Footer.vue";
+import FooterPage from '../components/common/Footer.vue'
 export default {
-  name: "Home",
-  components: { FooterPage, HeaderPage },
-};
+	name: 'Home',
+	components: { FooterPage, HeaderPage },
+}
 </script>
 
 <style lang="scss">

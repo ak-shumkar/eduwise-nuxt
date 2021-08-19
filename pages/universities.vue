@@ -1,5 +1,5 @@
 <template>
-	<v-app>
+	<div>
 		<header-page></header-page>
 		<main>
 			<div class="ng-star-inserted">
@@ -16,13 +16,8 @@
 								<button class="filter__btn">Clear Filters</button>
 								<form class="search-form">
 									<div class="search-form__item">
-										<v-icon color="blue darken-2">mdi-magnify</v-icon>
 										<input class="search-form__input" type="text" placeholder="Search Universities By Name">
 									</div>
-									<v-select
-										:items="items"
-										label="Standard"
-									></v-select>
 								</form>
 							</div>
 
@@ -31,7 +26,7 @@
 				</div>
 			</div>
 		</main>
-	</v-app>
+	</div>
 </template>
 
 <script>

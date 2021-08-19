@@ -124,9 +124,7 @@ export default {
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
 		// https://go.nuxtjs.dev/eslint
-		'@nuxtjs/eslint-module',
-		'@nuxtjs/vuetify',
-		[ '@nuxtjs/vuetify', { iconfont: 'mdi' } ]
+		'@nuxtjs/eslint-module'
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
@@ -143,9 +141,6 @@ export default {
 		position: 'top-right',
 		duration: 3000
 	},
-	vuetify: {
-		/* module options */
-	  },
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {},
