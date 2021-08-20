@@ -147,7 +147,7 @@ export default {
 	axios: {},
 
 	router: {
-		trailingSlash: false
+		trailingSlash: true
 	},
 
 	// PWA module configuration: https://go.nuxtjs.dev/pwa

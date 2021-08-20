@@ -1,20 +1,20 @@
 <template>
-  <header>
-      <div class="container">
-        <div class="header__logo"><a href="/">Eduwise</a></div>
-        <ul class="header__menu">
-          <li><a href="#">Company</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="/register">Register</a></li>
-          <li><a href="/login" class="header__login">Log In</a></li>
-        </ul>
-      </div>
-    </header>
+	<header>
+		<div class="container">
+			<div class="header__logo"><a href="/">Eduwise</a></div>
+			<ul class="header__menu">
+				<li><a href="#">Company</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="/register/">Register</a></li>
+				<li><a href="/login/" class="header__login">Log In</a></li>
+			</ul>
+		</div>
+	</header>
 </template>
 
 <script>
 export default {
-    name: 'Header'
+	name: 'Header'
 }
 </script>
 

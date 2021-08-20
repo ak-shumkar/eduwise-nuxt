@@ -99,7 +99,7 @@ export default {
 		...mapActions('account', [ 'login' ]),
 		onSubmit () {
 			this.login(this.user).then(() => {
-				window.location.href = '/admin'
+				window.location.href = '/admin/'
 			}).catch(err => {
 				this.$toast.error('Something went wrong! ' + err)
 			})

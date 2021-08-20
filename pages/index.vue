@@ -12,7 +12,7 @@
 					</p>
 					<div class="main__content__buttons">
 						<button class="learn-more">Learn More</button>
-						<nuxt-link to="/universities" class="start-search">Start Your search</nuxt-link>
+						<nuxt-link to="/universities/" class="start-search">Start Your search</nuxt-link>
 					</div>
 				</div>
 			</div>
