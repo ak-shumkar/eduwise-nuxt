@@ -2,11 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 body {
     color: #192038;
     background-color: #f9f9fa;
+    font-family: 'Roboto', sans-serif;
 }
 
 .basic-btn,
@@ -36,40 +40,41 @@ body {
 .raised_warn-btn,
 .warn-btn,
 button[disabled] {
-  text-align: center;
-  padding: 10px 32px;
-  font-size: 0.875rem;
-  border: none;
-  background-color: inherit;
-  text-transform: capitalize;
-  font-family: Roboto-medium, sans-serif;
-  letter-spacing: 1.25px;
-  cursor: pointer;
-  border-radius: 4px;
-  color: inherit;
-  outline: none;
-  text-decoration: none;
+    text-align: center;
+    padding: 10px 32px;
+    font-size: 0.875rem;
+    border: none;
+    background-color: inherit;
+    text-transform: capitalize;
+    font-family: Roboto-medium, sans-serif;
+    letter-spacing: 1.25px;
+    cursor: pointer;
+    border-radius: 4px;
+    color: inherit;
+    outline: none;
+    text-decoration: none;
 }
 
 p {
-  font-weight: 600;
+    font-weight: 600;
 }
 
 .flat_primary-btn,
 .header__light .header__button--log {
-  background-color: #2264d1;
-  color: #fff;
+    background-color: #2264d1;
+    color: #fff;
 }
 
 .flat_primary-btn:hover,
 .header__light .header__button--log:hover {
-  background-color: #1b50a7;
-  color: #fff;
-  text-decoration: none;
+    background-color: #1b50a7;
+    color: #fff;
+    text-decoration: none;
 }
 
-[class*=" ico-"], [class^=ico-] {
-    font-family: icomoon!important;
+[class*=' ico-'],
+[class^='ico-'] {
+    font-family: icomoon !important;
     speak: never;
     font-style: normal;
     font-weight: 400;
@@ -80,7 +85,7 @@ p {
     -moz-osx-font-smoothing: grayscale;
 }
 .reset-btn {
-  outline: none;
-  border: none;
-  background: inherit;
+    outline: none;
+    border: none;
+    background: inherit;
 }

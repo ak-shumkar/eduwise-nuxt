@@ -12,7 +12,7 @@
 					</p>
 					<div class="main__content__buttons">
 						<button class="learn-more">Learn More</button>
-						<button class="start-search">Start Your search</button>
+						<nuxt-link to="/universities" class="start-search">Start Your search</nuxt-link>
 					</div>
 				</div>
 			</div>
@@ -483,7 +483,7 @@ main {
         }
       }
 
-      button {
+      button, a {
         text-align: center;
         padding: 10px 32px;
         font-size: 0.875rem;
