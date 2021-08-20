@@ -9,7 +9,7 @@
         justify-content-center
       "
 		>
-			<a class="navbar-brand brand-logo mr-5" href="index.html">
+			<a class="navbar-brand brand-logo mr-5" href="/">
 				Eduwise
 				<!-- <img src="/images/logo.svg" class="mr-2" alt="logo"/> -->
 			</a>
