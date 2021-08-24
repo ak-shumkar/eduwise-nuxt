@@ -12,7 +12,8 @@ export default {
 			{ name: 'format-detection', content: 'telephone=no' }
 		],
 		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ rel: 'stylesheet', integrity: 'sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p', href: 'https://pro.fontawesome.com/releases/v5.10.0/css/all.css', crossorigin: 'anonymous' },
 		],
 		script: [
 			{
@@ -104,7 +105,6 @@ export default {
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
-		'vuesax/dist/vuesax.css',
 		'~/static/vendors/feather/feather.css',
 		'~/static/vendors/ti-icons/css/themify-icons.css',
 		'~/static/vendors/css/vendor.bundle.base.css',
@@ -117,7 +117,7 @@ export default {
 	],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-	plugins: [ '~/plugins/vee-validate', '~/plugins/vuesax' ],
+	plugins: [ '~/plugins/vee-validate', '~/plugins/element-ui' ],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components: true,
@@ -125,7 +125,7 @@ export default {
 	// Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
 	buildModules: [
 		// https://go.nuxtjs.dev/eslint
-		'@nuxtjs/eslint-module'
+		'@nuxtjs/eslint-module',
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules

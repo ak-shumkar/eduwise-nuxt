@@ -16,6 +16,52 @@
 					</div>
 				</div>
 			</div>
+			<div>
+				<div class="start__search ng-star-inserted">
+					<div class="start__search_content">
+						<div class="start__search_left">
+							<h5 class="start__search_title">What are you looking for?</h5>
+							<p class="start__search_text">
+								Start exploring the best schools and universities for
+								international students. We carefully review each university and
+								program to ensure we are providing you with the best possible
+								options and outcomes.
+							</p>
+							<div class="start__search_btn_box ng-star-inserted">
+								<a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=1"
+								>
+									Search for High Schools </a
+								><a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=2"
+								>
+									Search for Foundation Programs </a
+								><a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=2"
+								>
+									Search for Bachelor Degrees </a
+								><a
+									class="flat_primary-btn start__search_btn ng-star-inserted"
+									href="/en/universities?educationLevelSearch=3"
+								>
+									Search for Master Degree </a
+								><!---->
+							</div>
+							<!----><!---->
+						</div>
+						<div class="start__search_right">
+							<img
+								class="start__search_img"
+								src="/img/graduation.svg"
+								alt="What are you looking for?"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="categories">
 				<h5>Explore <br />by Category</h5>
 
@@ -314,70 +360,6 @@
 					</div>
 				</div>
 			</div>
-			<div>
-				<div class="start__search ng-star-inserted">
-					<div class="start__search_content">
-						<div class="start__search_left">
-							<h5 class="start__search_title">What are you looking for?</h5>
-							<p class="start__search_text">
-								Start exploring the best schools and universities for
-								international students. We carefully review each university and
-								program to ensure we are providing you with the best possible
-								options and outcomes.
-							</p>
-							<div class="start__search_btn_box ng-star-inserted">
-								<a
-									class="flat_primary-btn start__search_btn ng-star-inserted"
-									href="/en/universities?educationLevelSearch=1"
-								>
-									Search for High Schools </a
-								><a
-									class="flat_primary-btn start__search_btn ng-star-inserted"
-									href="/en/universities?educationLevelSearch=2"
-								>
-									Search for Foundation Programs </a
-								><a
-									class="flat_primary-btn start__search_btn ng-star-inserted"
-									href="/en/universities?educationLevelSearch=2"
-								>
-									Search for Bachelor Degrees </a
-								><a
-									class="flat_primary-btn start__search_btn ng-star-inserted"
-									href="/en/universities?educationLevelSearch=3"
-								>
-									Search for Master Degree </a
-								><!---->
-							</div>
-							<!----><!---->
-						</div>
-						<div class="start__search_right">
-							<img
-								class="start__search_img"
-								src="/img/graduation.svg"
-								alt="What are you looking for?"
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div>
-				<div
-					class="start__apply mask__bg ng-star-inserted"
-					style="background-image: url('/img/start-apply.jpeg')"
-				>
-					<div class="start__apply_content">
-						<div class="start__apply_box">
-							<p class="start__apply_text">
-								We help students and partners apply to thousands of the best
-								school and university programs for international students
-							</p>
-							<button class="start__apply_btn flat_primary-btn">
-								Apply Now
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
 		</main>
 		<footer-page></footer-page>
 	</div>
@@ -399,6 +381,7 @@ export default {
 }
 main {
   background-color: #f9f9fa;
+  margin-top: 60px;
 }
 .main {
   position: relative;
