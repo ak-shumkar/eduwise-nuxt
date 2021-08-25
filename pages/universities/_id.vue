@@ -147,38 +147,36 @@ import HeaderPage from '../../components/common/Header.vue'
 export default {
 	name: 'UniversityId',
 	components: { HeaderPage, FooterPage },
-	asyncData ({ route, params }) {
-		console.log(params.id)
-
-		const activeMenu = '1'
-		const menus = [
-			{
-				name: 'About',
-				id: '1'
-			},
-			{
-				name: 'Degrees',
-				id: '2'
-			},
-			{
-				name: 'Tuition & cost',
-				id: '3'
-			},
-			{
-				name: 'Documents',
-				id: '4'
-			},
-			{
-				name: 'Deadlines',
-				id: '5'
-			},
-			{
-				name: 'Media',
-				id: '6'
-			}
-		]
-
-		return { activeMenu, menus }
+	data () {
+		return {
+			menus: [
+				{
+					name: 'About',
+					id: '1'
+				},
+				{
+					name: 'Degrees',
+					id: '2'
+				},
+				{
+					name: 'Tuition & cost',
+					id: '3'
+				},
+				{
+					name: 'Documents',
+					id: '4'
+				},
+				{
+					name: 'Deadlines',
+					id: '5'
+				},
+				{
+					name: 'Media',
+					id: '6'
+				}
+			],
+			activeMenu: '1'
+		}
 	},
 	methods: {
 		onMenuChange (id) {
