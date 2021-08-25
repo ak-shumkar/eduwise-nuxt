@@ -159,7 +159,7 @@
 									Please note that we show only 20 options from 266 institutions in this category. If you want to see more institutions from this list, please update your page and more options from the list of institutions will appear. Alternatively please use filters to adjust your search requirements.
 								</div>
 								<div class="university-card">
-									<a class="university-card__link" href="#">
+									<a class="university-card__link" href="1/">
 										<img loading="lazy" class="university-card__img" src="https://studentapply.org/uploads/universities/university/0171575875ac36f0f47627a3d3b2c371.jpeg" alt="Long Island University Post">
 										<div class="university-card__content">
 											<h4 class="university-card__title">Long Island University Post</h4>
@@ -219,8 +219,8 @@
 </template>
 
 <script>
-import FooterPage from '../components/common/Footer.vue'
-import HeaderPage from '../components/common/Header.vue'
+import FooterPage from '@/components/common/Footer.vue'
+import HeaderPage from '@/components/common/Header.vue'
 export default {
 	components: { HeaderPage, FooterPage },
 	data () {
@@ -327,7 +327,8 @@ export default {
 			{this.sidebar.range = [ val, this.rangeInputEnd ]}
 		},
 		rangeInputEnd (val) {
-			this.sidebar.range = [ this.rangeInputStart, val ]
+			if (val > 2000)
+			{this.sidebar.range = [ this.rangeInputStart, val ]}
 		},
 		'sidebar.range' (val) {
 			this.rangeInputStart = val[0]
