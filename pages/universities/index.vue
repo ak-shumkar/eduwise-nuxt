@@ -79,6 +79,15 @@
 													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
 														{{c.name}}
 													</el-checkbox>
+													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
+														{{c.name}}
+													</el-checkbox>
+													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
+														{{c.name}}
+													</el-checkbox>
+													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
+														{{c.name}}
+													</el-checkbox>
 												</el-checkbox-group>
 											</div>
 										</div>
@@ -511,7 +520,24 @@ export default {
 			line-height: 24px;
 			font-size: .875rem;
 			letter-spacing: .25px;
-			padding-bottom: 16px;
+			padding: 0 10px 16px;
+			max-height: 230px;
+			overflow-y: auto;
+			overflow-x: hidden;
+
+			&::-webkit-scrollbar {
+				width: 8px;
+			}
+			&::-webkit-scrollbar-thumb {
+				width: 8px;
+				border-radius: 3px;
+				background: #a3a6af;
+			}
+
+			.el-checkbox-group {
+				display: flex;
+				flex-direction: column;
+			}
 
 			.vs-radio-content {
 				padding-bottom: 16px;
@@ -632,24 +658,6 @@ export default {
 			}
 		}
 
-	}
-	.form-select {
-
-		/* .v-select__slot {
-			background-color: #fff;
-			border: 1px solid #ececec;
-			height: 44px;
-			border-radius: 4px;
-		}
-		.v-text-field .v-label {
-			top: unset !important;
-			left: 10px !important;
-		}
-		label {
-			top: unset !important;
-			font-size: 16px;
-			margin-bottom: 0;
-		} */
 	}
 
 	.search-hint {
