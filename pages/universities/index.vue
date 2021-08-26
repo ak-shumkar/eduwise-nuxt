@@ -79,15 +79,6 @@
 													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
 														{{c.name}}
 													</el-checkbox>
-													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
-														{{c.name}}
-													</el-checkbox>
-													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
-														{{c.name}}
-													</el-checkbox>
-													<el-checkbox v-for="c in countries" :key="c.code" size="medium" :label="c.name">
-														{{c.name}}
-													</el-checkbox>
 												</el-checkbox-group>
 											</div>
 										</div>
@@ -298,6 +289,22 @@ export default {
 				{
 					name: 'France',
 					code: 'frn'
+				},
+				{
+					name: 'Italy',
+					code: 'itl'
+				},
+				{
+					name: 'Russia',
+					code: 'rus'
+				},
+				{
+					name: 'USA',
+					code: 'usa'
+				},
+				{
+					name: 'Canada',
+					code: 'can'
 				}
 			],
 			languages: [
