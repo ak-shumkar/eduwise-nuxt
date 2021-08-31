@@ -14,7 +14,7 @@
 		</div>
 		<div class="univer-content__card">
 			<div class="univer-content__card__title">
-				<a href="#">Art, Design & Media</a>
+				<nuxt-link :to="$route.path+'art/'">Art, Design & Media</nuxt-link>
 			</div>
 			<ul class="univer-content__card__list">
 				<li>Art</li>
