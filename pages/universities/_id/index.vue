@@ -15,7 +15,7 @@
 			<section class="container">
 				<div class="univer__container">
 					<component :is="currentComponent"></component>
-					<div class="univer-info">
+					<div v-if="currentComponent !== 'Media'" class="univer-info">
 						<aside class="univer-info__card">
 							<div class="univer-info__card__title-box">
 								<img  class="univer-info__card__logo" src="https://studentapply.org/uploads/universities/university/1416a7f7c2dac7163d678db569bb75c0.jpeg" alt="Arizona State University"><!---->
@@ -76,10 +76,22 @@ import HeaderPage from '@/components/common/Header.vue'
 import UniverTitle from '@/components/university/UniverTitle.vue'
 import TuitionCost from '@/components/university/TuitionCost.vue'
 import Documents from '@/components/university/Documents.vue'
+import Deadlines from '@/components/university/Deadlines.vue'
+import Media from '@/components/university/Media.vue'
 
 export default {
 	name: 'UniversityId',
-	components: { HeaderPage, FooterPage, About, Degrees, UniverTitle, TuitionCost, Documents },
+	components: { 
+		HeaderPage, 
+		FooterPage, 
+		About, 
+		Degrees, 
+		UniverTitle, 
+		TuitionCost, 
+		Documents, 
+		Deadlines, 
+		Media
+	},
 	data () {
 		return {
 			menus: [
