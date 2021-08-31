@@ -74,10 +74,11 @@ import Degrees from '@/components/university/Degrees.vue'
 import FooterPage from '@/components/common/Footer.vue'
 import HeaderPage from '@/components/common/Header.vue'
 import UniverTitle from '@/components/university/UniverTitle.vue'
+import TuitionCost from '@/components/university/TuitionCost.vue'
 
 export default {
 	name: 'UniversityId',
-	components: { HeaderPage, FooterPage, About, Degrees, UniverTitle },
+	components: { HeaderPage, FooterPage, About, Degrees, UniverTitle, TuitionCost },
 	data () {
 		return {
 			menus: [
