@@ -42,11 +42,9 @@
 										<button
 											type="submit"
 											class="
-                      btn btn-block btn-primary btn-lg
-                      font-weight-medium
-                      auth-form-btn
-                    "
-                    
+											btn btn-block btn-primary btn-lg
+											font-weight-medium
+											auth-form-btn"
 										>SIGN IN</button>
 									</div>
 									<div
@@ -60,18 +58,32 @@
                   </div>
                   <a href="#" class="auth-link text-black">Forgot password?</a> -->
 									</div>
-									<!-- <div class="mb-2">
-                  <button
-                    type="button"
-                    class="btn btn-block btn-facebook auth-form-btn"
-                  >
-                    <i class="ti-facebook mr-2"></i>Connect using facebook
-                  </button>
-                </div>
-                <div class="text-center mt-4 font-weight-light">
+									<div class="mb-2">
+										<button
+											type="button"
+											class="btn btn-block btn-google auth-form-btn"
+											@click="googleLogin"
+										>
+											<i class="fab fa-google icon"></i>Connect using google
+											<!-- <img class="icon-image" src="../static/images/google-icon.svg" alt="Google sign in">
+											Connect using google -->
+										</button>
+									</div>
+									<div class="mb-2">
+										<button
+											type="button"
+											class="btn btn-block btn-facebook auth-form-btn"
+											@click="facebookLogin"
+										>
+											<i class="ti-facebook mr-2"></i>Connect using facebook
+											
+										</button>
+																
+									</div>
+									<!-- <div class="text-center mt-4 font-weight-light">
                   Don't have an account?
                   <a href="register.html" class="text-primary">Create</a>
-                </div> -->
+                </div>  -->
 								</form>
 							</validation-observer>
 						</div>
@@ -87,12 +99,30 @@
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { mapActions } from 'vuex'
+import Vue from 'vue'
 export default {
 	name: 'Login',
 	components: { ValidationProvider, ValidationObserver },
 	data () {
 		return {
-			user: {}
+			user: {},
+			 isConnected: false,
+			name: '',
+			email: '',
+			personalID: '',
+			picture: '',
+			FB: undefined
+		}
+	},
+	head () {
+		return {
+			script: [ { src: 'https://apis.google.com/js/platform.js', async: true, defer: 'true' } ],
+			meta: [
+				{
+					name: 'google-signin-client_id',
+					content: '764270937020-i1ltim88k8c8c61a01c4bphm25fj82bm.apps.googleusercontent.com'
+				}
+			]
 		}
 	},
 	methods: {
@@ -103,9 +133,31 @@ export default {
 			}).catch(err => {
 				this.$toast.error('Something went wrong! ' + err)
 			})
+		},
+		async facebookLogin () {
+			try {
+				const res = await this.$auth.loginWith('facebook')
+				console.log(res)
+			} catch (err) {
+				console.log(err)
+			}
+		},
+		
+		googleLogin () {
+			Vue.googleAuth().signIn(d => {
+				console.log('success', d)
+			}, err => console.log(err))
 		}
 	}
 }
 </script>
 
-<style></style>
+<style lang="scss">
+	.icon-image {
+		width: 20px;
+		/* height: 40px; */
+	}	
+	.icon {
+		padding-right: 10px;
+	}
+</style>
