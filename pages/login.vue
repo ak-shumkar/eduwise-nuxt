@@ -73,7 +73,7 @@
 										<button
 											type="button"
 											class="btn btn-block btn-facebook auth-form-btn"
-											@click="facebookLogin"
+											@click="authenticate('facebook')"
 										>
 											<i class="ti-facebook mr-2"></i>Connect using facebook
 											
@@ -98,6 +98,7 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import { userService } from '@/_services/user.service'
 import { mapActions } from 'vuex'
 import Vue from 'vue'
 export default {
@@ -116,7 +117,9 @@ export default {
 	},
 	head () {
 		return {
-			script: [ { src: 'https://apis.google.com/js/platform.js', async: true, defer: 'true' } ],
+			script: [ 
+				{ src: 'https://apis.google.com/js/platform.js', async: true, defer: 'true' },
+			],
 			meta: [
 				{
 					name: 'google-signin-client_id',
@@ -134,18 +137,29 @@ export default {
 				this.$toast.error('Something went wrong! ' + err)
 			})
 		},
-		async facebookLogin () {
-			try {
-				const res = await this.$auth.loginWith('facebook')
-				console.log(res)
-			} catch (err) {
-				console.log(err)
-			}
+		authenticate (provider) {
+			const this_ = this
+			this.$auth.authenticate(provider).then(() => {
+				const token = this_.$auth.getToken()
+				this_.token = token
+				alert(`login success with token ${token}`)
+				if (provider === 'facebook') {
+					this_.$http.get('https://graph.facebook.com/v3.0/me?fields=id,name,email', {
+						params: { access_token: token }
+					}).then(response => {
+						this_.profile = JSON.stringify(response)
+					})
+				}
+			})
 		},
 		
 		googleLogin () {
-			Vue.googleAuth().signIn(d => {
-				console.log('success', d)
+			Vue.googleAuth().signIn(async d => {
+				try {
+					await userService.google({ access_token: d })
+				} catch (err) {
+					console.log(err)
+				}
 			}, err => console.log(err))
 		}
 	}

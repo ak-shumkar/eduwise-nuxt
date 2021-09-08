@@ -120,7 +120,8 @@ export default {
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [ '~/plugins/vee-validate', '~/plugins/element-ui', 
-		{ src: '~/plugins/vue-google-oauth2', ssr: false }
+		{ src: '~/plugins/vue-google-oauth2', ssr: false },
+		{ src: '~/plugins/auth', ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
@@ -186,47 +187,35 @@ export default {
 	publicRuntimeConfig: {
 		baseURL: process.env.BASE_URL || 'https://nuxtjs.org'
 	},
-	auth: {
+	  auth: {
 		strategies: {
-			social: {
-			  scheme: 'oauth2',
-			  endpoints: {
-					authorization: 'https://accounts.google.com/o/oauth2/auth',
-					token: undefined,
-					userInfo: 'https://www.googleapis.com/oauth2/v3/userinfo',
-					logout: 'https://example.com/logout'
-			  },
-			  token: {
-					property: 'access_token',
-					type: 'Bearer',
-					maxAge: 1800
-			  },
-			  refreshToken: {
-					property: 'refresh_token',
-					maxAge: 60 * 60 * 24 * 30
-			  },
-			  responseType: 'token',
-			  grantType: 'authorization_code',
-			  accessType: undefined,
-			  redirectUri: undefined,
-			  logoutRedirectUri: undefined,
-			  clientId: 'SET_ME',
-			  scope: [ 'openid', 'profile', 'email' ],
-			  state: 'UNIQUE_AND_NON_GUESSABLE',
-			  codeChallengeMethod: '',
-			  responseMode: '',
-			  acrValues: '',
-			  // autoLogout: false
-			},
-			facebook: {
+		  local: {
 				endpoints: {
-			  		userInfo: 'https://graph.facebook.com/v6.0/me?fields=id,name,email'
+			  login: { url: '/user/login', method: 'post', propertyName:      'token' },
+			  logout: false,
+			  user: { url: '/user/user', method: 'get', propertyName: 'data' },
 				},
-				clientId: '668282920423634',
-				scope: [ 'public_profile', 'email' ]
+				tokenRequired: true,
+				tokenType: 'Bearer'
 		  },
-		  }
-	  }
+		  facebook: {
+				client_id: '668282920423634',
+				userinfo_endpoint: false,
+				scope: [ 'public_profile', 'email' ],
+				redirect_uri:'http://localhost:3000/callback'
+		  },
+		  google: {
+				client_id: '',
+				user:false,
+				redirect_uri:'http://localhost:3000/callback'
+	  
+		  },
+		},
+		redirect: {
+		  login: '/?login=1',
+		  logout: '/',
+		}
+	  },
 
 	// server: {
 	// 	https: {
