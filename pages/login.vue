@@ -100,7 +100,6 @@
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { userService } from '@/_services/user.service'
 import { mapActions } from 'vuex'
-import Vue from 'vue'
 export default {
 	name: 'Login',
 	components: { ValidationProvider, ValidationObserver },
@@ -115,21 +114,8 @@ export default {
 			FB: undefined
 		}
 	},
-	head () {
-		return {
-			script: [ 
-				{ src: 'https://apis.google.com/js/platform.js', async: true, defer: 'true' },
-			],
-			meta: [
-				{
-					name: 'google-signin-client_id',
-					content: '764270937020-i1ltim88k8c8c61a01c4bphm25fj82bm.apps.googleusercontent.com'
-				}
-			]
-		}
-	},
 	methods: {
-		...mapActions('account', [ 'login' ]),
+		...mapActions('account', [ 'login', 'google' ]),
 		onSubmit () {
 			this.login(this.user).then(() => {
 				window.location.href = '/admin/'
@@ -153,14 +139,15 @@ export default {
 			})
 		},
 		
-		googleLogin () {
-			Vue.googleAuth().signIn(async d => {
-				try {
-					await userService.google({ access_token: d })
-				} catch (err) {
-					console.log(err)
-				}
-			}, err => console.log(err))
+		async googleLogin () {
+			try {
+				const googleUser = await this.$gAuth.signIn()
+				await this.google({ access_token: googleUser.Zb.access_token })
+				this.$toast.success('You are logged in!')
+				window.location.href = '/'
+			} catch (err) {
+				console.log(err)
+			}
 		}
 	}
 }

@@ -5,16 +5,28 @@
 			<ul class="header__menu">
 				<li><a href="#">About Us</a></li>
 				<li><a href="#">Services</a></li>
-				<li><a href="/register/">Register</a></li>
-				<li><a href="/login/" class="header__login">Log In</a></li>
+				<template v-if="!userData.access">
+					<li><a href="/register/">Register</a></li>
+					<li><a href="/login/" class="header__login">Log In</a></li>
+				</template>
+				<template v-else>
+					<li>{{ userData.user.first_name }} {{ userData.user.last_name }}</li>
+				</template>
+				
 			</ul>
 		</div>
 	</header>
 </template>
 
 <script>
+import Cookies from 'js-cookie'
 export default {
-	name: 'Header'
+	name: 'Header',
+	data () {
+		return {
+			userData: JSON.parse(Cookies.get('user') || '{}')
+		}
+	},
 }
 </script>
 

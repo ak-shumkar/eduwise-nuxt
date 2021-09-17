@@ -542,6 +542,6 @@ export default {
 	name: 'Admin',
 	components: { AdminFooter },
 	layout: 'admin',
-	middleware: [ 'auth' ]
+	// middleware: [ 'auth' ]
 }
 </script>

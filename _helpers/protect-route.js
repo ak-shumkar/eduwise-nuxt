@@ -11,7 +11,7 @@ function checkSuperAdmin (next) {
 	const userData = JSON.parse(localStorage.getItem('user'))
 	if (userData && userData.user && userData.user.is_staff) {
 		next()
-	} else if (window.location.href !== '/login') next({ name: 'Login' })
+	} else if (window.location.href !== '/login/') next({ name: 'Login' })
 }
 
 export default {

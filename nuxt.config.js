@@ -1,5 +1,3 @@
-import path from 'path'
-import fs from 'fs'
 export default {
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
@@ -121,7 +119,7 @@ export default {
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
 	plugins: [ '~/plugins/vee-validate', '~/plugins/element-ui', 
 		{ src: '~/plugins/vue-google-oauth2', ssr: false },
-		{ src: '~/plugins/auth', ssr: false },
+		// { src: '~/plugins/auth', ssr: false },
 	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
@@ -134,6 +132,7 @@ export default {
 	],
 
 	// Modules: https://go.nuxtjs.dev/config-modules
+	ssr: true,
 	modules: [
 		// https://go.nuxtjs.dev/axios
 		'@nuxtjs/axios',
@@ -143,6 +142,7 @@ export default {
 		// https://go.nuxtjs.dev/content
 		'@nuxt/content',
 		'@nuxtjs/toast',
+		'cookie-universal-nuxt',
 	],
 	toast: {
 		position: 'top-right',
@@ -151,6 +151,7 @@ export default {
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {},
+	cookies: {},
 
 	router: {
 		trailingSlash: true
@@ -187,40 +188,4 @@ export default {
 	publicRuntimeConfig: {
 		baseURL: process.env.BASE_URL || 'https://nuxtjs.org'
 	},
-	  auth: {
-		strategies: {
-		  local: {
-				endpoints: {
-			  login: { url: '/user/login', method: 'post', propertyName:      'token' },
-			  logout: false,
-			  user: { url: '/user/user', method: 'get', propertyName: 'data' },
-				},
-				tokenRequired: true,
-				tokenType: 'Bearer'
-		  },
-		  facebook: {
-				client_id: '668282920423634',
-				userinfo_endpoint: false,
-				scope: [ 'public_profile', 'email' ],
-				redirect_uri:'http://localhost:3000/callback'
-		  },
-		  google: {
-				client_id: '',
-				user:false,
-				redirect_uri:'http://localhost:3000/callback'
-	  
-		  },
-		},
-		redirect: {
-		  login: '/?login=1',
-		  logout: '/',
-		}
-	  },
-
-	// server: {
-	// 	https: {
-	// 	  key: fs.readFileSync(path.resolve(__dirname, 'server.key')),
-	// 	  cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
-	// 	}
-	//   }
 }
