@@ -18,7 +18,7 @@ module.exports = {
 	// add your custom rules here
 	'rules': {
 		'array-bracket-spacing': [ 'error', 'always' ],
-		'camelcase': [ 'error', { ignoreDestructuring: true } ],
+		'camelcase': [ 'warn', { ignoreDestructuring: true } ],
 		'no-mixed-spaces-and-tabs': 'off',
 		'vue/no-parsing-error': 'off',
 		'arrow-spacing': 'error',

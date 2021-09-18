@@ -73,7 +73,7 @@
 										<button
 											type="button"
 											class="btn btn-block btn-facebook auth-form-btn"
-											@click="authenticate('facebook')"
+											@click="facebook"
 										>
 											<i class="ti-facebook mr-2"></i>Connect using facebook
 											
@@ -100,6 +100,7 @@
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
 import { userService } from '@/_services/user.service'
 import { mapActions } from 'vuex'
+import Vue from 'vue'
 export default {
 	name: 'Login',
 	components: { ValidationProvider, ValidationObserver },
@@ -111,8 +112,15 @@ export default {
 			email: '',
 			personalID: '',
 			picture: '',
-			FB: undefined
+			isFBReady: false
 		}
+	},
+	mounted () {
+		this.isFBReady = Vue.FB !== undefined
+		window.addEventListener('fb-sdk-ready', this.onFBReady)
+	},
+	beforeDestroy () {
+		window.removeEventListener('fb-sdk-ready', this.onFBReady)
 	},
 	methods: {
 		...mapActions('account', [ 'login', 'google' ]),
@@ -123,20 +131,15 @@ export default {
 				this.$toast.error('Something went wrong! ' + err)
 			})
 		},
-		authenticate (provider) {
-			const this_ = this
-			this.$auth.authenticate(provider).then(() => {
-				const token = this_.$auth.getToken()
-				this_.token = token
-				alert(`login success with token ${token}`)
-				if (provider === 'facebook') {
-					this_.$http.get('https://graph.facebook.com/v3.0/me?fields=id,name,email', {
-						params: { access_token: token }
-					}).then(response => {
-						this_.profile = JSON.stringify(response)
-					})
-				}
-			})
+		onFBReady () {
+			this.isFBReady = true
+		},
+		facebook () {
+			console.log(this.isFBReady)
+			const vm = this
+			FB.login(response => {
+				vm.statusChangeCallback(response)
+			}, { scope: 'publish_actions' })
 		},
 		
 		async googleLogin () {
