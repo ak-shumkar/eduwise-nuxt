@@ -19,6 +19,6 @@ jobs:
             git pull origin master
             rm -rf dist/
             rm -rf .nuxt/
-            /root/.nvm/versions/node/v14.17.5/bin/npm run build
-            /root/.nvm/versions/node/v14.17.5/bin/npm run generate
+            npm run build
+            npm run generate
 
