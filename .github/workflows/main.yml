@@ -15,5 +15,10 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
      
           script: |
-            lsb_release -a
+            cd /var/www/html/eduwise-nuxt/ 
+            git pull origin master
+            rm -rf dist/
+            rm -rf .nuxt/
+            npm run build
+            npm run generate
 
