@@ -15,6 +15,10 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
      
           script: |
-            echo 'Deployment successful to digital ocean' 
-            ls
+            cd /var/www/html/eduwise-nuxt/ 
+            git pull origin master
+            rm -rf dist/
+            rm -rf .nuxt/
+            npm run build
+            npm run generate
 
