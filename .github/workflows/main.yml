@@ -19,6 +19,7 @@ jobs:
             git pull origin master
             rm -rf dist/
             rm -rf .nuxt/
+            npm install
             npm run build
             npm run generate
 
