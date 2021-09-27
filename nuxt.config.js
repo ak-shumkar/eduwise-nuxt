@@ -102,6 +102,9 @@ export default {
 			}
 		]
 	},
+	server: {
+		port: 3000 // default: 3000
+	  },
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
 	css: [
@@ -144,11 +147,46 @@ export default {
 		'@nuxt/content',
 		'@nuxtjs/toast',
 		'cookie-universal-nuxt',
+		[
+			'@nuxtjs/firebase',
+			{
+				config: {
+					apiKey: 'AIzaSyBEO_F3cLQ7SNjatKvHQ_NQXZwI_y64wBc',
+					authDomain: 'facebook-login-bc477.firebaseapp.com',
+					projectId: 'facebook-login-bc477',
+					storageBucket: 'facebook-login-bc477.appspot.com',
+					messagingSenderId: '704931511041',
+					appId: '1:704931511041:web:22f4b7cc7ac0ec9aae3900',
+					measurementId: 'G-BTCV664MH4'
+				},
+				services: {
+					auth: {
+						initialize: {
+						  onAuthStateChangedAction: 'onAuthStateChanged',
+						},
+						ssr: false,
+					  }, // Just as example. Can be any other service.
+				}
+			}
+		  ]
 	],
 	toast: {
 		position: 'top-right',
 		duration: 3000
 	},
+	pwa: {
+		workbox: {
+		  importScripts: [ '/firebase-auth-sw.js' ],
+		  // by default the workbox module will not install the service worker in dev environment to avoid conflicts with HMR
+		  // only set this true for testing and remember to always clear your browser cache in development
+		  dev: process.env.NODE_ENV === 'development',
+		},
+		manifest: {
+			lang: 'en'
+		}
+	  },
+
+	firebase: {},
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {},
@@ -159,11 +197,6 @@ export default {
 	},
 
 	// PWA module configuration: https://go.nuxtjs.dev/pwa
-	pwa: {
-		manifest: {
-			lang: 'en'
-		}
-	},
 
 	// Content module configuration: https://go.nuxtjs.dev/config-content
 	content: {},

@@ -61,7 +61,7 @@
 									<div class="mb-2">
 										<button
 											type="button"
-											class="btn btn-block btn-google auth-form-btn"
+											class="btn btn-block btn-google auth-form-btn capitalize"
 											@click="googleLogin"
 										>
 											<i class="fab fa-google icon"></i>Connect using google
@@ -72,7 +72,7 @@
 									<div class="mb-2">
 										<button
 											type="button"
-											class="btn btn-block btn-facebook auth-form-btn"
+											class="btn btn-block btn-facebook auth-form-btn capitalize"
 											@click="facebook"
 										>
 											<i class="ti-facebook mr-2"></i>Connect using facebook
@@ -112,12 +112,13 @@ export default {
 			email: '',
 			personalID: '',
 			picture: '',
-			isFBReady: false
+			isFBReady: false,
 		}
 	},
-	mounted () {
+	 mounted () {
 		this.isFBReady = Vue.FB !== undefined
 		window.addEventListener('fb-sdk-ready', this.onFBReady)
+		// await this.$fire.authReady()
 	},
 	beforeDestroy () {
 		window.removeEventListener('fb-sdk-ready', this.onFBReady)
@@ -137,15 +138,16 @@ export default {
 		facebook () {
 			console.log(this.isFBReady)
 			const vm = this
-			FB.login(response => {
+			Vue.FB.login(response => {
 				vm.statusChangeCallback(response)
 			}, { scope: 'publish_actions' })
+			//  const provider = new this.$fireModule.auth 
 		},
 		
 		async googleLogin () {
 			try {
 				const googleUser = await this.$gAuth.signIn()
-				await this.google({ access_token: googleUser.Zb.access_token })
+				await this.google({ access_token: googleUser.$b.access_token })
 				this.$toast.success('You are logged in!')
 				window.location.href = '/'
 			} catch (err) {
@@ -163,5 +165,8 @@ export default {
 	}	
 	.icon {
 		padding-right: 10px;
+	}
+	.capitalize {
+		text-transform: capitalize;
 	}
 </style>

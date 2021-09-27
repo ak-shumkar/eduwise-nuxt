@@ -10,7 +10,7 @@
 					<li><a href="/login/" class="header__login">Log In</a></li>
 				</template>
 				<template v-else>
-					<li>{{ userData.user.first_name }} {{ userData.user.last_name }}</li>
+					<li>{{ userData.user.first_name }} {{ userData.user.last_name }}/<button class="reset-btn logout" @click="onLogout">Выйти</button></li>
 				</template>
 				
 			</ul>
@@ -20,6 +20,7 @@
 
 <script>
 import Cookies from 'js-cookie'
+import { mapActions } from 'vuex'
 export default {
 	name: 'Header',
 	data () {
@@ -27,6 +28,13 @@ export default {
 			userData: JSON.parse(Cookies.get('user') || '{}')
 		}
 	},
+	methods: {
+		...mapActions('account', [ 'reset' ]),
+		onLogout () {
+			this.reset()
+			location.reload()
+		}
+	}
 }
 </script>
 
@@ -98,5 +106,8 @@ header {
         }
         }
     }
+}
+.logout {
+    color: blue;
 }
 </style>

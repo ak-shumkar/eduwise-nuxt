@@ -1,5 +1,6 @@
 import { userService } from '@/_services/user.service'
 import Cookies from 'js-cookie'
+
 const user = JSON.parse(JSON.stringify(Cookies.get('user')) || '{}') || {}
 
 export const state = () => ({
@@ -19,6 +20,10 @@ export const actions = {
 			Cookies.set('user', JSON.stringify(res), { expires: 1 })
 			commit('SET_USER', res)
 		})
+	},
+	reset ({ commit }) {
+		commit('SET_USER', {})
+		Cookies.remove('user')
 	}
 }
 
