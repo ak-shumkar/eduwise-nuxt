@@ -64,7 +64,7 @@
 											class="btn btn-block btn-google auth-form-btn capitalize"
 											@click="googleLogin"
 										>
-											<i class="fab fa-google icon"></i>Connect using google
+											<i class="fab fa-google icon"></i>CONNECT USING GOOGLE
 											<!-- <img class="icon-image" src="../static/images/google-icon.svg" alt="Google sign in">
 											Connect using google -->
 										</button>
@@ -75,7 +75,7 @@
 											class="btn btn-block btn-facebook auth-form-btn capitalize"
 											@click="facebook"
 										>
-											<i class="ti-facebook mr-2"></i>Connect using facebook
+											<i class="ti-facebook mr-2"></i>CONNECT USING FACEBOOK
 											
 										</button>
 																
