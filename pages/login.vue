@@ -61,10 +61,11 @@
 									<div class="mb-2">
 										<button
 											type="button"
-											class="btn btn-block btn-google auth-form-btn capitalize"
+											class="btn btn-block btn-google auth-form-btn uppercase"
 											@click="googleLogin"
 										>
-											<i class="fab fa-google icon mr-2"></i>Connect using google
+
+											<i class="fab fa-google icon"></i>CONNECT USING GOOGLE
 											<!-- <img class="icon-image" src="../static/images/google-icon.svg" alt="Google sign in">
 											Connect using google -->
 										</button>
@@ -72,10 +73,10 @@
 									<div class="mb-2">
 										<button
 											type="button"
-											class="btn btn-block btn-facebook auth-form-btn capitalize"
+											class="btn btn-block btn-facebook auth-form-btn uppercase"
 											@click="facebook"
 										>
-											<i class="ti-facebook mr-2"></i>Connect using facebook
+											<i class="ti-facebook mr-2"></i>CONNECT USING FACEBOOK
 											
 										</button>
 																
