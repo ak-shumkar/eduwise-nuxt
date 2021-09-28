@@ -70,9 +70,31 @@
 									>SIGN UP</a
 									>
 								</div>
+								<div class="my-2">
+									<button
+										type="button"
+										class="btn btn-block btn-google auth-form-btn capitalize"
+										@click="googleLogin"
+									>
+										<i class="fab fa-google icon mr-2"></i> Connect using google
+										<!-- <img class="icon-image" src="../static/images/google-icon.svg" alt="Google sign in">
+											Connect using google -->
+									</button>
+								</div>
+								<div class="mb-2">
+									<button
+										type="button"
+										class="btn btn-block btn-facebook auth-form-btn capitalize"
+										@click="facebook"
+									>
+										<i class="ti-facebook mr-2"></i>Connect using facebook
+											
+									</button>
+																
+								</div>
 								<div class="text-center mt-4 font-weight-light">
 									Already have an account?
-									<a href="/login" class="text-primary">Login</a>
+									<a href="/login/" class="text-primary">Login</a>
 								</div>
 							</form>
 						</div>
@@ -86,8 +108,36 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
 	name: 'Register',
+	methods: {
+		...mapActions('account', [ 'login', 'google' ]),
+		async facebook (){
+			await this.$auth.loginWith('facebook').catch(e => {
+				this.$toast.show('Error', { icon: 'fingerprint' })
+			})
+		},
+		// facebook () {
+		// 	console.log(this.isFBReady)
+		// 	const vm = this
+		// 	Vue.FB.login(response => {
+		// 		vm.statusChangeCallback(response)
+		// 	}, { scope: 'publish_actions' })
+		// 	//  const provider = new this.$fireModule.auth 
+		// },
+		
+		async googleLogin () {
+			try {
+				const googleUser = await this.$gAuth.signIn()
+				await this.google({ access_token: googleUser.$b.access_token })
+				this.$toast.success('You are logged in!')
+				window.location.href = '/'
+			} catch (err) {
+				console.log(err)
+			}
+		}
+	}
 }
 </script>
 

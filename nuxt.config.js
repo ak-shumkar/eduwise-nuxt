@@ -222,4 +222,22 @@ export default {
 	publicRuntimeConfig: {
 		baseURL: process.env.BASE_URL || 'https://nuxtjs.org'
 	},
+
+	auth: {
+		strategies: {
+		  facebook: {
+				client_id: '154835410174873',
+				endpoints: {
+					userInfo: 'https://graph.facebook.com/v2.12/me?fields=about,name,picture{url},email',
+				},
+				scope: [ 'public_profile', 'email' ]
+		  },
+		},
+		redirect: {
+		  login: '/?login=1',
+		  logout: '/',
+		  user: '/profile',
+		  callback:'/'
+		}
+	}
 }
