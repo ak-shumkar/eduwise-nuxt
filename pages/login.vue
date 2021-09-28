@@ -64,6 +64,7 @@
 											class="btn btn-block btn-google auth-form-btn uppercase"
 											@click="googleLogin"
 										>
+
 											<i class="fab fa-google icon"></i>CONNECT USING GOOGLE
 											<!-- <img class="icon-image" src="../static/images/google-icon.svg" alt="Google sign in">
 											Connect using google -->
@@ -135,14 +136,19 @@ export default {
 		onFBReady () {
 			this.isFBReady = true
 		},
-		facebook () {
-			console.log(this.isFBReady)
-			const vm = this
-			Vue.FB.login(response => {
-				vm.statusChangeCallback(response)
-			}, { scope: 'publish_actions' })
-			//  const provider = new this.$fireModule.auth 
+		async facebook (){
+			await this.$auth.loginWith('facebook').catch(e => {
+				this.$toast.show('Error', { icon: 'fingerprint' })
+			})
 		},
+		// facebook () {
+		// 	console.log(this.isFBReady)
+		// 	const vm = this
+		// 	Vue.FB.login(response => {
+		// 		vm.statusChangeCallback(response)
+		// 	}, { scope: 'publish_actions' })
+		// 	//  const provider = new this.$fireModule.auth 
+		// },
 		
 		async googleLogin () {
 			try {
