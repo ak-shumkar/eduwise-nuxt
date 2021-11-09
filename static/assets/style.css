@@ -1,101 +1,52 @@
 * {
     margin: 0;
     padding: 0;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-body {
-    color: #192038;
-    background-color: #f9f9fa;
-    font-family: 'Roboto', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
-.basic-btn,
-.button,
-.flat_basic-btn,
-.flat_link-btn,
-.flat_primary-btn,
-.flat_warn-btn,
-.header__dark .header__button,
-.header__dark .header__button--log,
-.header__light .header__button,
-.header__light .header__button--log,
-.header__transparent .header__button,
-.header__transparent .header__button--log,
-.icon_right-btn,
-.light-btn,
-.new-application__btn_two button[backbtn],
-.outlined_basic-btn,
-.outlined_light-btn,
-.outlined_link-btn,
-.outlined_primary-btn,
-.outlined_warn-btn,
-.primary-btn,
-.raised_basic-btn,
-.raised_link-btn,
-.raised_primary-btn,
-.raised_warn-btn,
-.warn-btn,
-button[disabled] {
-    text-align: center;
-    padding: 10px 32px;
-    font-size: 0.875rem;
-    border: none;
-    background-color: inherit;
-    text-transform: capitalize;
-    font-family: Roboto-medium, sans-serif;
-    letter-spacing: 1.25px;
-    cursor: pointer;
-    border-radius: 4px;
-    color: inherit;
-    outline: none;
-    text-decoration: none;
-}
-
-p {
-    font-weight: 600;
-}
-
-.flat_primary-btn,
-.header__light .header__button--log {
-    background-color: #2264d1;
-    color: #fff;
-}
-
-.flat_primary-btn:hover,
-.header__light .header__button--log:hover {
-    background-color: #1b50a7;
-    color: #fff;
-    text-decoration: none;
-}
-
-[class*=' ico-'],
-[class^='ico-'] {
-    font-family: icomoon !important;
-    speak: never;
-    font-style: normal;
+@font-face {
+    font-family: Gilroy;
+    src: url('/fonts/gilroy/Gilroy-Medium.ttf');
+    font-weight: 500;
+  }
+  
+@font-face {
+    font-family: Gilroy;
+    src: url('/fonts/gilroy/Gilroy-Regular.ttf');
     font-weight: 400;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+}
+@font-face {
+    font-family: Gilroy;
+    src: url('/fonts/gilroy/Gilroy-ExtraBold.ttf');
+    font-weight: 800;
 }
 
-.reset-btn {
-    outline: none;
+:root {
+    --main-primary: #00409F;
+    --main-white: #ffffff;
+    --main-black: #000000;
+    --main-blue: #5780E7;
+    --main-secondary: #0020C9;
+    --main-gray: rgba(255, 255, 255, 0.54);
+    --main-whitesmoke: rgba(255, 255, 255, 0.46);
+    --main-green: #00A341;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button {
     border: none;
-    background: inherit;
+    cursor: pointer;
 }
-/*# sourceMappingURL=style.css.map */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type='number'] {
-    -moz-appearance: textfield;
+.section {
+    padding: 0 147px;
 }

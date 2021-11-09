@@ -103,7 +103,7 @@ export default {
 		]
 	},
 	server: {
-		port: 3000 // default: 3000
+		port: 3001 // default: 3000
 	  },
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
@@ -226,18 +226,19 @@ export default {
 	auth: {
 		strategies: {
 		  facebook: {
-				client_id: '154835410174873',
 				endpoints: {
-					userInfo: 'https://graph.facebook.com/v2.12/me?fields=about,name,picture{url},email',
+					userInfo:
+					'https://graph.facebook.com/v6.0/me?fields=id,first_name,last_name,email',
 				},
-				scope: [ 'public_profile', 'email' ]
+				clientId: '853303225615295',
+				scope: [ 'public_profile', 'email' ],
 		  },
 		},
 		redirect: {
-		  login: '/?login=1',
+		  login: '/',
 		  logout: '/',
-		  user: '/profile',
-		  callback:'/'
-		}
-	}
+		  callback: '/',
+		  home: '/',
+		},
+	  },
 }

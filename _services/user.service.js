@@ -11,6 +11,11 @@ class UserService extends BaseApiService {
 		return this.sendPostRequest(url, data)
 	}
 
+	facebook (data) {
+		const url = `${process.env.baseUrl}/api/auth/facebook/`
+		return this.sendPostRequest(url, data)
+	}
+
 	register (data) {
 		const url = `${process.env.baseUrl}/api/auth/users/`
 		return this.sendPostRequest(url, data)

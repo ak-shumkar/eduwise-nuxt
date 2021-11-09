@@ -137,7 +137,7 @@ export default {
 			this.isFBReady = true
 		},
 		async facebook (){
-			await this.$auth.loginWith('facebook').catch(e => {
+			await this.$auth.loginWith('facebook').then(res => console.log(res)).catch(e => {
 				this.$toast.show('Error', { icon: 'fingerprint' })
 			})
 		},
