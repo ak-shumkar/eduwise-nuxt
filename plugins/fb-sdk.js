@@ -22,7 +22,7 @@ vueFb.install = function install (Vue, options) {
 }
 
 Vue.use(vueFb, {
-	appId: '853303225615295',
+	appId: '1548784208791836',
 	autoLogAppEvents: true,
 	xfbml: true,
 	version: 'v2.9'

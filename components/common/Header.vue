@@ -9,7 +9,10 @@
 				<li><a href="/login/" class="header__login">Log In</a></li>
 			</template>
 			<template v-else>
-				<li>{{ userData.user.first_name }} {{ userData.user.last_name }}/<button class="reset-btn logout" @click="onLogout">Выйти</button></li>
+				<li class="user">
+					<span class="user__name">{{ userData.user.first_name }} {{ userData.user.last_name }}</span>
+					/<button class="user__logout" @click="onLogout">Выйти</button>
+				</li>
 			</template>
 				
 		</ul>
@@ -82,6 +85,21 @@ header {
                 }
             }
         }
+    }
+}
+.user {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    color: var(--main-secondary);
+    font-size: 24px;
+    line-height: 28px;
+    padding: 0 20px;
+
+    &__logout {
+        font-size: 20px;
+        color: var(--main-secondary);
+        background: transparent;
     }
 }
 </style>

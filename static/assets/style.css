@@ -50,3 +50,6 @@ button {
 .section {
     padding: 0 147px;
 }
+.flex {
+    display: flex;
+}

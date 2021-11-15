@@ -103,7 +103,7 @@ export default {
 		]
 	},
 	server: {
-		port: 3001 // default: 3000
+		port: 3000 // default: 3000
 	  },
 
 	// Global CSS: https://go.nuxtjs.dev/config-css
@@ -140,53 +140,16 @@ export default {
 	modules: [
 		// https://go.nuxtjs.dev/axios
 		'@nuxtjs/axios',
-		'@nuxtjs/auth-next',
 		// https://go.nuxtjs.dev/pwa
 		'@nuxtjs/pwa',
 		// https://go.nuxtjs.dev/content
 		'@nuxt/content',
 		'@nuxtjs/toast',
-		'cookie-universal-nuxt',
-		[
-			'@nuxtjs/firebase',
-			{
-				config: {
-					apiKey: 'AIzaSyBEO_F3cLQ7SNjatKvHQ_NQXZwI_y64wBc',
-					authDomain: 'facebook-login-bc477.firebaseapp.com',
-					projectId: 'facebook-login-bc477',
-					storageBucket: 'facebook-login-bc477.appspot.com',
-					messagingSenderId: '704931511041',
-					appId: '1:704931511041:web:22f4b7cc7ac0ec9aae3900',
-					measurementId: 'G-BTCV664MH4'
-				},
-				services: {
-					auth: {
-						initialize: {
-						  onAuthStateChangedAction: 'onAuthStateChanged',
-						},
-						ssr: false,
-					  }, // Just as example. Can be any other service.
-				}
-			}
-		  ]
 	],
 	toast: {
 		position: 'top-right',
 		duration: 3000
 	},
-	pwa: {
-		workbox: {
-		  importScripts: [ '/firebase-auth-sw.js' ],
-		  // by default the workbox module will not install the service worker in dev environment to avoid conflicts with HMR
-		  // only set this true for testing and remember to always clear your browser cache in development
-		  dev: process.env.NODE_ENV === 'development',
-		},
-		manifest: {
-			lang: 'en'
-		}
-	  },
-
-	firebase: {},
 
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {},
@@ -222,23 +185,4 @@ export default {
 	publicRuntimeConfig: {
 		baseURL: process.env.BASE_URL || 'https://nuxtjs.org'
 	},
-
-	auth: {
-		strategies: {
-		  facebook: {
-				endpoints: {
-					userInfo:
-					'https://graph.facebook.com/v6.0/me?fields=id,first_name,last_name,email',
-				},
-				clientId: '853303225615295',
-				scope: [ 'public_profile', 'email' ],
-		  },
-		},
-		redirect: {
-		  login: '/',
-		  logout: '/',
-		  callback: '/',
-		  home: '/',
-		},
-	  },
 }

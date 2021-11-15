@@ -119,7 +119,6 @@ export default {
 	 mounted () {
 		this.isFBReady = Vue.FB !== undefined
 		window.addEventListener('fb-sdk-ready', this.onFBReady)
-		// await this.$fire.authReady()
 	},
 	beforeDestroy () {
 		window.removeEventListener('fb-sdk-ready', this.onFBReady)
@@ -136,24 +135,20 @@ export default {
 		onFBReady () {
 			this.isFBReady = true
 		},
-		async facebook (){
-			await this.$auth.loginWith('facebook').then(res => console.log(res)).catch(e => {
-				this.$toast.show('Error', { icon: 'fingerprint' })
+		facebook () {
+			Vue.FB.login(({ authResponse }) => {
+				console.log(authResponse)
+				userService.facebook({ access_token: authResponse.accessToken, code: '', id_token: '' }).then(res => {
+					this.$toast.success('You are in!')
+				}).catch(err => console.log(err))
 			})
 		},
-		// facebook () {
-		// 	console.log(this.isFBReady)
-		// 	const vm = this
-		// 	Vue.FB.login(response => {
-		// 		vm.statusChangeCallback(response)
-		// 	}, { scope: 'publish_actions' })
-		// 	//  const provider = new this.$fireModule.auth 
-		// },
 		
 		async googleLogin () {
 			try {
 				const googleUser = await this.$gAuth.signIn()
-				await this.google({ access_token: googleUser.$b.access_token })
+				const { access_token } = googleUser.getAuthResponse()
+				await this.google({ access_token })
 				this.$toast.success('You are logged in!')
 				window.location.href = '/'
 			} catch (err) {
