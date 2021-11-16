@@ -9,34 +9,18 @@
 						<h1>Your Admission. Simplified</h1>
 						<p>A single application for international students to apply to the world’s best schools and universities</p>
 						<div>
-							<button>Learn more</button>
-							<button class="blue">Start your search</button>
+							<button class="primary-btn">Learn more</button>
+							<a class="primary-btn blue left-space" href="/universities/">Start your search</a>
 						</div>
 					</div>
 				</div>
 			</section>
-			<section class="category section">
-				<div class="container">
-					<h2 class="category__main__title">Explore <br>By Category</h2>
-					<div class="category__content">
-						<div class="category__item">
-							<h3 class="category__title">Engineering & Technology</h3>
-						</div>
-						<div class="category__item">
-						</div>
-						<div class="category__item">
-						</div>
-						<div class="category__item">
-						</div>
-						<div class="category__item">
-						</div>
-						<div class="category__item">
-						</div>
-					</div>
-				</div>
-			</section>
+			<category-section />
+			<how-we-work />
+			<work-together />
+			<apply-now />
 		</main>
-		<!-- <footer-page></footer-page> -->
+		<footer-page></footer-page>
 	</div>
 </template>
 
@@ -44,9 +28,13 @@
 import { userService } from '@/_services/user.service'
 import HeaderPage from '../components/common/Header.vue'
 import FooterPage from '../components/common/Footer.vue'
+import CategorySection from '../components/index/CategorySection.vue'
+import HowWeWork from '../components/index/HowWeWork.vue'
+import WorkTogether from '../components/index/WorkTogether.vue'
+import ApplyNow from '../components/index/ApplyNow.vue'
 export default {
 	name: 'Home',
-	components: { HeaderPage },
+	components: { HeaderPage, CategorySection, HowWeWork, WorkTogether, ApplyNow, FooterPage },
 }
 </script>
 
@@ -54,19 +42,6 @@ export default {
 	.home {
 		font-family: Gilroy, sans-serif;
     	font-weight: 500;
-
-		button {
-			border-radius: 5px;
-			background: var(--main-white);
-			color: var(--main-secondary);
-			padding: 6px 30px;
-
-			&.blue {
-				color: var(--main-white);
-				background: var(--main-primary);
-				margin-left: 29px;
-			}
-		}
 	}
 	.main {
 		height: 900px;
@@ -105,19 +80,6 @@ export default {
 				color: var(--main-primary);
 				margin: 23px 0 33px;
 				width: 520px;
-			}
-		}
-	}
-	.category {
-		margin: 140px 0 125px;
-		&__title {
-			
-		}
-		&__main {
-			&__title {
-				font-size: 36px;
-				line-height: 42px;
-				color: var(--main-primary);
 			}
 		}
 	}

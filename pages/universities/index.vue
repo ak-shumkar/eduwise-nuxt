@@ -468,7 +468,7 @@ export default {
 		}
 	}
 	.content {
-		margin-bottom: 120px;
+		padding-bottom: 120px;
 		&__container {
 			display: flex;
 			justify-content: space-between;

@@ -139,7 +139,8 @@ export default {
 			Vue.FB.login(({ authResponse }) => {
 				console.log(authResponse)
 				userService.facebook({ access_token: authResponse.accessToken, code: '', id_token: '' }).then(res => {
-					this.$toast.success('You are in!')
+					this.$toast.success('You are logged in!')
+					window.location.href = '/'
 				}).catch(err => console.log(err))
 			})
 		},

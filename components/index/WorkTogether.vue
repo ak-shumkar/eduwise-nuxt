@@ -1,0 +1,103 @@
+<template>
+	<section class="work-together">
+		<div class="container">
+			<h2 class="work-together__title">Let’s work together</h2>
+			<div class="work-together__body">
+				<div class="work-together__card">
+					<img class="work-together__card__img" src="/img/index/card1.png">
+					<div class="work-together__card__body">
+						<h3 class="work-together__card__title">Students</h3>
+						<p class="work-together__card__text">
+							Explore best-fit universities, receive expert advice, customize your level of support, and use a single application to apply to schools and universities around the world.
+						</p>
+						<button class="work-together__card__btn">Get started</button>
+					</div>
+				</div>
+				<div class="work-together__card">
+					<img class="work-together__card__img" src="/img/index/card2.png">
+					<div class="work-together__card__body">
+						<h3 class="work-together__card__title">Recruitment Partners</h3>
+						<p class="work-together__card__text">
+							Offer your students access to the best portfolio of global institutions, and receive training, support, and admissions expertise from leading education specialists.						</p>
+						<button class="work-together__card__btn">Become a Partner</button>
+					</div>
+				</div>
+				<div class="work-together__card">
+					<img class="work-together__card__img" src="/img/index/card2.png">
+					<div class="work-together__card__body">
+						<h3 class="work-together__card__title">High School Partners</h3>
+						<p class="work-together__card__text">
+							Start exploring the best schools and universities for international students. We carefully review each university and program to ensure we are providing you with the best possible options and outcomes.						
+						</p>
+						<button class="work-together__card__btn">Become a Partner</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</template>
+
+<script>
+export default {
+	name: 'WorkTogether'
+}
+</script>
+
+<style lang="scss">
+    .work-together {
+        margin: 222px 0 167px;
+
+        &__title {
+            font-size: 64px;
+            line-height: 75px;
+            color: #000000;
+            margin-bottom: 94px;
+            text-align: center;
+        }
+        &__body {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__card {
+            background: #FFFFFF;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 32px;
+            width: 447px;
+
+            &__img {
+                height: 164px;
+                border-radius: 32px 32px 0px 0px;
+                width: 100%;
+            }
+            &__body {
+                margin: 14px 28px 18px;
+                text-align: center;
+            }
+            &__title {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000;
+                margin-bottom: 20px;
+            }
+            &__text {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 17px;
+                color: #000000;
+                margin-bottom: 28px;
+                max-width: 394px;
+            }
+            &__btn {
+                background: #00409F;
+                border-radius: 5px;
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 28px;
+                height: 40px;
+                width: 90%;
+                color: #FFFFFF;
+            }
+        }
+    }
+</style>

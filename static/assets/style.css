@@ -53,3 +53,16 @@ button {
 .flex {
     display: flex;
 }
+.primary-btn {
+    border-radius: 5px;
+    background: var(--main-white);
+    color: var(--main-secondary);
+    padding: 6px 30px;
+}
+.primary-btn.blue {
+    color: var(--main-white);
+    background: var(--main-primary);
+}
+.left-space {
+    margin-left: 29px;
+}

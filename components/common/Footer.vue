@@ -4,10 +4,10 @@
 			<div class="footer__container">
 				<div class="footer__col">
 					<!-- <img
-            src="assets/images/logo-light.svg"
-            alt="logo icon"
-            class="footer__logo"
-          /> -->
+						src="/img/logo.jpg"
+						alt="logo icon"
+						class="footer__logo"
+					/> -->
 					<div class="footer__logo">
 						<h2>Eduwise</h2>
 					</div>
@@ -35,34 +35,31 @@
 					<h5 class="footer__col_title">Product</h5>
 					<a class="footer__col_item ng-star-inserted" href="/en/about-us">
 						Who We Are </a
-					><!----><!----><!---->
+					>
 				</div>
 				<div class="footer__col ng-star-inserted">
 					<h5 class="footer__col_title">Services</h5>
 					<a class="footer__col_item ng-star-inserted" href="/en/for-students">
-						Students </a
-					><!----><!----><a
+						Students </a>
+					<a
 						class="footer__col_item ng-star-inserted"
 						href="/en/for-agents"
 					>
-						Recruitment Partners </a
-					><!----><!----><a
+						Recruitment Partners </a>
+					<a
 						class="footer__col_item ng-star-inserted"
 						href="/en/for-partners"
 					>
-						High School Partners </a
-					><!----><!----><!---->
+						High School Partners </a>
 				</div>
 				<div class="footer__col ng-star-inserted">
 					<h5 class="footer__col_title">Help</h5>
 					<a class="footer__col_item ng-star-inserted" href="/en/questions">
-						FAQ </a
-					><!----><!----><a
-						class="footer__col_item ng-star-inserted"
+						FAQ </a>
+					<a class="footer__col_item ng-star-inserted"
 						href="/en/contact-us"
 					>
-						Contact us </a
-					><!----><!----><!---->
+						Contact us </a>
 				</div>
 				<div class="footer__col ng-star-inserted">
 					<h5 class="footer__col_title">Legal</h5>
@@ -80,7 +77,7 @@
 				</div>
 			</div>
 			<div><hr class="separator" /></div>
-			<p class="footer__text">© 2021 Eduwise.com</p>
+			<p class="footer__text">© 2021 Eduwise.education</p>
 		</footer>
 	</div>
 </template>
