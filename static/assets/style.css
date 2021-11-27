@@ -66,3 +66,27 @@ button {
 .left-space {
     margin-left: 29px;
 }
+.button {
+    height: 45px;
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--main-primary);
+    color: #ffffff;
+}
+
+.button.green {
+    background-color: var(--main-green);
+}
+
+.button:hover {
+    background-color: #004ab9;
+}
+.button.green:hover {
+    background-color: #00bd4b;
+}
+
+.gap {
+    margin: 0 10px;
+}

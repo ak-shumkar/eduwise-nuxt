@@ -16,7 +16,7 @@ export default {
 <style lang="scss">
     .univer {
         &__head {
-            margin-top: 60px;
+            margin-top: 100px;
             position: relative;
             width: 100%;
             height: 31.25rem;

@@ -3,11 +3,11 @@
 		<header-page></header-page>
 		<main>
 			<div class="main">
-				<div class="university ng-star-inserted">
+				<div class="university">
 					<section class="search-title">
 						<div class="container search-title__container">
 							<h3 class="search-title__caption"> Find your dream institution </h3>
-							<span class="search-title__subtitle ng-star-inserted"> 265 institutions found </span>
+							<span class="search-title__subtitle"> 265 institutions found </span>
 						</div>
 					</section>
 					<section class="filter">
