@@ -148,6 +148,7 @@ export default {
 			display: flex;
 			justify-content: space-between;
 			min-height: 600px;
+			width: 90%;
 			margin: 0 auto 130px;
 		}
     }

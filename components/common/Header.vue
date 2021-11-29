@@ -52,8 +52,8 @@ header {
 
     .header {
         &__logo {
-            font-size: 24px;
-            line-height: 28px;
+            font-size: 20px;
+            line-height: 24px;
             > a {
                 color: var(--main-primary);
             }
@@ -72,15 +72,15 @@ header {
                 align-items: center;
                 background: inherit;
                 color: var(--main-secondary);
-                font-size: 24px;
-                height: 57px;
-                line-height: 28px;
+                font-size: 20px;
+                height: 45px;
+                line-height: 24px;
                 padding: 0 40px;
                 &.header__login {
                     background: #00A341;
-                    border-radius: 42px;
+                    border-radius: 22px;
                     font-weight: 800;
-                    line-height: 29px;
+                    line-height: 22px;
                     color: #FFFFFF;
                 }
             }

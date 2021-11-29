@@ -7,7 +7,9 @@
 				<p>A single application for international students to apply to the world’s best schools and universities</p>
 				<div class="flex search">
 					<div class="category-select">
-						<button class="button" @click="onCategorySelect">Category</button>
+						<button class="button" @click="onCategorySelect">
+							Category <i class="icon-down ti-angle-down" :class="{ 'up' : isCategoryShow }"></i>
+						</button>
 
 						<div v-if="isCategoryShow" class="category-select__content">
 							<div class="icon-section">
@@ -27,7 +29,9 @@
 						</div>
 					</div>
 					<div class="category-select gap">
-						<button class="button" @click="onLocationSelect">Location</button>
+						<button class="button" @click="onLocationSelect">
+							Location <i class="icon-down ti-angle-down" :class="{ 'up' : isLocationShow }"></i>
+						</button>
 
 						<div v-if="isLocationShow" class="category-select__content">
 							<div class="icon-section">
@@ -50,7 +54,7 @@
 						<i class="ti-search input-content__icon"></i>
 						<input class="input-content__input" type="text">
 					</div>
-					<button class="button green gap">Search</button>
+					<button class="button green gap" @click="$router.push('/universities/')">Search</button>
 				</div>
 			</div>
 		</div>
@@ -133,82 +137,4 @@ export default {
 			}
 		}
 	}
-    .input-content {
-        width: 50%;
-        position: relative;
-
-        &__icon {
-            position: absolute;
-            transform: translateY(-50%);
-            top: 23px;
-            padding-left: 10px;
-            font-size: 18px;
-        }
-
-        &__input {
-            width: 100%;
-            height: 45px;
-            border: none;
-            outline: none;
-            padding: 0 40px;
-            font-size: 18px;
-
-            &:focus {
-                border: 1px solid var(--main-primary)
-            }
-        }
-    }
-    .icon-section {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        margin: 0 0 20px 0;
-        font-size: 22px;
-
-        &__btn {
-            background: none;
-        }
-    }
-    .category-select {
-        &__items {
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        &__content {
-            left: 0;
-            position: absolute;
-            margin-top: 10px;
-            background-color: #fff;
-            padding: 20px;
-            width: 100%;
-            border-bottom: 1px solid whitesmoke;
-        }
-        &__item {
-            flex: 1;
-            margin-right: 30px;
-            &:last-child {
-                margin-right: 0;
-            }
-            &__title {
-                font-weight: bold;
-            }
-            &__list {
-                list-style: none;
-                padding: 0;
-            }
-            &__content {
-                display: flex;
-                justify-content: space-between;
-            }
-            &__count {
-                color: #b2b2b2;
-            }
-        }
-    }
-    .search {
-        position: relative;
-    }
 </style>

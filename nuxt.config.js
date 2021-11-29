@@ -116,6 +116,7 @@ export default {
 		'~/static/js/select.dataTables.min.css',
 		'~/static/css/vertical-layout-light/style.css',
 		'~/static/assets/style',
+		'~/static/assets/globals.scss',
 		'~/static/vendors/mdi/css/materialdesignicons.min.css',
 	],
 

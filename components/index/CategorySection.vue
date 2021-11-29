@@ -1,23 +1,8 @@
 <template>
 	<section class="category section">
 		<div class="container">
-			<h2 class="category__main__title">Explore <br>By Category</h2>
-			<div class="category__content">
-				<div class="category__item join-row" :style="`background-image: url('img/index/Rectangle 5.png')`">
-					<div class="category__backdrop"></div>
-					<h3 class="category__title">Engineering & Technology</h3>
-				</div>
-				<div class="category__item" :style="`background-image: url('img/index/Rectangle 18.png')`">
-				</div>
-				<div class="category__item" :style="`background-image: url('img/index/Rectangle 19.png')`">
-				</div>
-				<div class="category__item" :style="`background-image: url('img/index/Rectangle 16.png')`">
-				</div>
-				<div class="category__item join-row" :style="`background-image: url('img/index/Rectangle 15.png')`">
-				</div>
-				<div class="category__item" :style="`background-image: url('img/index/Rectangle 17.png')`">
-				</div>
-			</div>
+			<h2 class="category__main__title">Browse programs by category</h2>
+			
 			<button class="primary-btn blue category__all-btn">All Categories</button>
 		</div>
 	</section>

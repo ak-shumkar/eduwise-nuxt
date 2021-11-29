@@ -206,6 +206,7 @@ export default {
 		}
 		&-detail {
 			width: 70%;
+			margin-left: 5%;
 			h1 {
 				font-weight: 700;
 				margin: 2em 0;

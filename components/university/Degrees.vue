@@ -29,9 +29,6 @@
 <script>
 export default {
 	name: 'Degrees',
-	mounted () {
-		console.log(this.$route.path)
-	}
 }
 </script>
 

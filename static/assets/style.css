@@ -53,6 +53,15 @@ button {
 .flex {
     display: flex;
 }
+.justify-between {
+    justify-content: space-between;
+}
+.items-center {
+    align-items: center;
+}
+.flex-1 {
+    flex: 1;
+}
 .primary-btn {
     border-radius: 5px;
     background: var(--main-white);
@@ -70,14 +79,20 @@ button {
     height: 45px;
     min-width: 120px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--main-primary);
     color: #ffffff;
+    padding: 0 15px;
+}
+
+.button.mid {
+    width: 200px;
 }
 
 .button.green {
     background-color: var(--main-green);
+    justify-content: center;
 }
 
 .button:hover {
@@ -90,3 +105,27 @@ button {
 .gap {
     margin: 0 10px;
 }
+input[type=checkbox] {
+    -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   background-color: #ffffff;
+   border: 1px solid transparent;
+   transition: all 300ms ease-in-out;
+}
+input[type=checkbox]:focus {
+    border: 1px solid var(--main-secondary);
+}
+input[type=checkbox]:checked {
+    background-color: var(--main-primary);
+}
+input[type=checkbox]:checked:after {
+    content: "";
+    width: 85%;
+    height: 50%;
+    display: block;
+    margin-left: 3%;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: translate(5%, 20%) rotate(-50deg);
+} 
