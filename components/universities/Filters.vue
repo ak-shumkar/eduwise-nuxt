@@ -33,19 +33,14 @@
 import CustomSelect from '../common/forms/CustomSelect.vue'
 export default {
 	name: 'Filters',
-	key: to => to.fullPath,
+	
 	components: { CustomSelect },
 	data () {
 		return {
 			isShowType: false
 		}
 	},
-	fetch ({ app, store, route }) {
-		console.log('fetch')
-	},
-	watchQuery: [
-		'showType'
-	],
+	
 	mounted () {
 		this.isShowType = this.$route.query.showType === 'university'
 	},
