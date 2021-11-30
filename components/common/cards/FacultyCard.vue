@@ -1,5 +1,5 @@
 <template>
-	<div class="f-card">
+	<a href="/universities/1/art/" class="f-card">
 		<div class="f-card__head">
 			<h3 class="f-card__title">Master in Insurance & Risk Management</h3>
 			<i class="ti-heart f-card__heart" />
@@ -24,7 +24,7 @@
 				On campus
 			</span>
 		</div>
-	</div>
+	</a>
 </template>
 
 <script>
@@ -40,6 +40,13 @@ export default {
         border-radius: 8px;
 		border: 1px solid #ececec;
 		box-shadow: 0 8px 16px rgb(18 103 142 / 10%);
+        display: flex;
+        flex-direction: column;
+        color: inherit;
+
+        &:hover {
+            color: inherit;
+        }
 
         &__head {
             display: flex;

@@ -8,8 +8,8 @@
 					<section class="content">
 						<div class="container content__container">
 							<div class="content__main">
-								<university-card />
-								<faculty-card />
+								<university-card v-if="isUniversity" />
+								<faculty-card v-else />
 							</div>
 						</div>
 					</section>
@@ -27,17 +27,22 @@ import Filters from '../../components/universities/Filters.vue'
 import UniversityCard from '../../components/common/cards/UniversityCard.vue'
 import FacultyCard from '../../components/common/cards/FacultyCard.vue'
 export default {
+	key: to => to.fullPath,
 	components: { HeaderPage, FooterPage, Filters, UniversityCard, FacultyCard },
 	data () {
 		return {
-
+			isUniversity: false
 		}
 	},
-	methods: {
-		onSearch () {
-			
-		}
-	}
+	fetch ({ app, store, route }) {
+		console.log('fetch')
+	},
+	watchQuery: [
+		'showType'
+	],
+	mounted () {
+		this.isUniversity = this.$route.query.showType === 'university'
+	},
 }
 </script>
 

@@ -1,9 +1,9 @@
 <template>
 	<div class="category-select">
 		<label>
-			<span class="category-select__label">{{ title }}</span>
-			<button class="button mid" @click="onShowHide">
-				Category <i class="icon-down ti-angle-down" :class="{ 'up' : isShow }"></i>
+			<span v-if="!noTitle" class="category-select__label">{{ title }}</span>
+			<button class="button mid capitalize" @click="onShowHide">
+				{{ label ? label : title }} <i class="icon-down ti-angle-down" :class="{ 'up' : isShow }"></i>
 			</button>
 		</label>
 
@@ -30,7 +30,9 @@
 export default {
 	name: 'CustomSelect',
 	props: {
-		title: { type: String, required: true }
+		title: { type: String, required: true },
+		noTitle: { type: Boolean, default: false },
+		label: { type: String, default: '' }
 	},
 	data () {
 		return {

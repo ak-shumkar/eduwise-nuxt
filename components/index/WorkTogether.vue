@@ -45,11 +45,11 @@ export default {
 
 <style lang="scss">
     .work-together {
-        margin: 222px 0 167px;
+        margin: 49px 0 84px;
 
         &__title {
-            font-size: 64px;
-            line-height: 75px;
+            font-size: 36px;
+            line-height: 42px;
             color: #000000;
             margin-bottom: 94px;
             text-align: center;

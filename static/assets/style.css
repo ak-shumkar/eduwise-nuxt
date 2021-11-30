@@ -87,7 +87,11 @@ button {
 }
 
 .button.mid {
-    width: 200px;
+    min-width: 200px;
+}
+
+.button.capitalize {
+    text-transform: uppercase;
 }
 
 .button.green {

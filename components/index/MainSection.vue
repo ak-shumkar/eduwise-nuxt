@@ -5,56 +5,14 @@
 			<div class="main__content">
 				<h1>Your Admission. Simplified</h1>
 				<p>A single application for international students to apply to the world’s best schools and universities</p>
-				<div class="flex search">
-					<div class="category-select">
-						<button class="button" @click="onCategorySelect">
-							Category <i class="icon-down ti-angle-down" :class="{ 'up' : isCategoryShow }"></i>
-						</button>
-
-						<div v-if="isCategoryShow" class="category-select__content">
-							<div class="icon-section">
-								<button class="icon-section__btn" @click="isCategoryShow = false"><i class="ti-close"></i></button>
-							</div>
-							<div class="category-select__items">
-								<div v-for="i in 4" :key="i" class="category-select__item">
-									<h4 class="category-select__item__title">A-G</h4>
-									<ul class="category-select__item__list">
-										<li v-for="i in 10" :key="i" class="category-select__item__content">
-											<span class="category-select__item__name">Humanity</span>
-											<span class="category-select__item__count">(1923)</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="category-select gap">
-						<button class="button" @click="onLocationSelect">
-							Location <i class="icon-down ti-angle-down" :class="{ 'up' : isLocationShow }"></i>
-						</button>
-
-						<div v-if="isLocationShow" class="category-select__content">
-							<div class="icon-section">
-								<button class="icon-section__btn" @click="isLocationShow = false"><i class="ti-close"></i></button>
-							</div>
-							<div class="category-select__items">
-								<div v-for="i in 2" :key="i" class="category-select__item">
-									<h4 class="category-select__item__title">B-T</h4>
-									<ul class="category-select__item__list">
-										<li v-for="i in 10" :key="i" class="category-select__item__content">
-											<span class="category-select__item__name">Humanity</span>
-											<span class="category-select__item__count">(1923)</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="flex relative space-x-10">
+					<custom-select no-title title="Category" />
+					<custom-select no-title title="Location" />
 					<div class="input-content">
 						<i class="ti-search input-content__icon"></i>
 						<input class="input-content__input" type="text">
 					</div>
-					<button class="button green gap" @click="$router.push('/universities/')">Search</button>
+					<button class="button green" @click="$router.push('/universities/')">Search</button>
 				</div>
 			</div>
 		</div>
@@ -62,8 +20,10 @@
 </template>
 
 <script>
+import CustomSelect from '@/components/common/forms/CustomSelect.vue'
 export default {
 	name: 'MainSection',
+	components: { CustomSelect },
 	data () {
 		return {
 			isCategoryShow: false,

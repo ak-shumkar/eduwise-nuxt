@@ -63,7 +63,7 @@ header {
             grid-auto-flow: column;
             list-style: none;
             background: var(--main-gray);
-            border-radius: 42px;
+            border-radius: 5px;
             margin: 0;
             padding: 0;
 
@@ -72,15 +72,15 @@ header {
                 align-items: center;
                 background: inherit;
                 color: var(--main-secondary);
-                font-size: 20px;
-                height: 45px;
-                line-height: 24px;
+                height: 57px;
+                font-size: 24px;
+                line-height: 28px;
                 padding: 0 40px;
                 &.header__login {
                     background: #00A341;
-                    border-radius: 22px;
                     font-weight: 800;
-                    line-height: 22px;
+                    font-size: 24px;
+                    line-height: 29px;
                     color: #FFFFFF;
                 }
             }

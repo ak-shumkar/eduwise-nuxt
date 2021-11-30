@@ -12,15 +12,15 @@
 					</div>
 
 					<label class="filter__item__universities">
-						<input type="checkbox" class="filter__item__checkbox">
+						<input v-model="isShowType" type="checkbox" class="filter__item__checkbox" @change="onFilterUniversities">
 						<span>show universities</span>
 					</label>
 				</div>
 				<div class="flex relative filter__container space-x-10">
-					<custom-select title="Filter by category" />
-					<custom-select title="Filter by program level" />
-					<custom-select title="Filter by location" />
-					<custom-select title="Filter by delivery method" />
+					<custom-select title="Filter by category" label="Category" />
+					<custom-select title="Filter by program level" label="Program" />
+					<custom-select title="Filter by location" label="Location" />
+					<custom-select title="Filter by delivery method" label="Delivery method" />
 					<button class="button green capitalize">show all filters</button>
 				</div>
 			</div>
@@ -33,17 +33,32 @@
 import CustomSelect from '../common/forms/CustomSelect.vue'
 export default {
 	name: 'Filters',
+	key: to => to.fullPath,
 	components: { CustomSelect },
 	data () {
 		return {
-			isCategoryShow: false
+			isShowType: false
 		}
 	},
-    
+	fetch ({ app, store, route }) {
+		console.log('fetch')
+	},
+	watchQuery: [
+		'showType'
+	],
+	mounted () {
+		this.isShowType = this.$route.query.showType === 'university'
+	},
 	methods: {
-		onCategorySelect () {
-			this.isCategoryShow = !this.isCategoryShow
-		},
+		onFilterUniversities (e) {
+			if (e.target.checked) {
+				this.$router.push({ name: 'universities', query: { showType: 'university' } })
+				// window.location.href = this.$route.path + '?showType=university'
+			} else {
+				// window.location.href = this.$route.path
+				this.$router.push({ name: 'universities' })
+			}
+		}
 	}
 }
 </script>

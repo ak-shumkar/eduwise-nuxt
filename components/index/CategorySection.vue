@@ -3,19 +3,19 @@
 		<div class="container">
 			<h2 class="category__title">Browse programs by category</h2>
 			<div class="category__body">
-				<div v-for="i in categories" :key="i.icon" class="category__item">
+				<a v-for="i in categories" :key="i.icon" href="/universities/" class="category__item">
 					<i class="category__icon" :class="i.icon"></i> <span>{{i.name}}</span>
-				</div>
+				</a>
 			</div>
 			<div class="category__space"></div>
 			<h2 class="category__title">Browse programs by level</h2>
 			<div class="category__body">
-				<div v-for="i in programs" :key="i" class="category__item">
+				<a v-for="i in programs" :key="i" href="/universities/" class="category__item">
 					<span class="category__btn">
 						<i class="ti-plus"></i>
 					</span>
 					<span>{{i}}</span>
-				</div>
+				</a>
 			</div>
 		</div>
 	</section>
