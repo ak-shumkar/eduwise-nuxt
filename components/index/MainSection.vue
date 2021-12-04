@@ -3,7 +3,7 @@
 		<div class="main__backdrop"></div>
 		<div class="container section index">
 			<div class="main__content">
-				<h1>Your Admission. Simplified</h1>
+				<h1>Realize Your Dream Throgh Eduwise</h1>
 				<p>A single application for international students to apply to the world’s best schools and universities</p>
 				<div class="flex relative space-x-10">
 					<custom-select no-title title="Category" />

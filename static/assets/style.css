@@ -32,6 +32,7 @@
     --main-gray: rgba(255, 255, 255, 0.54);
     --main-whitesmoke: rgba(255, 255, 255, 0.46);
     --main-green: #00A341;
+    --main-bluish: #08DFC5;
 }
 
 .container {
@@ -84,6 +85,9 @@ button {
     background-color: var(--main-primary);
     color: #ffffff;
     padding: 0 15px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
 }
 
 .button.mid {
@@ -95,7 +99,7 @@ button {
 }
 
 .button.green {
-    background-color: var(--main-green);
+    background-color: var(--main-bluish);
     justify-content: center;
 }
 
@@ -103,7 +107,7 @@ button {
     background-color: #004ab9;
 }
 .button.green:hover {
-    background-color: #00bd4b;
+    background-color: #4ee2d6;
 }
 
 .gap {

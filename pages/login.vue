@@ -117,8 +117,9 @@ export default {
 		}
 	},
 	 mounted () {
-		this.isFBReady = Vue.FB !== undefined
-		window.addEventListener('fb-sdk-ready', this.onFBReady)
+		 console.log('facebook app: ', process.env.FACEBOOK_ID)
+		// this.isFBReady = Vue.FB !== undefined
+		// window.addEventListener('fb-sdk-ready', this.onFBReady)
 	},
 	beforeDestroy () {
 		window.removeEventListener('fb-sdk-ready', this.onFBReady)
@@ -137,8 +138,7 @@ export default {
 		},
 		facebook () {
 			Vue.FB.login(({ authResponse }) => {
-				console.log(authResponse)
-				userService.facebook({ access_token: authResponse.accessToken, code: '', id_token: '' }).then(res => {
+				userService.facebook({ auth_token: authResponse.accessToken }).then(res => {
 					this.$toast.success('You are logged in!')
 					window.location.href = '/'
 				}).catch(err => console.log(err))

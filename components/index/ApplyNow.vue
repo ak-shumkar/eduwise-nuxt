@@ -60,7 +60,7 @@ export default {
             margin-left: 50%;
         }
         &__btn {
-            background: #00D66F;
+            background: var(--main-bluish);
             border-radius: 5px;
             height: 55px;
             font-size: 24px;

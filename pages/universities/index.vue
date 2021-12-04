@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss">
 	.main {
-		margin-top: 100px;;
+		margin-top: 57px;;
 	}
 	.badge {
 		&__container {
