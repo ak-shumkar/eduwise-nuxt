@@ -117,9 +117,8 @@ export default {
 		}
 	},
 	 mounted () {
-		 console.log('facebook app: ', process.env.FACEBOOK_ID)
-		// this.isFBReady = Vue.FB !== undefined
-		// window.addEventListener('fb-sdk-ready', this.onFBReady)
+		this.isFBReady = Vue.FB !== undefined
+		window.addEventListener('fb-sdk-ready', this.onFBReady)
 	},
 	beforeDestroy () {
 		window.removeEventListener('fb-sdk-ready', this.onFBReady)

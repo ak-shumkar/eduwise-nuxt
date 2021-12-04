@@ -19,6 +19,11 @@
 }
 @font-face {
     font-family: Gilroy;
+    src: url('/fonts/gilroy/Gilroy-Bold.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: Gilroy;
     src: url('/fonts/gilroy/Gilroy-ExtraBold.ttf');
     font-weight: 800;
 }

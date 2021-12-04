@@ -85,8 +85,7 @@ header {
                 background: inherit;
                 color: var(--main-secondary);
                 font-size: 18px;
-                font-weight: 500;
-                line-height: 21px;
+                font-weight: 700;
                 margin: 0 40px;
                 text-transform: uppercase;
                 &.header__login {
