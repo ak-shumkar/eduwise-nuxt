@@ -3,13 +3,15 @@
 		<div class="header__logo"><a href="/">Eduwise</a></div>
 		<div class="header__list">
 			<ul class="header__menu">
-				<li><a href="#">Why Eduwise?</a></li>
+				<li><a href="#">About Us  </a></li>
 				<li><a href="#">Services</a></li>
-				<li><a href="#">Counseling (Useful)</a></li>
+				<li><a href="#">Parents</a></li>
+				<li><a href="#">Useful</a></li>
+				<li><a href="#">Partners</a></li>
 			</ul>
 			<ul class="header__log">
 				<template v-if="!userData.access">
-					<li><a href="/register/">Register</a></li>
+					<!-- <li><a href="/register/">Register</a></li> -->
 					<li><a href="/login/" class="header__login">Log In</a></li>
 				</template>
 				<template v-else>
@@ -51,7 +53,7 @@ header {
     top: 0;
     justify-content: space-between;
     align-items: center;
-    height: 75px;
+    height: 60px;
     background: #FFFFFF;
     z-index: 100;
     padding: 0 30px;
@@ -83,8 +85,10 @@ header {
                 background: inherit;
                 color: var(--main-secondary);
                 font-size: 18px;
+                font-weight: 500;
                 line-height: 21px;
                 margin: 0 40px;
+                text-transform: uppercase;
                 &.header__login {
                     background: var(--main-bluish);
                     border-radius: 5px;

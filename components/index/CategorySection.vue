@@ -106,18 +106,20 @@ export default {
 
 <style lang="scss">
     .category {
-		margin: 75px 0;
+		margin: 50px 0;
 		&__title {
 			z-index: 1;
 			font-weight: 500;
 			font-size: 24px;
 			line-height: 28px;
-			color: #00409F;
+			color: #FFF;
+			background: #00409F;
+			padding: 10px 5px;
 		}
 		&__body {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			margin: 28px 0;
+			margin: 10px 0;
 		}
 		&__item {
 			min-width: 250px;
@@ -127,7 +129,7 @@ export default {
 			font-size: 24px;
 			line-height: 28px;
 			color: #3F3F3F;
-			margin: 18px 0;
+			margin: 14px 0;
 		}
 		&__icon {
 			margin-right: 25px;
