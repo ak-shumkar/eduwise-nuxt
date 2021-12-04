@@ -4,7 +4,8 @@
 		<div class="container section index">
 			<div class="main__content">
 				<h1>Realize Your Dream Throgh Eduwise</h1>
-				<p>A single application for international students to apply to the world’s best schools and universities</p>
+				<br>
+				<br>
 				<div class="flex relative space-x-10">
 					<custom-select no-title title="Category" />
 					<custom-select no-title title="Location" />

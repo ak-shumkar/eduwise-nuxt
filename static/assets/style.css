@@ -32,7 +32,7 @@
     --main-gray: rgba(255, 255, 255, 0.54);
     --main-whitesmoke: rgba(255, 255, 255, 0.46);
     --main-green: #00A341;
-    --main-bluish: #08DFC5;
+    --main-bluish: rgb(238, 59, 59);
 }
 
 .container {
