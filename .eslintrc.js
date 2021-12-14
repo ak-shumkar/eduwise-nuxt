@@ -24,7 +24,7 @@ module.exports = {
 		'arrow-spacing': 'error',
 		'arrow-parens': [ 'error', 'as-needed' ],
 		'constructor-super': 'error',
-		'curly': [ 'error', 'multi-line' ],
+		'curly': [ 'error', 'multi' ],
 		'indent': [ 'error', 'tab' ],
 		'keyword-spacing': 'error',
 		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',

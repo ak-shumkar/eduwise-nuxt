@@ -11,6 +11,12 @@
     src: url('/fonts/gilroy/Gilroy-Medium.ttf');
     font-weight: 500;
   }
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: url('/fonts/CeraPro/CeraPro-Bold.ttf');
+    font-weight: 700;
+}
   
 @font-face {
     font-family: Gilroy;
@@ -62,6 +68,9 @@ button {
 .justify-between {
     justify-content: space-between;
 }
+.justify-center {
+    justify-content: center;
+}
 .items-center {
     align-items: center;
 }
@@ -82,17 +91,18 @@ button {
     margin-left: 29px;
 }
 .button {
-    height: 45px;
-    min-width: 120px;
+    height: 49px;
+    min-width: 223px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--main-primary);
+    background: #FF1B96;
+    border-radius: 5px;
     color: #ffffff;
-    padding: 0 15px;
+    padding: 0 24px;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 24px;
+    line-height: 30px;
 }
 
 .button.mid {
@@ -109,7 +119,7 @@ button {
 }
 
 .button:hover {
-    background-color: #004ab9;
+    background: #F23298;
 }
 .button.green:hover {
     background-color: #4ee2d6;

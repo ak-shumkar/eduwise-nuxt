@@ -2,7 +2,7 @@
 	<div class="category-select">
 		<label>
 			<span v-if="!noTitle" class="category-select__label">{{ title }}</span>
-			<button class="button mid capitalize" @click="onShowHide">
+			<button class="button" @click="onShowHide">
 				{{ label ? label : title }} <i class="icon-down ti-angle-down" :class="{ 'up' : isShow }"></i>
 			</button>
 		</label>
@@ -51,9 +51,9 @@ export default {
 		},
 		onOutsideClick (e) {
 			const content = e.target.closest('.category-select')
-			if (!content) {
+			if (!content) 
 				this.isShow = false
-			}
+			
 		}
 	}
 }

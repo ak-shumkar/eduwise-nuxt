@@ -30,17 +30,19 @@ export default class BaseApiService {
 	}
 
 	sendRequest (method, url, data) {
-		const isFormData = data instanceof FormData
+		let isFormData = false
+		if (typeof window !== 'undefined')
+			isFormData = data instanceof FormData
 		const requestOptions = {
 			method,
 			headers: { ...authHeader() },
 		}
-		if (!isFormData) {
+		if (!isFormData) 
 			requestOptions.headers['Content-Type'] = 'application/json'
-		}
-		if (data) {
+		
+		if (data) 
 			requestOptions.body = isFormData ? data : JSON.stringify(data)
-		}
+		
 
 		return fetch(url, requestOptions)
 			.then(handleResponse)

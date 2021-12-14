@@ -1,20 +1,19 @@
 <template>
 	<section class="main">
 		<div class="main__backdrop"></div>
-		<div class="container section index">
+		<div class="container index">
 			<div class="main__content">
-				<h1>Realize Your Dream Throgh Eduwise</h1>
-				<br>
-				<br>
-				<div class="flex relative space-x-10">
-					<custom-select no-title title="Category" />
-					<custom-select no-title title="Location" />
-					<div class="input-content">
-						<i class="ti-search input-content__icon"></i>
-						<input class="input-content__input" type="text">
-					</div>
-					<button class="button green" @click="$router.push('/universities/')">Search</button>
-				</div>
+				<h1 class="title">Realize Your Dream Through Eduwise</h1>
+			</div>
+			<div class="flex relative space-x-50">
+				<custom-select no-title title="Category" />
+				<custom-select no-title title="Location" />
+				<form class="input-content">
+					<button type="submit" class="input-content__icon">
+						<i class="ti-search"></i>
+					</button>
+					<input class="input-content__input" placeholder="Search" type="text">
+				</form>
 			</div>
 		</div>
 	</section>
@@ -58,42 +57,53 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .main {
-		height: 900px;
+	.index {
 		display: flex;
-		background-image: url('/images/main-background.jpg');
+		flex-direction: column;
+		justify-content: space-between;
+		margin-bottom: 48px;
+		padding: 0 0 0 147px;
+	}
+	.title {
+		font-family: Cera Pro;
+		font-weight: 700;
+		font-size: 64px;
+		line-height: 80px;
+		max-width: 613px;
+		color: #04347B;
+	}
+    .main {
+		height: 740px;
+		display: flex;
+		background-image: url('/img/back-girl.png');
 		background-repeat: no-repeat;
 		background-position: center;
-		background-size: cover;
 		position: relative;
+		background-position: right;
+		margin-top: 60px;
 
 		&__backdrop {
-			background: url('/images/backdrop.svg');
+			background: url('/img/back-g.png');
 			position: absolute;
 			background-repeat: no-repeat;
 			background-size: cover;
 			width: 100%;
 			height: 100%;
+			z-index: -1;
 		}
 
 		.index {
 			z-index: 1;
 		}
 		&__content {
-			margin-top: 316px;
-			/* margin-left: 147px; */
-
-			> h1 {
-				font-size: 64px;
-				line-height: 75px;
-				color: var(--main-primary);
-				width: 613px;
-			}
+			margin-top: 135px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 			p {
 				font-size: 24px;
 				line-height: 28px;
 				color: var(--main-primary);
-				margin: 23px 0 33px;
 				width: 520px;
 			}
 		}
