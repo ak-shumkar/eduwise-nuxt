@@ -1,6 +1,6 @@
 <template>
 	<section class="work-together">
-		<div class="container">
+		<div class="work-together__container">
 			<h2 class="work-together__title">Let’s work together</h2>
 			<div class="work-together__body">
 				<div class="work-together__card">
@@ -45,13 +45,22 @@ export default {
 
 <style lang="scss">
     .work-together {
-        margin: 49px 0 84px;
+        max-width: 1440px;
+        margin: auto;
+
+        &__container {
+            background: #E7FCFF;
+            width: 85%;
+            margin: 50px auto;
+            padding: 50px;
+            border-radius: 10px;
+        }
 
         &__title {
             font-size: 36px;
             line-height: 42px;
             color: #000000;
-            margin-bottom: 94px;
+            margin-bottom: 40px;
             text-align: center;
         }
         &__body {
@@ -61,17 +70,22 @@ export default {
         &__card {
             background: #FFFFFF;
             box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 32px;
-            width: 447px;
+            border-radius: 22px;
+            width: 350px;
 
             &__img {
                 height: 164px;
-                border-radius: 32px 32px 0px 0px;
+                border-radius: 22px 22px 0px 0px;
                 width: 100%;
+                object-fit: cover;
             }
             &__body {
                 margin: 14px 28px 18px;
                 text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
             }
             &__title {
                 font-weight: 500;
@@ -87,6 +101,7 @@ export default {
                 color: #000000;
                 margin-bottom: 28px;
                 max-width: 394px;
+                height: 90px;
             }
             &__btn {
                 background: #00409F;
