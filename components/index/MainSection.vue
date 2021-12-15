@@ -73,20 +73,24 @@ export default {
 		color: #04347B;
 	}
     .main {
+		/* max-width: 1440px;
+		margin: auto; */
 		height: 740px;
 		display: flex;
 		background-image: url('/img/back-girl.png');
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: bottom 50px right 30%;
 		position: relative;
-		background-position: right;
 		margin-top: 60px;
+
+		@media screen and (max-width: 1440px) {
+			background-position: right;
+		}
 
 		&__backdrop {
 			background: url('/img/back-g.png');
 			position: absolute;
-			background-repeat: no-repeat;
-			background-size: cover;
+			background-size: auto;
 			width: 100%;
 			height: 100%;
 			z-index: -1;

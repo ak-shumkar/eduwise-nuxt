@@ -72,6 +72,7 @@ export default {
                     width: 49px;
                     height: 49px;
                     object-fit: cover;
+                    border-radius: 50%;
                 }
                 &__back {
                     position: absolute;

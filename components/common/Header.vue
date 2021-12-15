@@ -1,38 +1,40 @@
 <template>
 	<header>
-		<div class="header__logo"><a href="/">Eduwise</a></div>
-		<div class="header__list">
-			<ul class="header__menu">
-				<li class="header__menu__content">
-					<a class="header__menu__item" href="#">About Us</a>
-				</li>
-				<li v-for="m in menus" :key="m.id" class="header__menu__content menu-content">
-					<button class="header__menu__item" href="#" @click="onSelectMenu(m)">{{m.title}}</button>
-					<div v-if="m.isShow" class="header__menu__body">
-						<!-- <div v-if="isLoading" class="flex justify-center">
+		<div class="container flex justify-between">
+			<div class="header__logo"><a href="/">Eduwise</a></div>
+			<div class="header__list">
+				<ul class="header__menu">
+					<li class="header__menu__content">
+						<a class="header__menu__item" href="#">About Us</a>
+					</li>
+					<li v-for="m in menus" :key="m.id" class="header__menu__content menu-content">
+						<button class="header__menu__item" href="#" @click="onSelectMenu(m)">{{m.title}}</button>
+						<div v-if="m.isShow" class="header__menu__body">
+							<!-- <div v-if="isLoading" class="flex justify-center">
 							<circle-loader />
 						</div> -->
-						<ul v-if="menus.length" :class="{ 'double-col' : subMenus.length > 5}">
-							<li v-for="s in subMenus" :key="s.id">
-								<a class="header__menu__link" href="#">{{ s.title }}</a>
-							</li>
-						</ul>
-						<div v-else class="flex justify-center">No menus found!</div>
-					</div>
-				</li>
-			</ul>
-			<ul class="header__log">
-				<template v-if="!userData.access">
-					<!-- <li><a href="/register/">Register</a></li> -->
-					<li><a href="/login/" class="header__login">Log In</a></li>
-				</template>
-				<template v-else>
-					<li class="user">
-						<span class="user__name">{{ userData.user.first_name }} {{ userData.user.last_name }}</span>
-						/<button class="user__logout" @click="onLogout">Выйти</button>
+							<ul v-if="menus.length" :class="{ 'double-col' : subMenus.length > 5}">
+								<li v-for="s in subMenus" :key="s.id">
+									<a class="header__menu__link" href="#">{{ s.title }}</a>
+								</li>
+							</ul>
+							<div v-else class="flex justify-center">No menus found!</div>
+						</div>
 					</li>
-				</template>
-			</ul>
+				</ul>
+				<ul class="header__log">
+					<template v-if="!userData.access">
+						<!-- <li><a href="/register/">Register</a></li> -->
+						<li><a href="/login/" class="header__login">Log In</a></li>
+					</template>
+					<template v-else>
+						<li class="user">
+							<span class="user__name">{{ userData.user.first_name }} {{ userData.user.last_name }}</span>
+							/<button class="user__logout" @click="onLogout">Выйти</button>
+						</li>
+					</template>
+				</ul>
+			</div>
 		</div>
 	</header>
 </template>
