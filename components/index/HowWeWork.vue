@@ -4,55 +4,49 @@
 			<h2 class="how-work__title">How we work</h2>
 			<p class="how-work__description">Apply to your dream university today! A simple and fast way of applying to the world’s best schools and universities for international students</p>
 
-			<div class="how-work__content">
-				<div class="how-work__card">
-					<h5 class="how-work__card__title">
-						Search for schools and universities
-					</h5>
-					<p class="how-work__card__description">
-						Find the best options for you based on your profile and interests, and receive advice from our expert advisors.
-					</p>
-				</div>
-				<div class="how-work__card">
-					<h5 class="how-work__card__title">
-						Submit your application
-					</h5>
-					<p class="how-work__card__description">
-						Create an account, choose the level of support that works for you, and submit your application. One common application unlocks a world of opportunity.					
-					</p>
-				</div>
-				<div class="how-work__card">
-					<h5 class="how-work__card__title">
-						Receive your offer letters					
-					</h5>
-					<p class="how-work__card__description">
-						Compare offers and decide which school or university you want to attend.
-					</p>
-				</div>
-				<div class="how-work__card">
-					<h5 class="how-work__card__title">
-						Apply for your Visa					
-					</h5>
-					<p class="how-work__card__description">
-						Accept your offer and apply for your student visa. We are here to help!					
-					</p>
-				</div>
-				<div class="how-work__card">
-					<h5 class="how-work__card__title">
-						Final preparations and get ready to go!				
-					</h5>
-					<p class="how-work__card__description">
-						Book your flights and accommodation and get ready to start your academic journey
-					</p>
-				</div>
+			<div class="how-work__content space-x-80">
+				<how-we-work-card v-for="item in data" :key="item.title" :b-color="item.color" :item="item" />
 			</div>
 		</div>
 	</section>
 </template>
 
 <script>
+import HowWeWorkCard from './HowWeWorkCard.vue'
 export default {
-	name: 'HowWeWork'
+	name: 'HowWeWork',
+	components: { HowWeWorkCard },
+	data () {
+		return {
+			data: [
+				{ 
+					title: 'Search for schools and universities',
+					desc: 'Find the best options for you based on your profile and interests, and receive advice from our expert advisors.',
+					color: '#FF9F86'
+				},
+				{
+					title: 'Submit your application',
+					desc: 'Create an account, choose the level of support that works for you, and submit your application. One common application unlocks a world of opportunity.',
+					color: '#FFB666'
+				},
+				{
+					title: 'Receive your offer letters',
+					desc: 'Compare offers and decide which school or university you want to attend.',
+					color: '#A3CE8F'
+				},
+				{
+					title: 'Apply for your Visa',
+					desc: 'Accept your offer and apply for your student visa. We are here to help!',
+					color: '#64BFC7'
+				},
+				{
+					title: 'Final preparations and get ready to go!',
+					desc: 'Book your flights and accommodation and get ready to start your academic journey',
+					color: '#0063D8'
+				}
+			]
+		}
+	}
 }
 </script>
 
@@ -73,7 +67,7 @@ export default {
             line-height: 20px;
             color: #000000;
             max-width: 881px;
-            margin: 48px auto 95px auto;
+            margin: 20px auto;
         }
         &__content {
             display: flex;

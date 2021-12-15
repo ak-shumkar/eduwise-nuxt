@@ -113,6 +113,11 @@ label {
         margin-left: 50px;
     }
 }
+.space-x-80 {
+    > * + * {
+        margin-left: 80px;
+    }
+}
 .space-b-40 {
     margin-bottom: 40px;
 }
