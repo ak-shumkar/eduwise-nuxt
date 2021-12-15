@@ -81,7 +81,7 @@ export default {
             }
             &__body {
                 margin: 14px 28px 18px;
-                text-align: center;
+                text-align: justify;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
