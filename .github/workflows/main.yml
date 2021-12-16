@@ -1,43 +1,26 @@
-version: 2.1
+name: Build & Deploy
+on:
+  push:
+    branches: [master]
+
 jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: circleci/node:10.16.3
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      - checkout
-      - run:
-          name: update-npm
-          command: "sudo npm install -g npm@5"
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: install-packages
-          command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - ./node_modules
-      - run:
-          name: test
-          command: npm run test
-      - run:
-          name: build-project
-          command: npm run generate:gh-pages
-      - run:
-          name: Install and configure dependencies
-          command: |
-            npm install gh-pages --save-dev
-            git config user.email "fikfikky@gmail.com"
-            git config user.name "coderonfleek"
-      - add_ssh_keys:
-          fingerprints:
-            - "3a:9b:c5:67:6f:06:50:55:dd:67:c9:ed:0c:9e:1f:fa"
-      - run:
-          name: Deploy docs to gh-pages branch
-          command: './node_modules/.bin/gh-pages --dotfiles --message "[skip ci] Updates" -d dist'
-      - store_artifacts:
-          path: test-results.xml
-          prefix: tests
-      - store_test_results:
-          path: test-results.xml
+      - name: Deploy Eduwise Front
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{secrets.SSH_HOST}} # IP address of the server you wish to ssh into
+          password: ${{secrets.SSH_KEY}} # Private or public key of the server
+          username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
+
+          script: |
+            cd /var/www/html/eduwise-nuxt/ 
+            git pull origin master
+            rm -rf dist/
+            rm -rf .nuxt/
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            export NODE_OPTIONS=--openssl-legacy-provider
+            npm run build
+            npm run generate
