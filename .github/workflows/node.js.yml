@@ -21,6 +21,5 @@ jobs:
             rm -rf .nuxt/
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-            export NODE_OPTIONS=--openssl-legacy-provider
             npm run build
             npm run generate
