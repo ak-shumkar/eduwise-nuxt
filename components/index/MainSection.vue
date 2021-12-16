@@ -61,7 +61,7 @@ export default {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		margin-bottom: 48px;
+		margin-bottom: 28px;
 		padding: 0 0 0 147px;
 	}
 	.title {
@@ -75,11 +75,11 @@ export default {
     .main {
 		/* max-width: 1440px;
 		margin: auto; */
-		height: 740px;
+		height: 570px;
 		display: flex;
 		background-image: url('/img/back-girl.png');
 		background-repeat: no-repeat;
-		background-position: bottom 50px right 30%;
+		background-position: bottom 0 right 30%;
 		position: relative;
 		margin-top: 60px;
 
