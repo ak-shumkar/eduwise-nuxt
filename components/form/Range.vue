@@ -32,9 +32,9 @@ export default {
 	methods: {
 		onClick (e) {
 			console.log('click')
-			if (e.target === this.left && !this.isClick) {
+			if (e.target === this.left && !this.isClick) 
 				this.isClick = true
-			}
+			
 		},
 		onDrop (e) {
 			this.isClick = false

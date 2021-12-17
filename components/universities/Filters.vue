@@ -46,13 +46,13 @@ export default {
 	},
 	methods: {
 		onFilterUniversities (e) {
-			if (e.target.checked) {
+			if (e.target.checked) 
 				this.$router.push({ name: 'universities', query: { showType: 'university' } })
 				// window.location.href = this.$route.path + '?showType=university'
-			} else {
+			 else 
 				// window.location.href = this.$route.path
 				this.$router.push({ name: 'universities' })
-			}
+			
 		}
 	}
 }

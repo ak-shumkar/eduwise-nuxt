@@ -13,9 +13,14 @@
 							<!-- <div v-if="isLoading" class="flex justify-center">
 							<circle-loader />
 						</div> -->
-							<ul v-if="menus.length" :class="{ 'double-col' : subMenus.length > 5}">
-								<li v-for="s in subMenus" :key="s.id">
-									<a class="header__menu__link" href="#">{{ s.title }}</a>
+							<ul v-if="m.submenus.length" class="menu__list" :class="{ 'double-col' : m.submenus.length > 3}">
+								<li v-for="s in m.submenus" :key="'submenu' + s.id">
+									<h3 class="header__menu__link">{{ s.title }}</h3>
+									<ul>
+										<li v-for="p in s.posts" :key="'post' + p.id">
+											<a :href="`/post/${p.id}/`">{{ s.title }}</a>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<div v-else class="flex justify-center">No menus found!</div>
@@ -77,17 +82,9 @@ export default {
 			location.reload()
 		},
 		onSelectMenu (item) {
-			if (!item.isShow) {
+			if (!item.isShow) 
 				this.resetMenus()
-				this.isLoading = true
-				subMenuService.getAll().then(res => {
-					this.subMenus = res
-					this.isLoading = false
-				}).catch(err => {
-					this.isLoading = false
-					console.log(err)
-				})
-			}
+			
 			this.$set(item, 'isShow', !item.isShow)
 		},
 		resetMenus () {
@@ -129,9 +126,6 @@ header {
             display: flex;
             justify-content: space-between;
         }
-        &__content {
-            position: relative;
-        }
         &__menu {
             display: grid;
             grid-auto-flow: column;
@@ -141,6 +135,10 @@ header {
             border-radius: 5px;
             margin: 0;
             padding: 0;
+
+            &__content {
+                position: relative;
+            }
 
             &__item {
                 background: inherit;
@@ -161,21 +159,20 @@ header {
             }
             &__link {
                 display: block;
-                padding: 0 10px;
+                /* padding: 0 10px; */
                 color: inherit;
-                &:hover {
-                    background: whitesmoke;
-                }
             }
             &__body {
                 position: absolute;
                 background: #FFFFFF;
-                padding: 20px;
+                /* padding: 20px; */
                 border: 1px solid whitesmoke;
                 top: 65px;
-                min-width: 200px;
+               
 
-                ul {
+                ul.menu__list {
+                    padding: 20px;
+                    height: auto;
                     display: grid;
                     color: var(--main-secondary);
                     font-size: 18px;
@@ -185,8 +182,8 @@ header {
                     background: #FFFFFF;
 
                     li {
-                        height: 40px;
-                        margin-right: 10px;
+                        margin: 0 10px;
+                        min-width: 300px;
                     }
 
                     &.double-col {
