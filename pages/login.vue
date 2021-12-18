@@ -137,11 +137,13 @@ export default {
 		},
 		facebook () {
 			Vue.FB.login(async ({ authResponse }) => {
-				await this.facebook({ access_token: authResponse.accessToken })
-				this.$toast.success('You are logged in!')
-				window.location.href = '/'
-			}).catch(err => {
-				console.log(err)
+				try {
+					await this.facebook({ access_token: authResponse.accessToken })
+					this.$toast.success('You are logged in!')
+					window.location.href = '/'
+				} catch (err) {
+					console.log(err)
+				}
 			})
 		},
 		
