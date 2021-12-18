@@ -12,7 +12,7 @@ class UserService extends BaseApiService {
 	}
 
 	facebook (data) {
-		const url = `http://46.101.136.60:8070/api/v1/social_auth/facebook/`
+		const url = `${process.env.baseUrl}/api/auth/facebook/`
 		return this.sendPostRequest(url, data)
 	}
 
