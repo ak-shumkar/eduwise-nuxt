@@ -124,7 +124,7 @@ export default {
 		window.removeEventListener('fb-sdk-ready', this.onFBReady)
 	},
 	methods: {
-		...mapActions('account', [ 'login', 'google' ]),
+		...mapActions('account', [ 'login', 'google', 'facebook' ]),
 		onSubmit () {
 			this.login(this.user).then(() => {
 				window.location.href = '/admin/'
@@ -136,11 +136,12 @@ export default {
 			this.isFBReady = true
 		},
 		facebook () {
-			Vue.FB.login(({ authResponse }) => {
-				userService.facebook({ access_token: authResponse.accessToken }).then(res => {
-					this.$toast.success('You are logged in!')
-					window.location.href = '/'
-				}).catch(err => console.log(err))
+			Vue.FB.login(async ({ authResponse }) => {
+				await this.facebook({ access_token: authResponse.accessToken })
+				this.$toast.success('You are logged in!')
+				window.location.href = '/'
+			}).catch(err => {
+				console.log(err)
 			})
 		},
 		

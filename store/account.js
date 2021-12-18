@@ -21,6 +21,13 @@ export const actions = {
 			commit('SET_USER', res)
 		})
 	},
+	facebook ({ commit, dispatch }, data) {
+		return userService.facebook(data).then(({ access_token: access, refresh_token: refresh, user }) => {
+			const res = { access, refresh, user }
+			Cookies.set('user', JSON.stringify(res), { expires: 1 })
+			commit('SET_USER', res)
+		})
+	},
 	reset ({ commit }) {
 		commit('SET_USER', {})
 		Cookies.remove('user')
