@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/toast": "^3.3.1",
+    "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.15.1",
     "element-ui": "^2.15.5",
     "facebook-login-vuejs": "^2.1.3",

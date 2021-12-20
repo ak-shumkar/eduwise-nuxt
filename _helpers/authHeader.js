@@ -4,11 +4,11 @@ import Cookies from 'js-cookie'
 export function authHeader () {
 	const user = JSON.parse((Cookies.get('user') || '{}'))
 
-	if (user && user.access) {
+	if (user && user.access) 
 		return { 'Authorization': 'Bearer ' + user.access }
-	} else {
+	 else 
 		return {}
-	}
+	
 }
 
 export function handleResponse (response) {
@@ -16,9 +16,9 @@ export function handleResponse (response) {
 		const data = text && JSON.parse(text)
 		if (!response.ok) {
 			if (response.status === 401 || response.status === 403) {
-				userService.logout()
-				window.location.href = '/login/'
-				location.reload(true)
+				// userService.logout()
+				// window.location.href = '/login/'
+				// location.reload(true)
 			}
 
 			const error = (data && data.message) || response.statusText

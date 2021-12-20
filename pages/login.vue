@@ -99,7 +99,6 @@
 
 <script>
 import { ValidationObserver, ValidationProvider } from 'vee-validate'
-import { userService } from '@/_services/user.service'
 import { mapActions } from 'vuex'
 import Vue from 'vue'
 export default {
@@ -127,7 +126,7 @@ export default {
 		...mapActions('account', [ 'login', 'google', 'facebook' ]),
 		onSubmit () {
 			this.login(this.user).then(() => {
-				window.location.href = '/admin/'
+				this.$router.push('/admin/')
 			}).catch(err => {
 				this.$toast.error('Something went wrong! ' + err)
 			})

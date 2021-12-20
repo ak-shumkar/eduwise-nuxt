@@ -28,13 +28,13 @@
 					</li>
 				</ul>
 				<ul class="header__log">
-					<template v-if="!userData.access">
+					<template v-if="!user.access">
 						<!-- <li><a href="/register/">Register</a></li> -->
 						<li><a href="/login/" class="header__login">Log In</a></li>
 					</template>
 					<template v-else>
 						<li class="user">
-							<span class="user__name">{{ userData.user.first_name }} {{ userData.user.last_name }}</span>
+							<span class="user__name">{{ user.user.username }} {{ user.user.last_name }}</span>
 							/<button class="user__logout" @click="onLogout">Выйти</button>
 						</li>
 					</template>
@@ -55,7 +55,6 @@ export default {
 	components: {  },
 	data () {
 		return {
-			userData: JSON.parse(Cookies.get('user') || '{}'),
 			menus: [],
 			subMenus: [],
 			isLoading: false
@@ -68,7 +67,13 @@ export default {
 			console.log(err)
 		}
 	},
+	computed: {
+		user () {
+			return this.$store.getters['account/user'] || {}
+		}
+	},
 	mounted () {
+		this.$store.commit('account/SET_USER', this.$cookies.get('user'))
 		document.addEventListener('click', this.onOutSideClick)
 	},
 	beforeDestroy () {
@@ -197,9 +202,9 @@ header {
             align-items: center;
             margin: 0;
 
-            * + * {
+            /* * + * {
                 margin-left: 20px;
-            }
+            } */
             li {
                 list-style: none;
             }

@@ -150,6 +150,7 @@ export default {
 		// https://go.nuxtjs.dev/content
 		// '@nuxt/content',
 		'@nuxtjs/toast',
+		'cookie-universal-nuxt'
 	],
 	toast: {
 		position: 'top-right',

@@ -6,6 +6,11 @@ class UserService extends BaseApiService {
 		return this.sendPostRequest(url, data)
 	}
 
+	me (data) {
+		const url = `${process.env.baseUrl}/api/auth/users/me/`
+		return this.sendGetRequest(url, data)
+	}
+
 	google (data) {
 		const url = `${process.env.baseUrl}/api/auth/google/`
 		return this.sendPostRequest(url, data)
