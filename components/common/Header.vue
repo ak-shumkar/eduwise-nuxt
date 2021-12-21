@@ -23,7 +23,6 @@
 									</ul>
 								</li>
 							</ul>
-							<div v-else class="flex justify-center">No menus found!</div>
 						</div>
 					</li>
 				</ul>
@@ -45,10 +44,8 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
 import { mapActions } from 'vuex'
 import { menusService } from '../../_services/menus.service'
-import { subMenuService } from '../../_services/subMenu.service'
 // import CircleLoader from './CircleLoader.vue'
 export default {
 	name: 'Header',
@@ -72,8 +69,10 @@ export default {
 			return this.$store.getters['account/user'] || {}
 		}
 	},
-	mounted () {
+	created () {
 		this.$store.commit('account/SET_USER', this.$cookies.get('user'))
+	},
+	mounted () {
 		document.addEventListener('click', this.onOutSideClick)
 	},
 	beforeDestroy () {
@@ -179,6 +178,7 @@ header {
                     padding: 20px;
                     height: auto;
                     display: grid;
+                    row-gap: 10px;
                     color: var(--main-secondary);
                     font-size: 18px;
                     line-height: 22px;
