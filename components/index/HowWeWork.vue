@@ -4,7 +4,7 @@
 			<h2 class="how-work__title">How we work</h2>
 			<p class="how-work__description">Apply to your dream university today! A simple and fast way of applying to the world’s best schools and universities for international students</p>
 
-			<div class="how-work__content space-x-80">
+			<div class="how-work__content">
 				<how-we-work-card v-for="item in data" :key="item.title" :b-color="item.color" :item="item" />
 			</div>
 		</div>
@@ -26,7 +26,7 @@ export default {
 				},
 				{
 					title: 'Submit your application',
-					desc: 'Create an account, choose the level of support that works for you, and submit your application. One common application unlocks a world of opportunity.',
+					desc: 'Create an account, choose the level of support that works for you, and submit your application.',
 					color: '#FFB666'
 				},
 				{
@@ -73,6 +73,16 @@ export default {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+
+            @media screen and (max-width: 768px) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media screen and (max-width: 630px) {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
 
         }
         &__card {

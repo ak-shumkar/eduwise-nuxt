@@ -46,10 +46,10 @@
     --main-bluish: rgb(238, 59, 59);
 }
 
-.container {
+/* .container {
     max-width: 1440px;
     margin: 0 auto;
-}
+} */
 
 a:hover {
     text-decoration: none;
@@ -60,7 +60,7 @@ button {
     cursor: pointer;
 }
 .section {
-    padding: 0 147px;
+    /* padding: 0 147px; */
 }
 .flex {
     display: flex;
@@ -103,6 +103,12 @@ button {
     font-weight: 500;
     font-size: 24px;
     line-height: 30px;
+}
+
+@media screen and (max-width: 768px){
+    .button {
+        width: 100%;
+    }
 }
 
 .button.mid {

@@ -39,18 +39,28 @@ export default {
     flex-direction: column;
     align-items: center;
     height: 362px;
+	&:not(:last-child) {
+		margin-right: 80px;
+	}
+	@media screen and (max-width: 768px) {
+		height: 280px;
+		&:not(:last-child) {
+			margin-right: 0;
+		}
+	}
 
     &__content {
         z-index: 2;
-        width: 188px;
+        width: 155px;
         transform: translateX(20px);
         color: #fff;
-        margin-top: 130px;
+        margin-top: 110px;
     }
 
     &__back {
         position: absolute;
         z-index: 1;
+		transform: scale(0.9);
     }
     &__title {
         font-size: 14px;

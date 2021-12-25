@@ -1,4 +1,9 @@
 .category-select {
+    &__title-content {
+        @media screen and (max-width: 768px){
+            width: 100%;
+        }
+    }
     &__items {
         padding: 0 20px;
         display: flex;
@@ -48,6 +53,10 @@
 .input-content {
     width: 55%;
     position: relative;
+
+    @media screen and (max-width: 768px){
+        width: 100%;
+    }
 
     &__icon {
         background: inherit;

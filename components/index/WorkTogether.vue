@@ -54,6 +54,10 @@ export default {
             margin: 50px auto;
             padding: 50px;
             border-radius: 10px;
+
+            @media screen and (max-width: 768px) {
+                padding: 15px;
+            }
         }
 
         &__title {
@@ -66,12 +70,27 @@ export default {
         &__body {
             display: flex;
             justify-content: space-between;
+
+            @media screen and (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+            }
         }
         &__card {
             background: #FFFFFF;
             box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
             border-radius: 22px;
             width: 350px;
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+
+            @media screen and (max-width: 768px) {
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+                width: auto;
+            }
 
             &__img {
                 height: 164px;
@@ -101,7 +120,10 @@ export default {
                 color: #000000;
                 margin-bottom: 28px;
                 max-width: 394px;
-                height: 90px;
+                /* height: 90px; */
+                @media screen and (max-width: 768px) {
+                    height: auto;
+                }
             }
             &__btn {
                 background: #00409F;
@@ -112,6 +134,13 @@ export default {
                 height: 40px;
                 width: 90%;
                 color: #FFFFFF;
+
+                @media screen and (max-width: 768px) {
+                    height: auto;
+                    font-size: 18px;
+                    line-height: 22px;
+                    padding: 5px 5px;
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
 	<div class="app__footer">
-		<footer class="footer ng-star-inserted">
-			<div class="footer__container">
+		<footer class="footer">
+			<div class="footer__container container">
 				<div class="footer__col">
 					<!-- <img
 						src="/img/logo.jpg"
@@ -99,10 +99,13 @@ export default {
   background-color: #0c2461;
 
   &__container {
-    width: 68.8rem;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
+	@media screen and (max-width: 768px) {
+		flex-wrap: wrap;
+	}
   }
 
   &__text {
@@ -119,6 +122,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: baseline;
+
+	@media screen and (max-width: 768px) {
+		margin-bottom: 20px;
+	}
 
     &_icon {
       display: flex;
@@ -154,6 +161,10 @@ export default {
   &__logo {
     margin-bottom: 36px;
     color: #fff;
+
+	@media screen and (max-width: 768px) {
+		margin-bottom: 0;
+	}
   }
 }
 .separator {
@@ -163,5 +174,8 @@ export default {
   height: 1px;
   background-color: #ececec;
   border: none;
+  @media screen and (max-width: 768px) {
+		margin: 0 auto;
+	}
 }
 </style>

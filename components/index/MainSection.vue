@@ -5,7 +5,7 @@
 			<div class="main__content">
 				<h1 class="title">Realize Your Dream Through Eduwise</h1>
 			</div>
-			<div class="flex relative space-x-50">
+			<div class="main__search">
 				<custom-select no-title title="Category" />
 				<custom-select no-title title="Location" />
 				<form class="input-content">
@@ -62,7 +62,6 @@ export default {
 		flex-direction: column;
 		justify-content: space-between;
 		margin-bottom: 28px;
-		padding: 0 0 0 147px;
 	}
 	.title {
 		font-family: Cera Pro;
@@ -71,6 +70,11 @@ export default {
 		line-height: 80px;
 		max-width: 613px;
 		color: #04347B;
+		@media screen and (max-width: 768px) {
+			font-size: 50px;
+			line-height: 66px;
+			background: rgba(255,255,255,0.5);
+		}
 	}
     .main {
 		/* max-width: 1440px;
@@ -96,6 +100,23 @@ export default {
 			z-index: -1;
 		}
 
+		&__search {
+			display: flex;
+			position: relative;
+
+			> * + * {
+				margin-left: 50px;
+			}
+
+			@media screen and (max-width: 768px) {
+				display: grid;
+				row-gap: 10px;
+
+				> * + * {
+					margin-left: 0;
+				}
+			}
+		}
 		.index {
 			z-index: 1;
 		}

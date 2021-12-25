@@ -120,6 +120,12 @@ export default {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
 			margin: 10px 0;
+
+			@media screen and (max-width: 768px) {
+				display: flex;
+				flex-wrap: wrap;
+				
+			}
 		}
 		&__item {
 			min-width: 250px;
@@ -129,12 +135,31 @@ export default {
 			font-size: 24px;
 			line-height: 28px;
 			color: #3F3F3F;
-			margin: 14px 0;
+			margin-top: 5px;
+			margin-bottom: 5px;
+			@media screen and (max-width: 768px) {
+				display: flex;
+				flex-wrap: wrap;
+				min-width: auto;
+				font-size: 20px;
+				line-height: 24px;
+				background: #00409F;
+				border-radius: 10px;
+				padding: 5px 10px;
+				color: #ffffff;
+
+				&:not(:last-child) {
+					margin-right: 10px;
+				}
+			}
 		}
 		&__icon {
 			margin-right: 25px;
 			color: #00409F;
 			font-size: 33px;
+			@media screen and (max-width: 768px) {
+				display: none;
+			}
 		}
 		&__btn {
 			width: 30px;
@@ -145,6 +170,10 @@ export default {
 			background: #818181;
 			border-radius: 5px;
 			margin-right: 25px;
+
+			@media screen and (max-width: 768px) {
+				display: none;
+			}
 
 			> i {
 				color: #ffffff;

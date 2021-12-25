@@ -1,7 +1,7 @@
 <template>
 	<section class="apply">
 		<div class="apply__container">
-			<div v-for="i in 3" :key="i" class="apply__card">
+			<div class="apply__card">
 				<div class="apply__card__user">
 					<svg class="apply__card__user__back" width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<circle cx="24.5" cy="24.5" r="24" stroke="#AEAEAE" stroke-dasharray="5 5"/>
@@ -51,19 +51,32 @@ export default {
        background: #EEEEEE;
        padding: 34px 50px;
 
+       @media screen and (max-width: 768px) {
+            padding: 20px 10px;
+        }
+
        &__container {
            max-width: 1440px;
             margin: auto;
            display: flex;
            justify-content: space-around;
+
+           @media screen and (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+            }
        }
        &__card {
-            width: 396px;
+            max-width: 396px;
             background: #FFFFFF;
             border-radius: 34px;
             filter: drop-shadow(0px 10px 40px rgba(0, 64, 159, 0.15));
             padding: 20px;
             display: flex;
+
+            @media screen and (max-width: 768px) {
+                width: auto;
+            }
 
             &__user {
                 margin-right: 28px;

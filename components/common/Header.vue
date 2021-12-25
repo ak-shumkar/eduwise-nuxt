@@ -2,43 +2,17 @@
 	<header>
 		<div class="container flex justify-between">
 			<div class="header__logo"><a href="/">Eduwise</a></div>
-			<div class="header__list">
-				<ul class="header__menu">
-					<li class="header__menu__content">
-						<a class="header__menu__item" href="#">About Us</a>
-					</li>
-					<li v-for="m in menus" :key="m.id" class="header__menu__content menu-content">
-						<button class="header__menu__item" href="#" @click="onSelectMenu(m)">{{m.title}}</button>
-						<div v-if="m.isShow" class="header__menu__body">
-							<!-- <div v-if="isLoading" class="flex justify-center">
-							<circle-loader />
-						</div> -->
-							<ul v-if="m.submenus.length" class="menu__list" :class="{ 'double-col' : m.submenus.length > 3}">
-								<li v-for="s in m.submenus" :key="'submenu' + s.id">
-									<h3 class="header__menu__link">{{ s.title }}</h3>
-									<ul>
-										<li v-for="p in s.posts" :key="'post' + p.id">
-											<a :href="`/post/${p.id}/`">{{ s.title }}</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-				<ul class="header__log">
-					<template v-if="!user.access">
-						<!-- <li><a href="/register/">Register</a></li> -->
-						<li><a href="/login/" class="header__login">Log In</a></li>
-					</template>
-					<template v-else>
-						<li class="user">
-							<span class="user__name">{{ user.user.username }} {{ user.user.last_name }}</span>
-							/<button class="user__logout" @click="onLogout">Выйти</button>
-						</li>
-					</template>
-				</ul>
+			<!-- <template v-if="isMobile"> -->
+			<div class="header__burger">
+				<button class="header__burger__btn" @click="isMenuActive = !isMenuActive"><i class="ti-menu"></i></button>
 			</div>
+			<transition name="fade">
+				<header-menus :class="{ 'show-menu' : isMenuActive }" />
+			</transition>
+			<!-- </template> -->
+			<!-- <template v-else>
+				<header-menus />
+			</template> -->
 		</div>
 	</header>
 </template>
@@ -46,15 +20,18 @@
 <script>
 import { mapActions } from 'vuex'
 import { menusService } from '../../_services/menus.service'
+import HeaderMenus from './HeaderMenus.vue'
 // import CircleLoader from './CircleLoader.vue'
 export default {
 	name: 'Header',
-	components: {  },
+	components: { HeaderMenus  },
 	data () {
 		return {
 			menus: [],
 			subMenus: [],
-			isLoading: false
+			isLoading: false,
+			isMenuActive: false,
+			isMobile: false
 		}
 	},
 	async fetch () {
@@ -74,16 +51,22 @@ export default {
 	},
 	mounted () {
 		document.addEventListener('click', this.onOutSideClick)
+		document.addEventListener('resize', this.onScreenResize)
 	},
 	beforeDestroy () {
 		document.removeEventListener('click', this.onOutSideClick)
+		document.removeEventListener('resize', this.onScreenResize)
 	},
-	fetchOnServer: true,
+	fetchOnServer: false,
 	methods: {
 		...mapActions('account', [ 'reset' ]),
 		onLogout () {
 			this.reset()
 			location.reload()
+		},
+		onScreenResize () {
+			this.isMobile = window.innerWidth <= 768
+			console.log(this.isMobile)
 		},
 		onSelectMenu (item) {
 			if (!item.isShow) 
@@ -105,6 +88,12 @@ export default {
 </script>
 
 <style lang="scss">
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 header {
     position: fixed;
     display: flex;
@@ -126,9 +115,40 @@ header {
                 color: var(--main-primary);
             }
         }
+        &__burger {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+
+            @media screen and (max-width: 768px) {
+                display: flex;
+            }
+
+            &__btn {
+                background: transparent;
+            }
+        }
         &__list {
             display: flex;
             justify-content: space-between;
+
+            @media screen and (max-width: 768px){
+                flex-direction: column;
+                position: fixed;
+                right: 0;
+                top: 60px;
+                width: 100%;
+                display: none;
+                justify-content: center;
+                row-gap: 10px;
+                padding: 20px 0;
+                background-color: #3b3b3b;
+
+                &.show-menu {
+                    display: grid;
+                }
+            }
         }
         &__menu {
             display: grid;
@@ -139,6 +159,11 @@ header {
             border-radius: 5px;
             margin: 0;
             padding: 0;
+
+            @media screen and (max-width: 768px) {
+                background: transparent;
+                grid-auto-flow: row;
+            }
 
             &__content {
                 position: relative;
@@ -151,6 +176,11 @@ header {
                 font-weight: 700;
                 margin: 0 40px;
                 text-transform: uppercase;
+
+                @media screen and (max-width: 768px) {
+                    color: #FFFFFF;
+                }
+
                 &.header__login {
                     background: var(--main-bluish);
                     border-radius: 5px;
@@ -201,10 +231,8 @@ header {
             display: flex;
             align-items: center;
             margin: 0;
-
-            /* * + * {
-                margin-left: 20px;
-            } */
+            padding: 0;
+            justify-content: center;
             li {
                 list-style: none;
             }
