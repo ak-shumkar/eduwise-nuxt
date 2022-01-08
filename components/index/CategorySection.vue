@@ -142,7 +142,7 @@ export default {
         margin-top: 5px;
         margin-bottom: 5px;
         @media screen and (max-width: 768px) {
-            width: 48%;
+            width: 47%;
             display: flex;
             min-width: auto;
             font-size: 20px;

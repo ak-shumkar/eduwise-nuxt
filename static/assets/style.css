@@ -111,6 +111,7 @@ button {
         height: 40px;
         font-size: 18px;
         line-height: 23px;
+        min-width: auto;
     }
 }
 

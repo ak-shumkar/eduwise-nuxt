@@ -73,14 +73,14 @@ export default {
     font-weight: 700;
     font-size: 64px;
     line-height: 80px;
-    max-width: 613px;
+    max-width: min(80%, 613px);
     color: #04347b;
     @media screen and (max-width: 768px) {
         font-weight: bold;
         font-size: 34px;
         line-height: 43px;
         color: #04347b;
-        max-width: 326px;
+        max-width: 70%;
     }
 }
 .main {
@@ -88,17 +88,17 @@ export default {
     display: flex;
     background-image: url('/img/back-girl.png');
     background-repeat: no-repeat;
-    background-position: bottom 0 right 30%;
+    background-position: right -50px bottom 0;
     position: relative;
     margin-top: 60px;
 
     @media screen and (max-width: 1440px) {
-        background-position: right;
+        background-position: right -50px bottom 0;
     }
     @media screen and (max-width: 768px) {
         height: 381px;
         background-size: 400px;
-        background-position: right -20px bottom 50px;
+        background-position: right -55px bottom 50px;
     }
 
     &__backdrop {
