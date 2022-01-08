@@ -26,6 +26,7 @@ export default {
                 infinite: true,
                 slidesToShow: 4,
                 speed: 500,
+                dots: false,
                 autoplay: true,
                 responsive: [
                     {
@@ -34,7 +35,7 @@ export default {
                             slidesToShow: 3,
                             slidesToScroll: 3,
                             infinite: true,
-                            dots: true,
+                            // dots: true,
                         },
                     },
                     {
@@ -63,5 +64,10 @@ export default {
 .slide-item {
     object-fit: cover;
     height: 262px;
+}
+@media screen and (max-width: 768px) {
+    .slide-item {
+        height: 150px;
+    }
 }
 </style>
