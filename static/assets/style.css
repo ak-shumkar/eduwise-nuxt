@@ -10,14 +10,14 @@
     font-family: Gilroy;
     src: url('/fonts/gilroy/Gilroy-Medium.ttf');
     font-weight: 500;
-  }
+}
 
 @font-face {
     font-family: 'Cera Pro';
     src: url('/fonts/CeraPro/CeraPro-Bold.ttf');
     font-weight: 700;
 }
-  
+
 @font-face {
     font-family: Gilroy;
     src: url('/fonts/gilroy/Gilroy-Regular.ttf');
@@ -35,14 +35,14 @@
 }
 
 :root {
-    --main-primary: #00409F;
+    --main-primary: #00409f;
     --main-white: #ffffff;
     --main-black: #000000;
-    --main-blue: #5780E7;
-    --main-secondary: #0020C9;
+    --main-blue: #5780e7;
+    --main-secondary: #0020c9;
     --main-gray: rgba(255, 255, 255, 0.54);
     --main-whitesmoke: rgba(255, 255, 255, 0.46);
-    --main-green: #00A341;
+    --main-green: #00a341;
     --main-bluish: rgb(238, 59, 59);
 }
 
@@ -96,7 +96,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #FF1B96;
+    background: #ff1b96;
     border-radius: 5px;
     color: #ffffff;
     padding: 0 24px;
@@ -105,9 +105,12 @@ button {
     line-height: 30px;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     .button {
         width: 100%;
+        height: 40px;
+        font-size: 18px;
+        line-height: 23px;
     }
 }
 
@@ -125,7 +128,7 @@ button {
 }
 
 .button:hover {
-    background: #F23298;
+    background: #f23298;
 }
 .button.green:hover {
     background-color: #4ee2d6;
@@ -134,22 +137,22 @@ button {
 .gap {
     margin: 0 10px;
 }
-input[type=checkbox] {
+input[type='checkbox'] {
     -webkit-appearance: none;
-   -moz-appearance: none;
-   appearance: none;
-   background-color: #ffffff;
-   border: 1px solid transparent;
-   transition: all 300ms ease-in-out;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    transition: all 300ms ease-in-out;
 }
-input[type=checkbox]:focus {
+input[type='checkbox']:focus {
     border: 1px solid var(--main-secondary);
 }
-input[type=checkbox]:checked {
+input[type='checkbox']:checked {
     background-color: var(--main-primary);
 }
-input[type=checkbox]:checked:after {
-    content: "";
+input[type='checkbox']:checked:after {
+    content: '';
     width: 85%;
     height: 50%;
     display: block;
@@ -157,4 +160,4 @@ input[type=checkbox]:checked:after {
     border-left: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
     transform: translate(5%, 20%) rotate(-50deg);
-} 
+}
