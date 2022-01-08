@@ -10,12 +10,12 @@
                     <custom-select no-title title="Category" />
                     <custom-select no-title title="Location" />
                 </div>
-                <!-- <form class="input-content">
+                <form class="input-content">
                     <button type="submit" class="input-content__icon">
                         <i class="ti-search"></i>
                     </button>
                     <input class="input-content__input" placeholder="Search" type="text" />
-                </form> -->
+                </form>
             </div>
         </div>
     </section>
@@ -84,7 +84,7 @@ export default {
     }
 }
 .main {
-    height: 570px;
+    height: 640px;
     display: flex;
     background-image: url('/img/back-girl.png');
     background-repeat: no-repeat;
