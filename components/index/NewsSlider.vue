@@ -66,11 +66,11 @@ export default {
 <style lang="scss" scoped>
 .slide-item {
     object-fit: cover;
-    height: 262px;
+    height: 190px;
 }
 .news {
     &__item {
-        height: 262px;
+        height: 190px;
         background-repeat: no-repeat;
         background-size: cover;
         &__title {

@@ -21,7 +21,7 @@
                             <h3 class="header__menu__link">{{ s.title }}</h3>
                             <ul>
                                 <li v-for="p in s.posts" :key="'post' + p.id">
-                                    <a :href="`/post/${p.id}/`">{{ s.title }}</a>
+                                    <a :href="`/post/${p.id}/`">{{ p.title }}</a>
                                 </li>
                             </ul>
                         </li>

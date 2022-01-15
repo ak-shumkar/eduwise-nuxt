@@ -84,7 +84,7 @@ export default {
     }
 }
 .main {
-    height: 640px;
+    height: 580px;
     display: flex;
     background-image: url('/img/back-girl.png');
     background-repeat: no-repeat;
