@@ -1,12 +1,13 @@
 <template>
     <div class="block">
         <vue-slick-carousel v-bind="options">
-            <img src="/img/test-slider.jpg" class="slide-item" />
-            <img class="slide-item" src="/img/agents.jpeg" />
-            <img src="/img/test-slider.jpg" class="slide-item" />
-            <img class="slide-item" src="/img/agents.jpeg" />
-            <img src="/img/test-slider.jpg" class="slide-item" />
-            <img class="slide-item" src="/img/agents.jpeg" />
+            <div v-for="i in 10" :key="i">
+                <div class="news__item" :style="`background-image: url(/img/test-slider.jpg)`">
+                    <div class="news__back">
+                        <button class="news__item__title">Some text</button>
+                    </div>
+                </div>
+            </div>
         </vue-slick-carousel>
     </div>
 </template>
@@ -22,11 +23,13 @@ export default {
             options: {
                 centerMode: true,
                 centerPadding: '20px',
-                focusOnSelect: true,
+                // focusOnSelect: true,
+                touchMove: true,
                 infinite: true,
                 slidesToShow: 4,
                 speed: 500,
                 dots: false,
+                arrows: true,
                 autoplay: true,
                 responsive: [
                     {
@@ -60,10 +63,35 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .slide-item {
     object-fit: cover;
     height: 262px;
+}
+.news {
+    &__item {
+        height: 262px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &__title {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 30px;
+            color: #ffffff;
+            background: none;
+            border: none;
+        }
+        @media screen and (max-width: 768px) {
+            height: 150px;
+        }
+    }
+    &__back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 }
 @media screen and (max-width: 768px) {
     .slide-item {
