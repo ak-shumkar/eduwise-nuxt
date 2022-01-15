@@ -1,98 +1,74 @@
 <template>
-	<header>
-		<div class="container flex justify-between">
-			<div class="header__logo"><a href="/">Eduwise</a></div>
-			<!-- <template v-if="isMobile"> -->
-			<div class="header__burger">
-				<button class="header__burger__btn" @click="isMenuActive = !isMenuActive"><i class="ti-menu"></i></button>
-			</div>
-			<transition name="fade">
-				<header-menus :class="{ 'show-menu' : isMenuActive }" />
-			</transition>
-			<!-- </template> -->
-			<!-- <template v-else>
+    <header>
+        <div class="container flex justify-between">
+            <div class="header__logo"><a href="/">Eduwise</a></div>
+            <!-- <template v-if="isMobile"> -->
+            <div class="header__burger">
+                <button class="header__burger__btn" @click="isMenuActive = !isMenuActive">
+                    <i class="ti-menu"></i>
+                </button>
+            </div>
+            <transition name="fade">
+                <header-menus :menus="menus" :class="{ 'show-menu': isMenuActive }" />
+            </transition>
+            <!-- </template> -->
+            <!-- <template v-else>
 				<header-menus />
 			</template> -->
-		</div>
-	</header>
+        </div>
+    </header>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
 import { menusService } from '../../_services/menus.service'
 import HeaderMenus from './HeaderMenus.vue'
-// import CircleLoader from './CircleLoader.vue'
+
 export default {
-	name: 'Header',
-	components: { HeaderMenus  },
-	data () {
-		return {
-			menus: [],
-			subMenus: [],
-			isLoading: false,
-			isMenuActive: false,
-			isMobile: false
-		}
-	},
-	async fetch () {
-		try {
-			this.menus = await menusService.getAll()
-		} catch (err) {
-			console.log(err)
-		}
-	},
-	computed: {
-		user () {
-			return this.$store.getters['account/user'] || {}
-		}
-	},
-	created () {
-		this.$store.commit('account/SET_USER', this.$cookies.get('user'))
-	},
-	mounted () {
-		document.addEventListener('click', this.onOutSideClick)
-		document.addEventListener('resize', this.onScreenResize)
-	},
-	beforeDestroy () {
-		document.removeEventListener('click', this.onOutSideClick)
-		document.removeEventListener('resize', this.onScreenResize)
-	},
-	fetchOnServer: false,
-	methods: {
-		...mapActions('account', [ 'reset' ]),
-		onLogout () {
-			this.reset()
-			location.reload()
-		},
-		onScreenResize () {
-			this.isMobile = window.innerWidth <= 768
-			console.log(this.isMobile)
-		},
-		onSelectMenu (item) {
-			if (!item.isShow) 
-				this.resetMenus()
-			
-			this.$set(item, 'isShow', !item.isShow)
-		},
-		resetMenus () {
-			this.menus.forEach(i => this.$set(i, 'isShow', false))
-		},
-		onOutSideClick (e) {
-			const a = e.target.closest('.menu-content')
-			if (!(a && [ ...a.classList ].includes('menu-content'))) 
-				this.resetMenus()
-            
-		}
-	}
+    name: 'Header',
+    components: { HeaderMenus },
+    data() {
+        return {
+            menus: [],
+            subMenus: [],
+            isLoading: false,
+            isMenuActive: false,
+        }
+    },
+    async fetch() {
+        try {
+            this.menus = await menusService.getAll()
+            console.log(this.menus)
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    computed: {
+        user() {
+            return this.$store.getters['account/user'] || {}
+        },
+    },
+    created() {
+        this.$store.commit('account/SET_USER', this.$cookies.get('user'))
+    },
+    fetchOnServer: false,
+    methods: {
+        ...mapActions('account', ['reset']),
+        onLogout() {
+            this.reset()
+            location.reload()
+        },
+    },
 }
 </script>
 
 <style lang="scss">
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
+    opacity: 0;
 }
 header {
     position: fixed;
@@ -102,7 +78,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    background: #FFFFFF;
+    background: #ffffff;
     z-index: 100;
     padding: 0 30px;
     box-shadow: 0 8px 16px rgb(18 103 142 / 10%);
@@ -133,7 +109,7 @@ header {
             display: flex;
             justify-content: space-between;
 
-            @media screen and (max-width: 768px){
+            @media screen and (max-width: 768px) {
                 flex-direction: column;
                 position: fixed;
                 right: 0;
@@ -178,7 +154,7 @@ header {
                 text-transform: uppercase;
 
                 @media screen and (max-width: 768px) {
-                    color: #FFFFFF;
+                    color: #ffffff;
                 }
 
                 &.header__login {
@@ -188,7 +164,7 @@ header {
                     font-size: 18px;
                     line-height: 22px;
                     padding: 9px 35px;
-                    color: #FFFFFF;
+                    color: #ffffff;
                 }
             }
             &__link {
@@ -198,11 +174,11 @@ header {
             }
             &__body {
                 position: absolute;
-                background: #FFFFFF;
+                background: #ffffff;
                 /* padding: 20px; */
                 border: 1px solid whitesmoke;
                 top: 65px;
-               
+                transform: translateX(-20%);
 
                 ul.menu__list {
                     padding: 20px;
@@ -214,7 +190,7 @@ header {
                     line-height: 22px;
                     font-weight: 700;
                     list-style: none;
-                    background: #FFFFFF;
+                    background: #ffffff;
 
                     li {
                         margin: 0 10px;
@@ -247,7 +223,7 @@ header {
                     font-size: 18px;
                     line-height: 22px;
                     padding: 9px 35px;
-                    color: #FFFFFF;
+                    color: #ffffff;
                 }
             }
         }

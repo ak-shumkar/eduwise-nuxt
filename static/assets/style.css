@@ -101,7 +101,7 @@ button {
     color: #ffffff;
     padding: 0 24px;
     font-weight: 500;
-    font-size: 24px;
+    /* font-size: 24px; */
     line-height: 30px;
 }
 
@@ -120,7 +120,10 @@ button {
 }
 
 .button.capitalize {
-    text-transform: uppercase;
+    text-transform: capitalize;
+}
+.button.center {
+    justify-content: center;
 }
 
 .button.green {
