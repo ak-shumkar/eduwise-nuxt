@@ -153,6 +153,9 @@ export default {
                 margin-right: 10px;
             }
         }
+        @media screen and (max-width: 370px) {
+            width: 100%;
+        }
     }
     &__icon {
         margin-right: 25px;
