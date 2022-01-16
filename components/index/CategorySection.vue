@@ -1,18 +1,6 @@
 <template>
     <section class="category section">
         <div class="container">
-            <h2 class="category__title">Browse programs by category</h2>
-            <div class="category__body">
-                <a
-                    v-for="i in categories"
-                    :key="i.icon"
-                    href="/universities/"
-                    class="category__item"
-                >
-                    <i class="category__icon" :class="i.icon"></i> <span>{{ i.name }}</span>
-                </a>
-            </div>
-            <div class="category__space"></div>
             <h2 class="category__title">Browse programs by level</h2>
             <div class="category__body">
                 <a v-for="i in programs" :key="i" href="/universities/" class="category__item">
@@ -21,6 +9,21 @@
                     </span>
                     <span>{{ i }}</span>
                 </a>
+            </div>
+            <div class="category__space"></div>
+            <h2 class="category__title">Browse programs by category</h2>
+            <div class="category__body">
+                <a
+                    v-for="i in filteredCategories"
+                    :key="i.icon"
+                    href="/universities/"
+                    class="category__item"
+                >
+                    <i class="category__icon" :class="i.icon"></i> <span>{{ i.name }}</span>
+                </a>
+                <button v-if="isMobile" class="show-more" @click="toggleShow">
+                    {{ isShowMore ? 'Show less' : 'Show more' }}
+                </button>
             </div>
         </div>
     </section>
@@ -93,6 +96,8 @@ export default {
                     icon: 'ti-rss-alt',
                 },
             ],
+            isMobile: false,
+            isShowMore: false,
             programs: [
                 'Bachelor’s degree',
                 'Master’s degree',
@@ -106,10 +111,38 @@ export default {
             ],
         }
     },
+    computed: {
+        filteredCategories() {
+            return this.isMobile && !this.isShowMore ? this.categories.slice(0, 4) : this.categories
+        },
+    },
+    mounted() {
+        document.addEventListener('resize', this.onScreenResize)
+        this.onScreenResize()
+    },
+    beforeDestroy() {
+        document.removeEventListener('resize', this.onScreenResize)
+    },
+    methods: {
+        onScreenResize() {
+            this.isMobile = window.innerWidth <= 768
+        },
+        toggleShow() {
+            this.isShowMore = !this.isShowMore
+        },
+    },
 }
 </script>
 
 <style lang="scss">
+.show-more {
+    margin: 20px auto 0;
+    border: 1px solid #00409f;
+    border-radius: 5px;
+    background: none;
+    padding: 5px 10px;
+    background: #e7fcff;
+}
 .category {
     margin: 50px 0;
     &__title {

@@ -1,5 +1,5 @@
 <template>
-    <div class="header__list">
+    <div class="header__list" :class="{ small: isSmall }">
         <ul class="header__menu">
             <li class="header__menu__content">
                 <a class="header__menu__item" href="#">About Us</a>
@@ -15,7 +15,7 @@
                     <ul
                         v-if="m.submenus.length"
                         class="menu__list"
-                        :class="{ 'double-col': m.submenus.length > 3 }"
+                        :class="{ 'double-col': m.submenus.length > 1 }"
                     >
                         <li v-for="s in m.submenus" :key="'submenu' + s.id">
                             <h3 class="header__menu__link">{{ s.title }}</h3>
@@ -52,6 +52,7 @@ export default {
     components: { CircleLoader },
     props: {
         menus: { type: Array, default: () => [] },
+        isSmall: { type: Boolean, default: false },
     },
     data() {
         return {
@@ -93,4 +94,149 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss">
+.header {
+    &__list {
+        display: flex;
+        justify-content: flex-end;
+        flex: 1;
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            position: fixed;
+            right: 0;
+            top: 75px;
+            width: 100%;
+            display: none;
+            justify-content: center;
+            row-gap: 10px;
+            padding: 20px 0;
+            background-color: #3b3b3b;
+
+            &.show-menu {
+                display: grid;
+            }
+            &.small {
+                top: 60px;
+            }
+        }
+    }
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+        list-style: none;
+        /* background: var(--main-gray); */
+        border-radius: 5px;
+        margin: 0;
+        padding: 0;
+        flex: 1;
+
+        @media screen and (max-width: 768px) {
+            background: transparent;
+            grid-auto-flow: row;
+            flex-direction: column;
+        }
+
+        &__content {
+            position: relative;
+        }
+
+        &__item {
+            background: inherit;
+            color: var(--main-secondary);
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 5px;
+            text-transform: uppercase;
+
+            @media screen and (max-width: 768px) {
+                color: #ffffff;
+            }
+
+            &.header__login {
+                background: var(--main-bluish);
+                border-radius: 5px;
+                font-weight: 800;
+                font-size: 18px;
+                line-height: 22px;
+                padding: 9px 35px;
+                color: #ffffff;
+            }
+        }
+        &__link {
+            display: block;
+            /* padding: 0 10px; */
+            color: inherit;
+        }
+        &__body {
+            position: absolute;
+            background: #ffffff;
+            /* padding: 20px; */
+            border: 1px solid whitesmoke;
+            top: 65px;
+            transform: translateX(-20%);
+            @media screen and (max-width: 768px) {
+                transform: none;
+                top: unset;
+                left: 0;
+                right: 0;
+                position: fixed;
+            }
+
+            ul.menu__list {
+                padding: 20px;
+                height: auto;
+                display: grid;
+                row-gap: 10px;
+                color: var(--main-secondary);
+                font-size: 18px;
+                line-height: 22px;
+                font-weight: 700;
+                list-style: none;
+                background: #ffffff;
+
+                li {
+                    margin: 0 10px;
+                    min-width: 300px;
+                    @media screen and (max-width: 768px) {
+                        min-width: auto;
+                    }
+                }
+
+                &.double-col {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+        }
+    }
+    &__log {
+        display: flex;
+        align-items: center;
+        margin: 0 0 0 40px;
+        padding: 0;
+        justify-content: center;
+        @media screen and (max-width: 768px) {
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        li > a {
+            color: var(--main-secondary);
+            font-size: 18px;
+            line-height: 21px;
+            &.header__login {
+                background: var(--main-bluish);
+                border-radius: 5px;
+                font-weight: 800;
+                font-size: 18px;
+                line-height: 22px;
+                padding: 9px 35px;
+                color: #ffffff;
+            }
+        }
+    }
+}
+</style>
