@@ -3,11 +3,11 @@
         <div class="container">
             <h2 class="category__title">Browse programs by level</h2>
             <div class="category__body">
-                <a v-for="i in programs" :key="i" href="/universities/" class="category__item">
+                <a v-for="i in degrees" :key="i.id" href="/universities/" class="category__item">
                     <span class="category__btn">
                         <i class="ti-plus"></i>
                     </span>
-                    <span>{{ i }}</span>
+                    <span>{{ i.name }}</span>
                 </a>
             </div>
             <div class="category__space"></div>
@@ -115,10 +115,14 @@ export default {
         filteredCategories() {
             return this.isMobile && !this.isShowMore ? this.categories.slice(0, 4) : this.categories
         },
+        degrees() {
+            return this.$store.getters['university/degrees']
+        },
     },
     mounted() {
         document.addEventListener('resize', this.onScreenResize)
         this.onScreenResize()
+        this.$store.dispatch('university/fetchDegrees')
     },
     beforeDestroy() {
         document.removeEventListener('resize', this.onScreenResize)

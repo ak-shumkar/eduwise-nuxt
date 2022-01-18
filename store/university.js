@@ -1,9 +1,11 @@
 import { institutionService } from '@/_services/institution.service'
 import { programsService } from '@/_services/programs.service'
+import { degreesService } from '@/_services/degrees.service'
 
 export const state = () => ({
     universities: [],
     programs: [],
+    degrees: [],
     isLoading: false,
 })
 export const actions = {
@@ -35,6 +37,20 @@ export const actions = {
                 commit('setLoading', false)
             })
     },
+    fetchDegrees({ commit }) {
+        commit('setLoading', true)
+        degreesService
+            .getAll()
+            .then((res) => {
+                commit('setDegrees', res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+            .finally(() => {
+                commit('setLoading', false)
+            })
+    },
 }
 export const mutations = {
     setUniversities(state, payload) {
@@ -42,6 +58,9 @@ export const mutations = {
     },
     setPrograms(state, payload) {
         state.programs = payload
+    },
+    setDegrees(state, payload) {
+        state.degrees = payload
     },
     setLoading(state, payload) {
         state.isLoading = payload
@@ -53,6 +72,9 @@ export const getters = {
     },
     programs(state) {
         return state.programs
+    },
+    degrees(state) {
+        return state.degrees
     },
     isLoading(state) {
         return state.isLoading
