@@ -10,8 +10,13 @@ class ProgramsService extends BaseApiService {
         return this.sendPutRequest(url, data)
     }
 
-    getAll() {
-        const url = `${process.env.baseUrl}/api/programs/`
+    getAll({ institution = '', degree = '', search = '' } = {}) {
+        const q = this.queryFilter(
+			{ title: 'institution', value: institution },
+			{ title: 'degree', value: degree },
+			{ title: 'search', value: search },
+		)
+        const url = `${process.env.baseUrl}/api/programs/${q}`
         return this.sendGetRequest(url)
     }
 

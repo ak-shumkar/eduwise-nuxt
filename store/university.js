@@ -6,13 +6,14 @@ export const state = () => ({
     universities: [],
     programs: [],
     degrees: [],
+    university: {},
     isLoading: false,
 })
 export const actions = {
-    fetchUniversities({ commit }) {
+    fetchUniversities({ commit }, query) {
         commit('setLoading', true)
         institutionService
-            .getAll()
+            .getAll(query)
             .then((res) => {
                 commit('setUniversities', res)
             })
@@ -23,10 +24,24 @@ export const actions = {
                 commit('setLoading', false)
             })
     },
-    fetchPrograms({ commit }) {
+    fetchUniversity({ commit }, id) {
+        commit('setLoading', true)
+        institutionService
+            .getById(id)
+            .then((res) => {
+                commit('setUniversity', res)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+            .finally(() => {
+                commit('setLoading', false)
+            })
+    },
+    fetchPrograms({ commit }, query) {
         commit('setLoading', true)
         programsService
-            .getAll()
+            .getAll(query)
             .then((res) => {
                 commit('setPrograms', res)
             })
@@ -59,6 +74,9 @@ export const mutations = {
     setPrograms(state, payload) {
         state.programs = payload
     },
+    setUniversity(state, payload) {
+        state.university = payload
+    },
     setDegrees(state, payload) {
         state.degrees = payload
     },
@@ -75,6 +93,9 @@ export const getters = {
     },
     degrees(state) {
         return state.degrees
+    },
+    university(state) {
+        return state.university
     },
     isLoading(state) {
         return state.isLoading

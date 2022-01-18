@@ -11,8 +11,13 @@ class InstitutionService extends BaseApiService {
 		return this.sendPutRequest(url, data)
 	}
 
-	getAll () {
-		const url = `${process.env.baseUrl}/api/institutions/`
+	getAll ({ search = '', institution_type = '', city = '' } = {}) {
+		const q = this.queryFilter(
+			{ title: 'search', value: search },
+			{ title: 'institution_type', value: institution_type },
+			{ title: 'city', value: city },
+		)
+		const url = `${process.env.baseUrl}/api/institutions/${q}`
 		return this.sendGetRequest(url)
 	}
 

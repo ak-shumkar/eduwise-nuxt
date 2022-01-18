@@ -95,6 +95,7 @@ export default {
         @media screen and (max-width: 768px) {
             &:not(:last-child) {
                 margin-bottom: 20px;
+                margin-right: 0;
             }
             width: auto;
         }

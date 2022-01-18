@@ -10,11 +10,16 @@
                     <custom-select no-title title="Category" />
                     <custom-select no-title title="Location" />
                 </div>
-                <form class="input-content">
+                <form class="input-content" @submit.prevent="onSearch">
                     <button type="submit" class="input-content__icon">
                         <i class="ti-search"></i>
                     </button>
-                    <input class="input-content__input" placeholder="Search" type="text" />
+                    <input
+                        v-model="searchText"
+                        class="input-content__input"
+                        placeholder="Search"
+                        type="text"
+                    />
                 </form>
             </div>
         </div>
@@ -30,6 +35,7 @@ export default {
         return {
             isCategoryShow: false,
             isLocationShow: false,
+            searchText: '',
         }
     },
     mounted() {
@@ -46,6 +52,12 @@ export default {
         onLocationSelect() {
             this.isLocationShow = !this.isLocationShow
             this.isCategoryShow = false
+        },
+        onSearch() {
+            this.$router.push({
+                name: 'universities',
+                query: { ...this.$route.query, search: this.searchText },
+            })
         },
         onOutsideClick(e) {
             const content = e.target.closest('.category-select')

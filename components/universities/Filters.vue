@@ -3,13 +3,13 @@
         <div class="container">
             <div class="filter__content">
                 <div class="filter__content__searching">
-                    <div class="filter__search flex-1 space-x-10">
+                    <form class="filter__search flex-1 space-x-10" @submit.prevent="onSearch">
                         <div class="input-content">
                             <i class="ti-search input-content__icon"></i>
-                            <input class="input-content__input" type="text" />
+                            <input v-model="searchText" class="input-content__input" type="text" />
                         </div>
                         <button class="button center">Search</button>
-                    </div>
+                    </form>
 
                     <label class="filter__item__universities">
                         <input
@@ -37,24 +37,36 @@
 import CustomSelect from '../common/forms/CustomSelect.vue'
 export default {
     name: 'Filters',
-
     components: { CustomSelect },
     data() {
         return {
             isShowType: false,
+            searchText: '',
         }
     },
 
     mounted() {
         this.isShowType = this.$route.query.showType === 'university'
+        this.searchText = this.$route.query.search
     },
     methods: {
         onFilterUniversities(e) {
             if (e.target.checked)
-                this.$router.push({ name: 'universities', query: { showType: 'university' } })
-            // window.location.href = this.$route.path + '?showType=university'
-            // window.location.href = this.$route.path
-            else this.$router.push({ name: 'universities' })
+                this.$router.push({
+                    name: 'universities',
+                    query: { ...this.$route.query, showType: 'university' },
+                })
+            else
+                this.$router.push({
+                    name: 'universities',
+                    query: { ...this.$route.query, showType: '' },
+                })
+        },
+        onSearch() {
+            this.$router.push({
+                name: 'universities',
+                query: { ...this.$route.query, search: this.searchText },
+            })
         },
     },
 }

@@ -29,8 +29,8 @@ export default {
     watchQuery: ['showType'],
     async mounted() {
         this.isUniversity = this.$route.query.showType === 'university'
-        if (this.isUniversity) await this.$store.dispatch('university/fetchUniversities')
-        else await this.$store.dispatch('university/fetchPrograms')
+        if (this.isUniversity) await this.$store.dispatch('university/fetchUniversities', this.$route.query)
+        else await this.$store.dispatch('university/fetchPrograms', this.$route.query)
     },
 }
 </script>

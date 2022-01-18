@@ -1,10 +1,14 @@
 <template>
     <div class="university-card">
-        <a class="university-card__link" href="1/">
+        <a class="university-card__link" :href="item.id + '/'">
             <img
                 loading="lazy"
                 class="university-card__img"
-                src="https://studentapply.org/uploads/universities/university/0171575875ac36f0f47627a3d3b2c371.jpeg"
+                :src="
+                    item.image
+                        ? item.image
+                        : 'https://studentapply.org/uploads/universities/university/0171575875ac36f0f47627a3d3b2c371.jpeg'
+                "
                 alt="Long Island University Post"
             />
             <div class="university-card__content">
@@ -17,7 +21,7 @@
                         <i class="fas fa-money-bill badge__icon"></i>
                         <div class="university-card__info_text">
                             <span>Annual tuition fee:</span>
-                            <span>$ 30 000 - $ 40 000</span>
+                            <span>{{ item.fee }}</span>
                         </div>
                     </div>
                     <div class="badge__content">
