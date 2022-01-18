@@ -8,9 +8,9 @@
                 alt="Long Island University Post"
             />
             <div class="university-card__content">
-                <h4 class="university-card__title">Long Island University Post</h4>
+                <h4 class="university-card__title">{{ item.name }}</h4>
                 <div class="university-card__location">
-                    <i class="fas fa-map-marker-alt location-icon"></i> Brookville, United States
+                    <i class="fas fa-map-marker-alt location-icon"></i> {{ item.address }}
                 </div>
                 <div class="university-card__badges">
                     <div class="university-card__info">
