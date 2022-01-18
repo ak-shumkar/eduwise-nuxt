@@ -5,7 +5,7 @@
                 <a class="header__logo__content" href="/">
                     <transition name="fade" mode="out-in">
                         <img v-if="isScrolled" key="1" class="small" src="/img/logo-half.svg" />
-                        <img v-else key="2" src="/img/logo.svg" />
+                        <img v-else key="2" class="main" src="/img/logo.svg" />
                     </transition>
                 </a>
             </div>
@@ -123,6 +123,9 @@ header {
                     &.small {
                         margin-top: 0;
                         height: 32px;
+                    }
+                    &.main {
+                        margin-left: -20px;
                     }
                 }
             }

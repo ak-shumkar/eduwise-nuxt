@@ -79,6 +79,9 @@ export default {
         color: #000000;
         max-width: 881px;
         margin: 20px auto;
+        @media screen and (max-width: 768px) {
+            margin-bottom: 0px;
+        }
     }
     &__content {
         display: flex;
@@ -88,7 +91,7 @@ export default {
         @media screen and (max-width: 768px) {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            margin-bottom: -100px;
+            margin-bottom: -200px;
         }
 
         @media screen and (max-width: 630px) {

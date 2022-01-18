@@ -81,21 +81,13 @@ export default {
         }
         &:nth-child(2) {
             .hww__back {
-                margin-top: -40px;
+                margin-top: -60px;
             }
             .hww__content {
-                margin-top: 120px;
+                margin-top: 100px;
             }
         }
         &:nth-child(3) {
-            .hww__back {
-                margin-top: -80px;
-            }
-            .hww__content {
-                margin-top: 80px;
-            }
-        }
-        &:nth-child(4) {
             .hww__back {
                 margin-top: -120px;
             }
@@ -103,12 +95,20 @@ export default {
                 margin-top: 40px;
             }
         }
-        &:nth-child(5) {
+        &:nth-child(4) {
             .hww__back {
-                margin-top: -160px;
+                margin-top: -180px;
             }
             .hww__content {
-                margin-top: -10px;
+                margin-top: -20px;
+            }
+        }
+        &:nth-child(5) {
+            .hww__back {
+                margin-top: -240px;
+            }
+            .hww__content {
+                margin-top: -90px;
             }
         }
     }
@@ -122,6 +122,7 @@ export default {
         @media screen and (max-width: 630px) {
             margin-top: 140px;
             width: 223px;
+            transform: translateX(10px);
         }
     }
 
