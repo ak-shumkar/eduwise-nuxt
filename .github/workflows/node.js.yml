@@ -21,5 +21,6 @@ jobs:
             rm -rf .nuxt/
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            npm i
             npm run build
-            npm run generate
+            pm2 restart "npm run start"
