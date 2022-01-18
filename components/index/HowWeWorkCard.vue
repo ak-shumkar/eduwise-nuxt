@@ -79,6 +79,38 @@ export default {
         &:not(:last-child) {
             margin-right: 0;
         }
+        &:nth-child(2) {
+            .hww__back {
+                margin-top: -40px;
+            }
+            .hww__content {
+                margin-top: 120px;
+            }
+        }
+        &:nth-child(3) {
+            .hww__back {
+                margin-top: -80px;
+            }
+            .hww__content {
+                margin-top: 80px;
+            }
+        }
+        &:nth-child(4) {
+            .hww__back {
+                margin-top: -120px;
+            }
+            .hww__content {
+                margin-top: 40px;
+            }
+        }
+        &:nth-child(5) {
+            .hww__back {
+                margin-top: -160px;
+            }
+            .hww__content {
+                margin-top: -10px;
+            }
+        }
     }
 
     &__content {
@@ -108,6 +140,8 @@ export default {
         margin-bottom: 10px;
         @media screen and (max-width: 630px) {
             width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
     &__desc {

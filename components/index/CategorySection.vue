@@ -146,6 +146,7 @@ export default {
     background: none;
     padding: 5px 10px;
     background: #e7fcff;
+    width: 100%;
 }
 .category {
     margin: 50px 0;

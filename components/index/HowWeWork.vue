@@ -88,6 +88,7 @@ export default {
         @media screen and (max-width: 768px) {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            margin-bottom: -100px;
         }
 
         @media screen and (max-width: 630px) {
