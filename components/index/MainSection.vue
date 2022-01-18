@@ -65,7 +65,7 @@ export default {
     justify-content: space-between;
     margin-bottom: 28px;
     @media screen and (max-width: 768px) {
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 }
 .title {
@@ -96,9 +96,9 @@ export default {
         background-position: right -50px bottom 0;
     }
     @media screen and (max-width: 768px) {
-        height: 381px;
+        height: 410px;
         background-size: 400px;
-        background-position: right -55px bottom 50px;
+        background-position: right -55px bottom 84px;
     }
 
     &__backdrop {
@@ -110,7 +110,8 @@ export default {
         z-index: -1;
 
         @media screen and (max-width: 768px) {
-            background: bottom / contain no-repeat url('/img/back-g.png'), url('/img/backdrop.png');
+            background: bottom / contain no-repeat url('/img/back-mobile.png'),
+                url('/img/backdrop.png');
         }
     }
 
@@ -136,7 +137,7 @@ export default {
 
         @media screen and (max-width: 768px) {
             display: grid;
-            row-gap: 10px;
+            row-gap: 8px;
 
             > * + * {
                 margin-left: 0;
@@ -159,7 +160,7 @@ export default {
         }
 
         @media screen and (max-width: 768px) {
-            margin-top: 80px;
+            margin-top: 60px;
         }
     }
 }

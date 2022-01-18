@@ -20,27 +20,27 @@
                             <span>$ 30 000 - $ 40 000</span>
                         </div>
                     </div>
-                    <div class="badge__container">
+                    <div class="badge__content">
                         <div class="">
                             <i class="fas fa-check-circle badge__icon"></i>
                             <span class="badge__title">Scholarship</span>
                         </div>
                     </div>
-                    <div class="badge__container">
+                    <div class="badge__content">
                         <div class="">
                             <!-- <i class="badge__icon ti-home"></i> -->
                             <i class="fas fa-building badge__icon"></i>
                             <span class="badge__title">Accommodation</span>
                         </div>
                     </div>
-                    <div class="badge__container">
+                    <div class="badge__content">
                         <div class="">
                             <i class="fas fa-users badge__icon"></i>
                             <span class="badge__title">Co-op and internship</span>
                         </div>
                     </div>
 
-                    <div v-if="isMore" class="badge__container">
+                    <div v-if="isMore" class="badge__content">
                         <div class="">
                             <i class="fas fa-briefcase badge__icon"></i>
                             <span class="badge__title">Post-study work visa</span>
@@ -62,7 +62,10 @@
 export default {
     name: 'UniversityCard',
     props: {
-        item: Object,
+        item: {
+            type: Object,
+            required: true,
+        },
     },
     data() {
         return {
@@ -95,6 +98,11 @@ export default {
             text-decoration: none;
             color: #192038;
         }
+
+        @media screen and (max-width: 768px) {
+            display: grid;
+            row-gap: 20px;
+        }
     }
 
     &__img {
@@ -103,6 +111,11 @@ export default {
         border-radius: 4px;
         -o-object-fit: cover;
         object-fit: cover;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            height: auto;
+        }
     }
 
     &__content {
@@ -133,11 +146,26 @@ export default {
         min-width: 250px;
         display: flex;
 
+        @media screen and (max-width: 768px) {
+            min-width: auto;
+        }
+
         &_text {
             display: flex;
             flex-direction: column;
             line-height: 23px;
             margin-left: 10px;
+        }
+    }
+}
+.badge {
+    &__content {
+        display: flex;
+        width: 250px;
+        margin-bottom: 16px;
+
+        @media screen and (max-width: 768px) {
+            width: auto;
         }
     }
 }

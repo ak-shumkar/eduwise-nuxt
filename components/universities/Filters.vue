@@ -2,7 +2,7 @@
     <section class="filter">
         <div class="container">
             <div class="filter__content">
-                <div class="flex justify-between items-center space-b-40">
+                <div class="filter__content__searching">
                     <div class="filter__search flex-1 space-x-10">
                         <div class="input-content">
                             <i class="ti-search input-content__icon"></i>
@@ -21,7 +21,7 @@
                         <span>Show universities</span>
                     </label>
                 </div>
-                <div class="flex relative filter__container space-x-10">
+                <div class="flex relative filter__container">
                     <custom-select title="Filter by category" label="Category" />
                     <custom-select title="Filter by program level" label="Program" />
                     <custom-select title="Filter by location" label="Location" />
@@ -73,6 +73,17 @@ export default {
     }
     &__container {
         align-items: flex-end;
+        > div + * {
+            margin-left: 10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            flex-wrap: wrap;
+            > div + * {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
     }
     &__search {
         display: flex;
@@ -87,6 +98,21 @@ export default {
             width: 22px;
             height: 22px;
             margin-right: 10px;
+        }
+    }
+    &__content {
+        &__searching {
+            display: grid;
+            align-items: center;
+            justify-content: space-between;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 10px;
+            margin-bottom: 20px;
+
+            @media screen and (max-width: 768px) {
+                grid-template-columns: 1fr;
+                row-gap: 10px;
+            }
         }
     }
 }

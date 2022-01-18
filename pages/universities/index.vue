@@ -5,20 +5,7 @@
             <div class="main">
                 <div class="university">
                     <filters />
-                    <section class="content">
-                        <div class="container content__container">
-                            <div class="content__main">
-                                <my-listing v-if="universities.length" :items="universities">
-                                    <!-- <university-card
-                                        slot="todo"
-                                        slot-scope="{ item }"
-                                        :item="item"
-                                    /> -->
-                                    <!-- <faculty-card v-else :item="item" /> -->
-                                </my-listing>
-                            </div>
-                        </div>
-                    </section>
+                    <universities-content :is-university="isUniversity" />
                 </div>
             </div>
         </main>
@@ -29,35 +16,21 @@
 <script>
 import FooterPage from '@/components/common/Footer.vue'
 import HeaderPage from '@/components/common/Header.vue'
-import { institutionService } from '@/_services/institution.service'
-import { programsService } from '@/_services/programs.service'
-import { mapActions } from 'vuex'
 import Filters from '../../components/universities/Filters.vue'
-import UniversityCard from '../../components/common/cards/UniversityCard.vue'
-import FacultyCard from '../../components/common/cards/FacultyCard.vue'
-import List from '../../components/widget/List.vue'
+import UniversitiesContent from '../../components/universities/UniversitiesContent.vue'
 export default {
     key: (to) => to.fullPath,
-    components: { HeaderPage, FooterPage, Filters, myListing: List },
+    components: { HeaderPage, FooterPage, Filters, UniversitiesContent },
     data() {
         return {
             isUniversity: false,
-            // universities: [],
-            programs: [],
-            isLoading: false,
         }
     },
-    async fetch({ app, store, route }) {
-        await store.dispatch('university/fetchUniversities')
-    },
-    computed: {
-        universities() {
-            return this.$store.getters['university/universities']
-        },
-    },
     watchQuery: ['showType'],
-    mounted() {
+    async mounted() {
         this.isUniversity = this.$route.query.showType === 'university'
+        if (this.isUniversity) await this.$store.dispatch('university/fetchUniversities')
+        else await this.$store.dispatch('university/fetchPrograms')
     },
 }
 </script>
