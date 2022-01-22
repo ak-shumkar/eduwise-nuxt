@@ -4,6 +4,7 @@
         <main>
             <main-section />
             <news-slider />
+            <consultation />
             <category-section />
             <how-we-work />
             <work-together />
@@ -23,6 +24,7 @@ import WorkTogether from '../components/index/WorkTogether.vue'
 import ApplyNow from '../components/index/ApplyNow.vue'
 import MainSection from '../components/index/MainSection.vue'
 import NewsSlider from '../components/index/NewsSlider.vue'
+import Consultation from '../components/index/Consultation.vue'
 export default {
     name: 'Home',
     components: {
@@ -34,6 +36,7 @@ export default {
         FooterPage,
         MainSection,
         NewsSlider,
+        Consultation,
     },
 }
 </script>
