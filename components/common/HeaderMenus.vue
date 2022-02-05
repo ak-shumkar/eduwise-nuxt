@@ -41,6 +41,17 @@
                     /<button class="user__logout" @click="onLogout">Выйти</button>
                 </li>
             </template>
+            <li>
+                <el-select v-model="lang" class="lang-selector">
+                    <el-option
+                        v-for="item in languages"
+                        :key="item.code"
+                        :label="item.name"
+                        :value="item.code"
+                    >
+                    </el-option>
+                </el-select>
+            </li>
         </ul>
     </div>
 </template>
@@ -58,14 +69,19 @@ export default {
         return {
             isLoading: false,
             isMobile: false,
+            lang: 'ru',
         }
     },
     computed: {
         user() {
             return this.$store.getters['account/user'] || {}
         },
+        languages() {
+            return this.$store.getters['university/languages']
+        },
     },
     mounted() {
+        console.log(this.languages)
         document.addEventListener('click', this.onOutSideClick)
         document.addEventListener('resize', this.onScreenResize)
     },
@@ -95,6 +111,10 @@ export default {
 </script>
 
 <style lang="scss">
+.lang-selector .el-input__inner {
+    width: 70px;
+    height: 36px;
+}
 .header {
     &__list {
         display: flex;
@@ -236,6 +256,9 @@ export default {
                 padding: 9px 35px;
                 color: #ffffff;
             }
+        }
+        li + li {
+            margin-left: 10px;
         }
     }
 }

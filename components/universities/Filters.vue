@@ -23,20 +23,23 @@
                             :marks="rangeMarks"
                             label="Price range"
                             range
-                            :max="10"
+                            :max="50000"
+                            @change="onPriceRange"
                         >
                         </el-slider>
                     </div>
 
-                    <label class="filter__item__universities">
-                        <input
-                            v-model="isShowType"
-                            type="checkbox"
-                            class="filter__item__checkbox"
-                            @change="onFilterUniversities"
-                        />
-                        <span>Show universities</span>
-                    </label>
+                    <div class="filter__item__universities">
+                        <label class="filter__item__universities--checkbox">
+                            <input
+                                v-model="isShowType"
+                                type="checkbox"
+                                class="filter__item__checkbox"
+                                @change="onFilterUniversities"
+                            />
+                            <span>Show universities</span>
+                        </label>
+                    </div>
                 </div>
                 <div class="flex relative filter__container">
                     <custom-select title="Filter by category" label="Category" />
@@ -59,10 +62,10 @@ export default {
         return {
             isShowType: false,
             searchText: '',
-            priceRange: [0, 8],
+            priceRange: [0, 40000],
             rangeMarks: {
                 0: { label: this.createLabel(0) },
-                8: { label: this.createLabel(8) },
+                40000: { label: this.createLabel(40000) },
             },
         }
     },
@@ -74,6 +77,14 @@ export default {
     methods: {
         createLabel(price) {
             return this.$createElement('strong', '$' + price)
+        },
+        onPriceRange(val) {
+            const s = val[0]
+            const e = val[1]
+            this.rangeMarks = {
+                [s]: { label: this.createLabel(s) },
+                [e]: { label: this.createLabel(e) },
+            }
         },
         onFilterUniversities(e) {
             if (e.target.checked)
@@ -127,10 +138,13 @@ export default {
     }
     &__item {
         &__universities {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            justify-content: flex-end;
+            display: grid;
+            &--checkbox {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                margin-left: auto;
+            }
         }
         &__checkbox {
             width: 22px;

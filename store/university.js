@@ -7,6 +7,11 @@ export const state = () => ({
     programs: [],
     degrees: [],
     university: {},
+    languages: [
+        { name: 'RU', code: 'ru' },
+        { name: 'KG', code: 'kg' },
+        { name: 'EN', code: 'en' },
+    ],
     isLoading: false,
 })
 export const actions = {
@@ -99,5 +104,8 @@ export const getters = {
     },
     isLoading(state) {
         return state.isLoading
+    },
+    languages(state) {
+        return state.languages
     },
 }

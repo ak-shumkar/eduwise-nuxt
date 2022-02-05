@@ -55,13 +55,15 @@ a:hover {
     text-decoration: none;
 }
 
+ul li {
+    line-height: 1;
+}
+
 button {
     border: none;
     cursor: pointer;
 }
-.section {
-    /* padding: 0 147px; */
-}
+
 .flex {
     display: flex;
 }
