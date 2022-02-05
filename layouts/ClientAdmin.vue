@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="client-admin">
         <client-admin-header />
         <router-view />
     </div>

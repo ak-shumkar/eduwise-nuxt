@@ -123,7 +123,7 @@ export default {
         '~/static/js/select.dataTables.min.css',
         '~/static/css/vertical-layout-light/style.css',
         '~/static/assets/style',
-        '~/static/assets/globals.scss',
+        '~/static/assets/index.scss',
         '~/static/vendors/mdi/css/materialdesignicons.min.css',
         'vue-slick-carousel/dist/vue-slick-carousel.css',
         'vue-slick-carousel/dist/vue-slick-carousel-theme.css',

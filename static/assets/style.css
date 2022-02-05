@@ -59,6 +59,12 @@ ul li {
     line-height: 1;
 }
 
+ol,
+ul,
+dl {
+    margin-bottom: 0;
+}
+
 button {
     border: none;
     cursor: pointer;
