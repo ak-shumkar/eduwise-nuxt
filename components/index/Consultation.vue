@@ -31,7 +31,7 @@ export default {
         }
     }
     &__btn {
-        background: #00aff0;
+        background: var(--main-bluish);
         color: #ffffff;
         padding: 10px 24px;
         text-transform: capitalize;

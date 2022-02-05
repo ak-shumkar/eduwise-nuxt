@@ -2,7 +2,7 @@
     <div class="category-select">
         <label class="category-select__title-content">
             <!-- <span v-if="!noTitle" class="category-select__label">{{ title }}</span> -->
-            <button class="button" @click="onShowHide">
+            <button class="button button-m" @click="onShowHide">
                 {{ label ? label : title }}
                 <i class="icon-down ti-angle-down" :class="{ up: isShow }"></i>
             </button>

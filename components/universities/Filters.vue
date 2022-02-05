@@ -6,10 +6,27 @@
                     <form class="filter__search flex-1 space-x-10" @submit.prevent="onSearch">
                         <div class="input-content">
                             <i class="ti-search input-content__icon"></i>
-                            <input v-model="searchText" class="input-content__input" type="text" />
+                            <input
+                                v-model="searchText"
+                                class="input-content__input"
+                                placeholder="Harvard ..."
+                                type="text"
+                            />
                         </div>
                         <button class="button center">Search</button>
                     </form>
+
+                    <div class="filter__range">
+                        <span class="filter__range__title">Price range</span>
+                        <el-slider
+                            v-model="priceRange"
+                            :marks="rangeMarks"
+                            label="Price range"
+                            range
+                            :max="10"
+                        >
+                        </el-slider>
+                    </div>
 
                     <label class="filter__item__universities">
                         <input
@@ -25,8 +42,8 @@
                     <custom-select title="Filter by category" label="Category" />
                     <custom-select title="Filter by program level" label="Program" />
                     <custom-select title="Filter by location" label="Location" />
-                    <custom-select title="Filter by delivery method" label="Delivery method" />
-                    <button class="button">Show all filters</button>
+                    <!-- <custom-select title="Filter by delivery method" label="Delivery method" /> -->
+                    <button class="button button-m">Show all filters</button>
                 </div>
             </div>
         </div>
@@ -42,6 +59,11 @@ export default {
         return {
             isShowType: false,
             searchText: '',
+            priceRange: [0, 8],
+            rangeMarks: {
+                0: { label: this.createLabel(0) },
+                8: { label: this.createLabel(8) },
+            },
         }
     },
 
@@ -50,6 +72,9 @@ export default {
         this.searchText = this.$route.query.search
     },
     methods: {
+        createLabel(price) {
+            return this.$createElement('strong', '$' + price)
+        },
         onFilterUniversities(e) {
             if (e.target.checked)
                 this.$router.push({
@@ -105,6 +130,7 @@ export default {
             display: flex;
             align-items: center;
             cursor: pointer;
+            justify-content: flex-end;
         }
         &__checkbox {
             width: 22px;
@@ -117,7 +143,7 @@ export default {
             display: grid;
             align-items: center;
             justify-content: space-between;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             column-gap: 10px;
             margin-bottom: 20px;
 
@@ -125,6 +151,17 @@ export default {
                 grid-template-columns: 1fr;
                 row-gap: 10px;
             }
+        }
+    }
+    &__range {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        align-items: center;
+        column-gap: 20px;
+
+        &__title {
+            font-size: 18px;
         }
     }
 }

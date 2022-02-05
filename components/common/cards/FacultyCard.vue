@@ -52,6 +52,7 @@ export default {
     display: flex;
     flex-direction: column;
     color: inherit;
+    max-width: 900px;
 
     &:hover {
         color: inherit;

@@ -1,5 +1,5 @@
 .category-select {
-    width: 100%;
+    // width: 100%;
     &__title-content {
         @media screen and (max-width: 768px) {
             width: 100%;
@@ -55,7 +55,7 @@
     }
 }
 .input-content {
-    width: 55%;
+    width: 70%;
     position: relative;
 
     @media screen and (max-width: 768px) {
