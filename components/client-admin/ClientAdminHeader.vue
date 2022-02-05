@@ -60,6 +60,10 @@ export default {
         align-items: center;
         position: relative;
 
+        @media screen and (max-width: 768px) {
+            justify-content: flex-start;
+        }
+
         > h1 {
             font-weight: 800;
             font-size: 24px;
@@ -79,6 +83,7 @@ export default {
 .ca-menus {
     display: flex;
     list-style: none;
+    flex-wrap: wrap;
 
     &__item {
         margin: 25px 30px 12px;
