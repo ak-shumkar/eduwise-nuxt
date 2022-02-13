@@ -22,17 +22,17 @@
         <div class="ca-header__menus">
             <div class="container">
                 <ul class="ca-menus">
-                    <li class="ca-menus__item ca-menus__item--active">
-                        <router-link to="application">My Application</router-link>
+                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client' }">
+                        <router-link to="/client">My Application</router-link>
                     </li>
-                    <li class="ca-menus__item">
-                        <router-link to="profile">Profile</router-link>
+                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client/profile' }">
+                        <router-link to="/client/profile">Profile</router-link>
                     </li>
-                    <li class="ca-menus__item">
-                        <router-link to="support">Plans & Support</router-link>
+                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client/support' }">
+                        <router-link to="/client/support">Plans & Support</router-link>
                     </li>
-                    <li class="ca-menus__item">
-                        <router-link to="institution">Institutions</router-link>
+                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client/institution' }">
+                        <router-link to="/client/institution">Institutions</router-link>
                     </li>
                 </ul>
             </div>
@@ -45,6 +45,9 @@ export default {
     name: 'ClientAdminHeader',
     data() {
         return {}
+    },
+    mounted () {
+        console.log(this.$route.path)
     },
     methods: {},
 }

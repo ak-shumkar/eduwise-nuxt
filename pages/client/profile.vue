@@ -1,17 +1,17 @@
 <template>
     <div class="page-body">
         <div class="container">
-            <h2 class="page-title">My Applications</h2>
-            <application />
+            <h2 class="page-title">Profile</h2>
+            <profile />
         </div>
     </div>
 </template>
 
 <script>
-import Application from '@/components/client-admin/my-application'
+import Profile from '@/components/client-admin/profile'
 export default {
     name: 'Client',
-    components: { Application },
+    components: { Profile },
     layout: 'ClientAdmin',
 }
 </script>

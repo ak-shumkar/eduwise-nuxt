@@ -151,7 +151,7 @@ export default {
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
-    ssr: true,
+    ssr: false,
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
@@ -172,7 +172,7 @@ export default {
     cookies: {},
 
     router: {
-        trailingSlash: true,
+        middleware: 'trailingSlashRedirect',
     },
 
     // PWA module configuration: https://go.nuxtjs.dev/pwa

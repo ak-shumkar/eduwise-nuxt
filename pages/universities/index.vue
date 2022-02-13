@@ -29,7 +29,8 @@ export default {
     watchQuery: ['showType'],
     async mounted() {
         this.isUniversity = this.$route.query.showType === 'university'
-        if (this.isUniversity) await this.$store.dispatch('university/fetchUniversities', this.$route.query)
+        if (this.isUniversity)
+            await this.$store.dispatch('university/fetchUniversities', this.$route.query)
         else await this.$store.dispatch('university/fetchPrograms', this.$route.query)
     },
 }
@@ -38,6 +39,9 @@ export default {
 <style lang="scss">
 .main {
     margin-top: 57px;
+}
+main {
+    min-height: calc(100vh - 358px);
 }
 .badge {
     &__container {

@@ -1,6 +1,6 @@
 <template>
     <div class="university-card">
-        <a class="university-card__link" :href="item.id + '/'">
+        <a class="university-card__link" :href="'/universities/' + item.id">
             <img
                 loading="lazy"
                 class="university-card__img"
@@ -21,7 +21,7 @@
                         <i class="fas fa-money-bill badge__icon"></i>
                         <div class="university-card__info_text">
                             <span>Annual tuition fee:</span>
-                            <span>{{ item.fee }}</span>
+                            <span>{{ currency }} {{ item.fee && item.fee.tuition }}</span>
                         </div>
                     </div>
                     <div class="badge__content">
@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import { currencies } from '@/_helpers/constants'
 export default {
     name: 'UniversityCard',
     props: {
@@ -74,7 +75,14 @@ export default {
     data() {
         return {
             isMore: false,
+            currencies,
         }
+    },
+    computed: {
+        currency() {
+            const c = this.currencies.find((i) => i.name === this.item.fee?.currency)
+            return c ? c.currency : ''
+        },
     },
 }
 </script>

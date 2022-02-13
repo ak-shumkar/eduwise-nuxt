@@ -99,7 +99,7 @@ header {
     align-items: center;
     height: 75px;
     background: #ffffff;
-    z-index: 100;
+    z-index: 100000;
     padding: 0 30px;
     box-shadow: 0 8px 16px rgb(18 103 142 / 10%);
     transition: height 300ms ease-in-out;

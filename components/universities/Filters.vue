@@ -85,6 +85,10 @@ export default {
                 [s]: { label: this.createLabel(s) },
                 [e]: { label: this.createLabel(e) },
             }
+            this.$router.push({
+                name: 'universities',
+                query: { ...this.$route.query, price_min: val[0], price_max: val[1] },
+            })
         },
         onFilterUniversities(e) {
             if (e.target.checked)
