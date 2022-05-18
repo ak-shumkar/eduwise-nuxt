@@ -16,24 +16,26 @@
         </el-menu>
 
         <div class="c-profile__content">
-            <general-info />
+            <general-info v-if="activeIndex === '1'" />
+            <education v-if="activeIndex === '2'" />
         </div>
     </div>
 </template>
 
 <script>
+import Education from './Education.vue'
 import GeneralInfo from './GeneralInfo.vue'
 export default {
     name: 'CProfile',
-    components: { GeneralInfo },
+    components: { GeneralInfo, Education },
     data() {
         return {
             activeIndex: '1',
         }
     },
     methods: {
-        handleSelect(key, keyPath) {
-            console.log(key, keyPath)
+        handleSelect(key) {
+            this.activeIndex = key
         },
     },
 }

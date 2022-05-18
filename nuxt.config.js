@@ -110,7 +110,7 @@ export default {
         ],
     },
     server: {
-        port: 8001, // default: 3000
+        port: 3001, // default: 3000
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
