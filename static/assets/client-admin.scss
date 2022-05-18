@@ -9,6 +9,14 @@
 
     .page-body {
         background-color: #fafafa;
-        height: calc(100vh - 153px);
+        min-height: calc(100vh - 153px);
+    }
+}
+
+.c-profile {
+    padding-bottom: 40px;
+    &__content {
+        background-color: #fff;
+        padding: 20px;
     }
 }

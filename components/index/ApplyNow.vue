@@ -89,7 +89,7 @@ export default {
                 autoplay: true,
                 responsive: [
                     {
-                        breakpoint: 1300,
+                        breakpoint: 1360,
                         settings: {
                             slidesToShow: 2,
                             slidesToScroll: 2,

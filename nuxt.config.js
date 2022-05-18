@@ -1,6 +1,6 @@
 export default {
     // Target: https://go.nuxtjs.dev/config-target
-    target: 'server',
+    ssr: true,
 
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -129,9 +129,9 @@ export default {
         'vue-slick-carousel/dist/vue-slick-carousel-theme.css',
     ],
 
-    generate: {
-        crawler: true,
-    },
+    // generate: {
+    //     crawler: true,
+    // },
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
@@ -151,7 +151,6 @@ export default {
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
-    ssr: false,
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',

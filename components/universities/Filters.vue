@@ -23,7 +23,7 @@
                             :marks="rangeMarks"
                             label="Price range"
                             range
-                            :max="50000"
+                            :max="priceMax"
                             @change="onPriceRange"
                         >
                         </el-slider>
@@ -63,28 +63,35 @@ export default {
             isShowType: false,
             searchText: '',
             priceRange: [0, 40000],
-            rangeMarks: {
-                0: { label: this.createLabel(0) },
-                40000: { label: this.createLabel(40000) },
-            },
+            priceMax: 100000,
         }
+    },
+
+    computed: {
+        rangeMarks() {
+            return {
+                [this.priceRange[0]]: { label: this.createLabel(this.priceRange[0]) },
+                [this.priceRange[1]]: { label: this.createLabel(this.priceRange[1]) },
+            }
+        },
     },
 
     mounted() {
         this.isShowType = this.$route.query.showType === 'university'
         this.searchText = this.$route.query.search
+        this.priceRange = [this.$route.query.price_min || 0, this.$route.query.price_max || 40000]
     },
     methods: {
         createLabel(price) {
             return this.$createElement('strong', '$' + price)
         },
         onPriceRange(val) {
-            const s = val[0]
-            const e = val[1]
-            this.rangeMarks = {
-                [s]: { label: this.createLabel(s) },
-                [e]: { label: this.createLabel(e) },
-            }
+            // const s = val[0]
+            // const e = val[1]
+            // this.rangeMarks = {
+            //     [s]: { label: this.createLabel(s) },
+            //     [e]: { label: this.createLabel(e) },
+            // }
             this.$router.push({
                 name: 'universities',
                 query: { ...this.$route.query, price_min: val[0], price_max: val[1] },

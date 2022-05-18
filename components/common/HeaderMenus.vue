@@ -81,7 +81,6 @@ export default {
         },
     },
     mounted() {
-        console.log(this.languages)
         document.addEventListener('click', this.onOutSideClick)
         document.addEventListener('resize', this.onScreenResize)
     },

@@ -38,6 +38,9 @@ export default {
         NewsSlider,
         Consultation,
     },
+    asyncData ({ store }) {
+        store.dispatch('fetchHomeData')
+    }
 }
 </script>
 

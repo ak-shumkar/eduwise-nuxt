@@ -11,7 +11,7 @@ class InstitutionService extends BaseApiService {
 		return this.sendPutRequest(url, data)
 	}
 
-	getAll ({ search = '', institution_type = '', city = '', price_min = '', price_max='' } = {}) {
+	getAll ({ search = '', institution_type = '', city = '', price_min = 0, price_max='' } = {}) {
 		const q = this.queryFilter(
 			{ title: 'search', value: search },
 			{ title: 'price_min', value: price_min },

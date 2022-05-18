@@ -1,10 +1,10 @@
 <template>
     <div class="block">
-        <vue-slick-carousel v-bind="options">
-            <div v-for="i in 10" :key="i">
+        <vue-slick-carousel v-if="news.length" v-bind="options">
+            <div v-for="i in news" :key="i.id">
                 <div class="news__item" :style="`background-image: url(/img/test-slider.jpg)`">
                     <div class="news__back">
-                        <button class="news__item__title">Some text</button>
+                        <button class="news__item__title">{{ i.title }}</button>
                     </div>
                 </div>
             </div>
@@ -14,7 +14,7 @@
 
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
-
+import { newsService } from '@/_services/news.service'
 export default {
     name: 'NewsSlider',
     components: { VueSlickCarousel },
@@ -60,6 +60,11 @@ export default {
             },
         }
     },
+    computed: {
+        news () {
+            return this.$store.getters['news/news']
+        }
+    }
 }
 </script>
 

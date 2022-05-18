@@ -21,7 +21,7 @@ export default class BaseApiService {
     queryFilter() {
         let q = '?'
         Array.from(arguments).forEach((ar, i, arr) => {
-            if (ar.value) {
+            if (ar.value || ar.value === 0) {
                 if (q.length > 1) q += '&'
                 q += ar.title + '=' + ar.value
             }

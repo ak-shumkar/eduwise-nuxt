@@ -21,7 +21,7 @@
                         <i class="fas fa-money-bill badge__icon"></i>
                         <div class="university-card__info_text">
                             <span>Annual tuition fee:</span>
-                            <span>{{ currency }} {{ item.fee && item.fee.tuition }}</span>
+                            <span>{{ currency }} {{ fee }}</span>
                         </div>
                     </div>
                     <div class="badge__content">
@@ -82,6 +82,10 @@ export default {
         currency() {
             const c = this.currencies.find((i) => i.name === this.item.fee?.currency)
             return c ? c.currency : ''
+        },
+        fee() {
+            if (!this.item.fee) return 0
+            return this.item.fee.tuition + this.item.fee.housing + this.item.fee.other
         },
     },
 }
