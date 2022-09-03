@@ -42,8 +42,16 @@
                     </div>
                 </div>
                 <div class="flex relative filter__container">
-                    <custom-select title="Filter by category" label="Category" />
-                    <custom-select title="Filter by program level" label="Program" />
+                    <custom-select
+                        :items="categories"
+                        title="Filter by category"
+                        label="Category"
+                    />
+                    <custom-select
+                        :items="filteredPrograms"
+                        title="Filter by program level"
+                        label="Program"
+                    />
                     <custom-select title="Filter by location" label="Location" />
                     <!-- <custom-select title="Filter by delivery method" label="Delivery method" /> -->
                     <button class="button button-m">Show all filters</button>
@@ -54,6 +62,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import CustomSelect from '../common/forms/CustomSelect.vue'
 export default {
     name: 'Filters',
@@ -68,6 +77,11 @@ export default {
     },
 
     computed: {
+        ...mapState('categories', { categories: 'data' }),
+        ...mapState('programs', { programs: 'data' }),
+        filteredPrograms() {
+            return this.programs.map((i) => ({ name: i.title, id: i.id }))
+        },
         rangeMarks() {
             return {
                 [this.priceRange[0]]: { label: this.createLabel(this.priceRange[0]) },

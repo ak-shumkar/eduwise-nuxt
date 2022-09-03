@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { userService } from '@/_services/user.service'
 import HeaderPage from '../components/common/Header.vue'
 import FooterPage from '../components/common/Footer.vue'
 import CategorySection from '../components/index/CategorySection.vue'
@@ -38,9 +37,9 @@ export default {
         NewsSlider,
         Consultation,
     },
-    asyncData ({ store }) {
+    asyncData({ store }) {
         store.dispatch('fetchHomeData')
-    }
+    },
 }
 </script>
 

@@ -57,6 +57,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import CircleLoader from './CircleLoader.vue'
 export default {
     name: 'HeaderMenus',
@@ -89,10 +90,15 @@ export default {
         document.removeEventListener('resize', this.onScreenResize)
     },
     methods: {
+        ...mapActions('account', ['reset']),
         onSelectMenu(item) {
             if (!item.isShow) this.resetMenus()
 
             this.$set(item, 'isShow', !item.isShow)
+        },
+        onLogout() {
+            this.reset()
+            window.location.replace('/')
         },
         resetMenus() {
             this.menus.forEach((i) => this.$set(i, 'isShow', false))

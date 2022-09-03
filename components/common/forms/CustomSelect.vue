@@ -15,12 +15,12 @@
                 </button>
             </div>
             <div class="category-select__items">
-                <div v-for="i in 4" :key="i" class="category-select__item">
+                <div class="category-select__item">
                     <h4 class="category-select__item__title">A-G</h4>
                     <ul class="category-select__item__list">
-                        <li v-for="j in 10" :key="j" class="category-select__item__content">
-                            <span class="category-select__item__name">Humanity</span>
-                            <span class="category-select__item__count">(1923)</span>
+                        <li v-for="j in items" :key="j.id" class="category-select__item__content">
+                            <span class="category-select__item__name">{{ j.name }}</span>
+                            <!-- <span class="category-select__item__count">(1923)</span> -->
                         </li>
                     </ul>
                 </div>
@@ -36,6 +36,7 @@ export default {
         title: { type: String, required: true },
         noTitle: { type: Boolean, default: false },
         label: { type: String, default: '' },
+        items: { type: Array, default: () => [] },
     },
     data() {
         return {

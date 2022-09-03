@@ -16,11 +16,15 @@
 <script>
 import FooterPage from '@/components/common/Footer.vue'
 import HeaderPage from '@/components/common/Header.vue'
-import Filters from '../../components/universities/Filters.vue'
-import UniversitiesContent from '../../components/universities/UniversitiesContent.vue'
+import Filters from '@/components/universities/Filters.vue'
+import UniversitiesContent from '@/components/universities/UniversitiesContent.vue'
+import { mapState } from 'vuex'
 export default {
     key: (to) => to.fullPath,
     components: { HeaderPage, FooterPage, Filters, UniversitiesContent },
+    async asyncData({ store }) {
+        await store.dispatch('fetchUniversitiesData')
+    },
     data() {
         return {
             isUniversity: false,

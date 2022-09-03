@@ -30,72 +30,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
     name: 'CategorySection',
     data() {
         return {
-            categories: [
-                {
-                    name: 'Art & Design',
-                    icon: 'ti-palette',
-                },
-                {
-                    name: 'Business',
-                    icon: 'ti-briefcase',
-                },
-                {
-                    name: 'Computer Science',
-                    icon: 'ti-desktop',
-                },
-                {
-                    name: 'Engineering',
-                    icon: 'ti-settings',
-                },
-                {
-                    name: 'General Studies',
-                    icon: 'ti-book',
-                },
-                {
-                    name: 'Medicine & Health',
-                    icon: 'ti-heart-broken',
-                },
-                {
-                    name: 'Humanities',
-                    icon: 'ti-world',
-                },
-                {
-                    name: 'Languages',
-                    icon: 'ti-comments-smiley',
-                },
-                {
-                    name: 'Law',
-                    icon: 'ti-hummer',
-                },
-                {
-                    name: 'Media',
-                    icon: 'ti-blackboard',
-                },
-                {
-                    name: 'Science',
-                    icon: 'ti-paint-bucket',
-                },
-                {
-                    name: 'Teaching',
-                    icon: 'ti-notepad',
-                },
-                {
-                    name: 'Tourism & Hospitality',
-                    icon: 'ti-direction-alt',
-                },
-                {
-                    name: 'Transport & Logistics',
-                    icon: 'ti-truck',
-                },
-                {
-                    name: 'Online programs',
-                    icon: 'ti-rss-alt',
-                },
-            ],
             isMobile: false,
             isShowMore: false,
             programs: [
@@ -112,6 +52,7 @@ export default {
         }
     },
     computed: {
+        ...mapState('categories', { categories: 'data' }),
         filteredCategories() {
             return this.isMobile && !this.isShowMore ? this.categories.slice(0, 4) : this.categories
         },

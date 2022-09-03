@@ -48,6 +48,10 @@
         &__content {
             display: flex;
             justify-content: space-between;
+            font-size: 20px;
+            line-height: 100%;
+            margin: 10px 0;
+            cursor: pointer;
         }
         &__count {
             color: #b2b2b2;

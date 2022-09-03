@@ -1,5 +1,5 @@
 <template>
-    <header class="ca-header">
+    <div class="ca-header">
         <div class="container">
             <div class="ca-header__head">
                 <h1>EduWise</h1>
@@ -22,22 +22,34 @@
         <div class="ca-header__menus">
             <div class="container">
                 <ul class="ca-menus">
-                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client' }">
+                    <li
+                        class="ca-menus__item"
+                        :class="{ 'ca-menus__item--active': $route.path === '/client' }"
+                    >
                         <router-link to="/client">My Application</router-link>
                     </li>
-                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client/profile' }">
+                    <li
+                        class="ca-menus__item"
+                        :class="{ 'ca-menus__item--active': $route.path === '/client/profile' }"
+                    >
                         <router-link to="/client/profile">Profile</router-link>
                     </li>
-                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client/support' }">
+                    <li
+                        class="ca-menus__item"
+                        :class="{ 'ca-menus__item--active': $route.path === '/client/support' }"
+                    >
                         <router-link to="/client/support">Plans & Support</router-link>
                     </li>
-                    <li class="ca-menus__item" :class="{ 'ca-menus__item--active' : $route.path === '/client/institution' }">
+                    <li
+                        class="ca-menus__item"
+                        :class="{ 'ca-menus__item--active': $route.path === '/client/institution' }"
+                    >
                         <router-link to="/client/institution">Institutions</router-link>
                     </li>
                 </ul>
             </div>
         </div>
-    </header>
+    </div>
 </template>
 
 <script>
@@ -46,7 +58,7 @@ export default {
     data() {
         return {}
     },
-    mounted () {
+    mounted() {
         console.log(this.$route.path)
     },
     methods: {},

@@ -7,8 +7,8 @@
             </div>
             <div class="main__search">
                 <div class="main__search__btn">
-                    <custom-select no-title title="Category" />
-                    <custom-select no-title title="Location" />
+                    <custom-select no-title :items="data" title="Category" />
+                    <custom-select no-title :items="cities" title="Location" />
                 </div>
                 <form class="input-content" @submit.prevent="onSearch">
                     <button type="submit" class="input-content__icon">
@@ -28,6 +28,7 @@
 
 <script>
 import CustomSelect from '@/components/common/forms/CustomSelect.vue'
+import { mapActions, mapState } from 'vuex'
 export default {
     name: 'MainSection',
     components: { CustomSelect },
@@ -37,6 +38,10 @@ export default {
             isLocationShow: false,
             searchText: '',
         }
+    },
+    computed: {
+        ...mapState('categories', ['data']),
+        ...mapState('city', { cities: 'data' }),
     },
     mounted() {
         document.addEventListener('click', this.onOutsideClick)
