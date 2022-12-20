@@ -201,4 +201,5 @@ export default {
     publicRuntimeConfig: {
         baseURL: process.env.BASE_URL || 'https://nuxtjs.org',
     },
+    target: 'static'
 }
